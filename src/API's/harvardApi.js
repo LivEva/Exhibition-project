@@ -7,8 +7,10 @@ params: {
 }});
 
 
-const collectionList = () => {
-    return api.get(`/exhibition`).then((response) => {
+const getExhibitionList = () => {
+    return api.get(`/exhibition?size=100`).then((response) => {
+
+        console.log(response.data)
         
         return response.data;
         
@@ -18,4 +20,18 @@ const collectionList = () => {
     })
 }
 
-export default collectionList;
+const getExhibitionItemById = (object_id) => {
+
+    return api.get(`/exhibition/${object_id}`).then((response) => {
+
+        console.log(response.data)
+
+        return response;
+
+    }).catch((error) => {
+        console.log(error)
+        return error;
+    })
+}
+
+export {getExhibitionList, getExhibitionItemById};
