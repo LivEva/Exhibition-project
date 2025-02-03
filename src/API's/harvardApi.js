@@ -8,10 +8,8 @@ params: {
 
 
 const collectionList = () => {
-    return api.get(`/object`).then((response) => {
-
-        console.log(response.data)
-
+    return api.get(`/exhibition`).then((response) => {
+        
         return response.data;
         
     }).catch((error) => {

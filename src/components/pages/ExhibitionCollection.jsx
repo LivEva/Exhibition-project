@@ -1,5 +1,6 @@
 import collectionList from "../../API's/harvardApi";
 import { useEffect, useState } from "react";
+import CollectionListCard from "../cards/CollectionListCard";
 
 const ExhibitionCollection = () => {
 	const [collections, setCollections] = useState([]);
@@ -7,7 +8,6 @@ const ExhibitionCollection = () => {
 
 	useEffect(() => {
 		collectionList().then((response) => {
-			console.log(response.records);
 			setIsLoading(true);
 			setCollections(response.records);
 			setIsLoading(false);
@@ -17,6 +17,18 @@ const ExhibitionCollection = () => {
 	if (isLoading) {
 		return <h2>Loading Collections...</h2>;
 	}
+
+	return (
+		<>
+			{collections.map((item, id) => {
+				return (
+					<>
+						<CollectionListCard key={id} item={item} />
+					</>
+				);
+			})}
+		</>
+	);
 };
 
 export default ExhibitionCollection;
