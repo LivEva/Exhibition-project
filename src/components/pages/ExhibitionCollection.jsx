@@ -1,6 +1,7 @@
 import collectionList from "../../API's/harvardApi";
 import { useEffect, useState } from "react";
 import CollectionListCard from "../cards/CollectionListCard";
+import "../../styling/exhibitionCollection.css";
 
 const ExhibitionCollection = () => {
 	const [collections, setCollections] = useState([]);
@@ -19,7 +20,7 @@ const ExhibitionCollection = () => {
 	}
 
 	return (
-		<>
+		<div className="collection-container">
 			{collections.map((item, id) => {
 				return (
 					<>
@@ -27,7 +28,7 @@ const ExhibitionCollection = () => {
 					</>
 				);
 			})}
-		</>
+		</div>
 	);
 };
 
