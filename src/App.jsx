@@ -1,5 +1,11 @@
+import ExhibitionCollection from "./components/pages/ExhibitionCollection";
+
 function App() {
-	return <></>;
+	return (
+		<>
+			<ExhibitionCollection />
+		</>
+	);
 }
 
 export default App;
