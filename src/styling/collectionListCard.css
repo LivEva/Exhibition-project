@@ -4,9 +4,9 @@
     justify-content: center;
     align-items: center;
     margin: 50px;
-    padding: 10px;
     color: black;
-
+    width: 80%;
+    text-align: center;
 }
 
 .collection-card-container img{

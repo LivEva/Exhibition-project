@@ -1,18 +1,18 @@
-import { getExhibitionList } from "../../API's/harvardApi";
+import { getAllHarvardObjectList } from "../../API's/harvardApi";
 import { useEffect, useState } from "react";
 import CollectionListCard from "../cards/CollectionListCard";
 import "../../styling/exhibitionCollection.css";
-import { Link } from "react-router";
 
 const ExhibitionCollection = () => {
 	const [collections, setCollections] = useState([]);
 	const [isLoading, setIsLoading] = useState(true);
 
 	useEffect(() => {
-		getExhibitionList().then((response) => {
+		getAllHarvardObjectList().then((response) => {
 			setIsLoading(true);
 			setCollections(response.records);
 			setIsLoading(false);
+			console.log(response.records);
 		});
 	}, []);
 
@@ -25,9 +25,7 @@ const ExhibitionCollection = () => {
 			{collections.map((item, id) => {
 				return (
 					<>
-						<Link to={`/exhibition/${id}`}>
-							<CollectionListCard key={id} item={item} />
-						</Link>
+						<CollectionListCard key={id} item={item} />
 					</>
 				);
 			})}

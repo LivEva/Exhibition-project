@@ -6,11 +6,13 @@ params: {
     apikey: `5057e844-28d1-4bc1-acfe-1b9f6d27807e`
 }});
 
+const api2 = axios.create({
+    baseURL: 'https://api.vam.ac.uk/v2'
+});
 
-const getExhibitionList = () => {
-    return api.get(`/exhibition?size=100`).then((response) => {
 
-        console.log(response.data)
+const getAllHarvardObjectList = () => {
+    return api.get(`/object?size=10`).then((response) => {
         
         return response.data;
         
@@ -20,13 +22,10 @@ const getExhibitionList = () => {
     })
 }
 
-const getExhibitionItemById = (object_id) => {
+const getAllVAObjectList = () => {
+    return api2.get('/objects/search').then((response) => {
 
-    return api.get(`/exhibition/${object_id}`).then((response) => {
-
-        console.log(response.data)
-
-        return response;
+        return response.data;
 
     }).catch((error) => {
         console.log(error)
@@ -34,4 +33,16 @@ const getExhibitionItemById = (object_id) => {
     })
 }
 
-export {getExhibitionList, getExhibitionItemById};
+// const getExhibitionItemById = (object_id) => {
+
+//     return api.get(`/object/${object_id}`).then((response) => {
+
+//         return response;
+
+//     }).catch((error) => {
+//         console.log(error)
+//         return error;
+//     })
+// }
+
+export { getAllHarvardObjectList, getAllVAObjectList };

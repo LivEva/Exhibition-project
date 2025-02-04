@@ -5,8 +5,8 @@ const CollectionListCard = (props) => {
 
 	return (
 		<div className="collection-card-container">
+			<h2>{item.title}</h2>
 			<img src={item.primaryimageurl} alt="" />
-			<p>{item.title}</p>
 		</div>
 	);
 };
