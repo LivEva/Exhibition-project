@@ -4,7 +4,7 @@ import ExhibitionCollection from "./components/pages/ExhibitionCollection";
 import Header from "./components/main/Header";
 import Footer from "./components/main/Footer";
 import NavBar from "./components/main/NavBar";
-import VACollectionList from "./components/pages/VACollectionList";
+import MetMuseumCollection from "./components/pages/MetMuseumCollection";
 
 function App() {
 	return (
@@ -15,7 +15,7 @@ function App() {
 
 			<ExhibitionCollection />
 
-			<VACollectionList />
+			<MetMuseumCollection />
 
 			<Footer />
 		</>

@@ -8,12 +8,16 @@ const ExhibitionCollection = () => {
 	const [isLoading, setIsLoading] = useState(true);
 
 	useEffect(() => {
-		getAllHarvardObjectList().then((response) => {
-			setIsLoading(true);
-			setCollections(response.records);
-			setIsLoading(false);
-			console.log(response.records);
-		});
+		setIsLoading(true);
+		getAllHarvardObjectList()
+			.then((response) => {
+				setCollections(response.records || []);
+				setIsLoading(false);
+			})
+			.catch((error) => {
+				console.error("Error fetching collections:", error);
+				setIsLoading(false);
+			});
 	}, []);
 
 	if (isLoading) {
@@ -22,13 +26,9 @@ const ExhibitionCollection = () => {
 
 	return (
 		<div className="collection-container">
-			{collections.map((item, id) => {
-				return (
-					<>
-						<CollectionListCard key={id} item={item} />
-					</>
-				);
-			})}
+			{collections.map((item, id) => (
+				<CollectionListCard key={id} item={item} />
+			))}
 		</div>
 	);
 };

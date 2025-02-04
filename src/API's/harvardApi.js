@@ -7,7 +7,7 @@ params: {
 }});
 
 const api2 = axios.create({
-    baseURL: 'https://api.vam.ac.uk/v2'
+    baseURL: 'https://collectionapi.metmuseum.org/public/collection/v1'
 });
 
 
@@ -18,20 +18,26 @@ const getAllHarvardObjectList = () => {
         
     }).catch((error) => {
         console.log(error)
-        return error;
+       
     })
 }
 
-const getAllVAObjectList = () => {
-    return api2.get('/objects/search').then((response) => {
+const getAllMetObjectList = () => {
+    return api2.get('/departments').then((response) => {
+
+        console.log(response.data, "MET API TEST")
 
         return response.data;
 
     }).catch((error) => {
+
         console.log(error)
-        return error;
+
+
     })
 }
+
+
 
 // const getExhibitionItemById = (object_id) => {
 
@@ -45,4 +51,4 @@ const getAllVAObjectList = () => {
 //     })
 // }
 
-export { getAllHarvardObjectList, getAllVAObjectList };
+export { getAllHarvardObjectList, getAllMetObjectList };
