@@ -13,8 +13,6 @@ const api2 = axios.create({
 
 const fetchAllHarvardObjectList = (params = {}) => {
     return api.get(`/object`, { params: { ...params }}).then((response) => {
-
-        //THIS WORKS
         
         return response.data.records;
         
@@ -38,13 +36,9 @@ const fetchHarvardObjectById = (object_id) => {
 }
 
 const fetchAllVAObjectList = (query, params = {}) => {
-    return api2.get('/objects/search', { params: { q: query, ...params }}).then((response) => {
+    return api2.get('/objects/search', { params: { q: "china" }}).then((response) => response.data.records.filter(art => art._images._iiif_image_base_url))
 
-        console.log(response.data.records, "WHAT IS THIS?")
-
-        return response.data.records;
-
-    }).catch((error) => {
+    .catch((error) => {
 
         console.log("This is the error in VA object list api call: ", error);
 

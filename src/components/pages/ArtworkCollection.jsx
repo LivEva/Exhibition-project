@@ -12,10 +12,7 @@ const ArtworkCollection = () => {
 
 	useEffect(() => {
 		setIsLoading(true);
-		Promise.all([
-			fetchAllHarvardObjectList({ limit: 10 }),
-			fetchAllVAObjectList({ limit: 10 }),
-		])
+		Promise.all([fetchAllHarvardObjectList(), fetchAllVAObjectList()])
 			.then(([harvardCollection, vaCollection]) => {
 				const combinedCollections = [
 					...harvardCollection.map((item) => ({
@@ -28,15 +25,17 @@ const ArtworkCollection = () => {
 						department: item.department,
 					})),
 					...vaCollection.map((item) => ({
-						title: item.title,
-						image: item._primaryImageId,
+						title: item._primaryTitle,
+						image:
+							item._images?._iiif_image_base_url + "full/full/0/default.jpg",
 						type: item.objectType,
 						location: item.location,
 						date: item._primaryDate,
 					})),
 				];
-				console.log(combinedCollections);
+
 				setCollections(combinedCollections);
+				console.log(vaCollection, "VA COLLECTION");
 				setIsLoading(false);
 			})
 			.catch((error) => {
