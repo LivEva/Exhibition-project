@@ -1,7 +1,7 @@
 import {
 	fetchAllHarvardObjectList,
 	fetchAllVAObjectList,
-} from "../../API's/harvardApi";
+} from "../../API's/museumApi";
 import { useEffect, useState } from "react";
 import CollectionListCard from "../cards/CollectionListCard";
 import "../../styling/exhibitionCollection.css";
