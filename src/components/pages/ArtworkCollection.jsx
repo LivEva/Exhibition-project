@@ -19,10 +19,20 @@ const ArtworkCollection = () => {
 			.then(([harvardCollection, vaCollection]) => {
 				const combinedCollections = [
 					...harvardCollection.map((item) => ({
-						...item,
+						title: item.title,
+						image: item.primaryimageurl || "no image",
+						type: item.division,
+						dimensions: item.dimensions,
+						century: item.century,
+						date: item.dated,
+						department: item.department,
 					})),
 					...vaCollection.map((item) => ({
-						...item,
+						title: item.title,
+						image: item._primaryImageId,
+						type: item.objectType,
+						location: item.location,
+						date: item._primaryDate,
 					})),
 				];
 				console.log(combinedCollections);
