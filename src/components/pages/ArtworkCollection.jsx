@@ -35,7 +35,7 @@ const ArtworkCollection = () => {
 				];
 
 				setCollections(combinedCollections);
-				console.log(vaCollection, "VA COLLECTION");
+				console.log(harvardCollection, "Harvard COLLECTION");
 				setIsLoading(false);
 			})
 			.catch((error) => {

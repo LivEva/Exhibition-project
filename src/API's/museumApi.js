@@ -11,12 +11,10 @@ const api2 = axios.create({
 });
 
 
-const fetchAllHarvardObjectList = (params = {}) => {
-    return api.get(`/object`, { params: { ...params }}).then((response) => {
-        
-        return response.data.records;
-        
-    }).catch((error) => {
+const fetchAllHarvardObjectList = (query, params = {}) => {
+    return api.get(`/object`, { params: { q: "china"}}).then((response) => response.data.records.filter(art => art.images))
+    
+    .catch((error) => {
 
         console.log("This is the error in Harvard object list api call ", error);
        
@@ -45,8 +43,8 @@ const fetchAllVAObjectList = (query, params = {}) => {
     })
 }
 
-const fetchVAObjectById = (object_id) => {
-    return api2.get('/objects/${object_id}').then((response) => {
+const fetchVAObjectById = (systemNumber) => {
+    return api2.get('/objects/${systemNumber}').then((response) => {
 
         return response.data;
 
