@@ -1,17 +1,32 @@
-import { getAllHarvardObjectList } from "../../API's/harvardApi";
+import {
+	fetchAllHarvardObjectList,
+	fetchAllVAObjectList,
+} from "../../API's/harvardApi";
 import { useEffect, useState } from "react";
 import CollectionListCard from "../cards/CollectionListCard";
 import "../../styling/exhibitionCollection.css";
 
-const ExhibitionCollection = () => {
+const ArtworkCollection = () => {
 	const [collections, setCollections] = useState([]);
 	const [isLoading, setIsLoading] = useState(true);
 
 	useEffect(() => {
 		setIsLoading(true);
-		getAllHarvardObjectList()
-			.then((response) => {
-				setCollections(response.records || []);
+		Promise.all([
+			fetchAllHarvardObjectList({ limit: 10 }),
+			fetchAllVAObjectList({ limit: 10 }),
+		])
+			.then(([harvardCollection, vaCollection]) => {
+				const combinedCollections = [
+					...harvardCollection.map((item) => ({
+						...item,
+					})),
+					...vaCollection.map((item) => ({
+						...item,
+					})),
+				];
+				console.log(combinedCollections);
+				setCollections(combinedCollections);
 				setIsLoading(false);
 			})
 			.catch((error) => {
@@ -33,4 +48,4 @@ const ExhibitionCollection = () => {
 	);
 };
 
-export default ExhibitionCollection;
+export default ArtworkCollection;

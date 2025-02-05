@@ -1,54 +1,73 @@
 import axios from "axios";
 
 const api = axios.create({
-    baseURL: "https://api.harvardartmuseums.org/",
+    baseURL: "https://api.harvardartmuseums.org",
 params: {
     apikey: `5057e844-28d1-4bc1-acfe-1b9f6d27807e`
 }});
 
 const api2 = axios.create({
-    baseURL: 'https://collectionapi.metmuseum.org/public/collection/v1'
+    baseURL: 'https://api.vam.ac.uk/v2'
 });
 
 
-const getAllHarvardObjectList = () => {
-    return api.get(`/object?size=10`).then((response) => {
+const fetchAllHarvardObjectList = (params = {}) => {
+    return api.get(`/object`, { params: { ...params }}).then((response) => {
+
+        //THIS WORKS
         
-        return response.data;
+        return response.data.records;
         
     }).catch((error) => {
-        console.log(error)
+
+        console.log("This is the error in Harvard object list api call ", error);
        
     })
 }
 
-const getAllMetObjectList = () => {
-    return api2.get('/departments').then((response) => {
-
-        console.log(response.data, "MET API TEST")
+const fetchHarvardObjectById = (object_id) => {
+    return api.get('/object/${object_id}').then((response) => {
 
         return response.data;
 
     }).catch((error) => {
 
-        console.log(error)
+        console.log("This is the error in the Harvard object by id api call: ", error);
 
+    })
+}
+
+const fetchAllVAObjectList = (query, params = {}) => {
+    return api2.get('/objects/search', { params: { q: query, ...params }}).then((response) => {
+
+        console.log(response.data.records, "WHAT IS THIS?")
+
+        return response.data.records;
+
+    }).catch((error) => {
+
+        console.log("This is the error in VA object list api call: ", error);
+
+    })
+}
+
+const fetchVAObjectById = (object_id) => {
+    return api2.get('/objects/${object_id}').then((response) => {
+
+        return response.data;
+
+    }).catch((error) => {
+        
+        console.log("This is the error in VA object by Id api call: ", error);
 
     })
 }
 
 
 
-// const getExhibitionItemById = (object_id) => {
 
-//     return api.get(`/object/${object_id}`).then((response) => {
 
-//         return response;
 
-//     }).catch((error) => {
-//         console.log(error)
-//         return error;
-//     })
-// }
 
-export { getAllHarvardObjectList, getAllMetObjectList };
+
+export { fetchAllHarvardObjectList, fetchAllVAObjectList, fetchVAObjectById, fetchHarvardObjectById };
