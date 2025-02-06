@@ -12,7 +12,7 @@ const api2 = axios.create({
 
 
 const fetchAllHarvardObjectList = (query, params = {}) => {
-    return api.get(`/object`, { params: { q: "china"}}).then((response) => response.data.records.filter(art => art.images))
+    return api.get(`/object`, { params: { q: query}}).then((response) => response.data.records.filter(art => art.images))
     
     .catch((error) => {
 
@@ -34,7 +34,7 @@ const fetchHarvardObjectById = (object_id) => {
 }
 
 const fetchAllVAObjectList = (query, params = {}) => {
-    return api2.get('/objects/search', { params: { q: "china" }}).then((response) => response.data.records.filter(art => art._images._iiif_image_base_url))
+    return api2.get('/objects/search', { params: { q: query }}).then((response) => response.data.records.filter(art => art._images._iiif_image_base_url))
 
     .catch((error) => {
 

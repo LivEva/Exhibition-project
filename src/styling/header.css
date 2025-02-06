@@ -1,9 +1,11 @@
 h1{
-    background-color: bisque;
-    font-size: 4em;
+
+    font-size: 2em;
 }
 
 .header-container{
     display: flex;
     justify-content: center;
+    width: 100%;
+    background-color: bisque;
 }

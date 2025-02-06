@@ -5,14 +5,15 @@ import {
 import { useEffect, useState } from "react";
 import CollectionListCard from "../cards/CollectionListCard";
 import "../../styling/exhibitionCollection.css";
+import SearchArtworks from "../main/SearchArtworks";
 
 const ArtworkCollection = () => {
 	const [collections, setCollections] = useState([]);
 	const [isLoading, setIsLoading] = useState(true);
 
-	useEffect(() => {
+	const handleSearch = (query) => {
 		setIsLoading(true);
-		Promise.all([fetchAllHarvardObjectList(), fetchAllVAObjectList()])
+		Promise.all([fetchAllHarvardObjectList(query), fetchAllVAObjectList(query)])
 			.then(([harvardCollection, vaCollection]) => {
 				const combinedCollections = [
 					...harvardCollection.map((item) => ({
@@ -33,26 +34,26 @@ const ArtworkCollection = () => {
 						date: item._primaryDate,
 					})),
 				];
-
 				setCollections(combinedCollections);
-				console.log(harvardCollection, "Harvard COLLECTION");
 				setIsLoading(false);
 			})
 			.catch((error) => {
 				console.error("Error fetching collections:", error);
 				setIsLoading(false);
 			});
-	}, []);
-
-	if (isLoading) {
-		return <h2>Loading Collections...</h2>;
-	}
+	};
 
 	return (
 		<div className="collection-container">
-			{collections.map((item, id) => (
-				<CollectionListCard key={id} item={item} />
-			))}
+			<SearchArtworks onSearch={handleSearch} />
+
+			{isLoading ? (
+				<h2>Loading Collections...</h2>
+			) : (
+				collections.map((item, id) => (
+					<CollectionListCard key={id} item={item} />
+				))
+			)}
 		</div>
 	);
 };

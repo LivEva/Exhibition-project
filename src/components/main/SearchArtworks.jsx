@@ -1,11 +1,31 @@
+import { useState } from "react";
 import "../../styling/searchBar.css";
 
-const SearchArtworks = () => {
+const SearchArtworks = ({ onSearch }) => {
+	const [currentSearchTerm, setCurrentSearchTerm] = useState("");
+
+	const handleChange = (event) => {
+		setCurrentSearchTerm(event.target.value);
+	};
+
+	const handleSubmit = (event) => {
+		event.preventDefault();
+		if (currentSearchTerm.trim()) {
+			onSearch(currentSearchTerm);
+			setCurrentSearchTerm("");
+		}
+	};
+
 	return (
-		<div className="search-bar-container">
-			<input type="text" />
-			<button>search</button>
-		</div>
+		<form className="search-bar-container" onSubmit={handleSubmit}>
+			<label id="enterString">E.g Art, Department, Artist...</label>
+			<input
+				label="search term..."
+				onChange={handleChange}
+				value={currentSearchTerm}
+			></input>
+			<button type="submit">search</button>
+		</form>
 	);
 };
 

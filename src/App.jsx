@@ -11,8 +11,6 @@ function App() {
 
 			<NavBar />
 
-			<SearchArtworks />
-
 			<ArtworkCollection />
 
 			<Footer />
