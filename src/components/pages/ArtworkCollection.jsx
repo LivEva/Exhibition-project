@@ -61,12 +61,6 @@ const ArtworkCollection = () => {
 					<CollectionListCard key={id} item={item} />
 				))
 			)}
-
-			<Pagination
-				currentPage={currentPage}
-				totalPages={totalPages}
-				onPageChange={onPageChange}
-			/>
 		</div>
 	);
 };
