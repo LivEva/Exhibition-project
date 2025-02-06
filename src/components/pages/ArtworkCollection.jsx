@@ -2,19 +2,24 @@ import {
 	fetchAllHarvardObjectList,
 	fetchAllVAObjectList,
 } from "../../API's/museumApi";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import CollectionListCard from "../cards/CollectionListCard";
 import "../../styling/exhibitionCollection.css";
 import SearchArtworks from "../main/SearchArtworks";
+import Pagination from "../main/Pagination";
 
 const ArtworkCollection = () => {
 	const [collections, setCollections] = useState([]);
-	const [isLoading, setIsLoading] = useState(true);
+	const [isLoading, setIsLoading] = useState(false);
+	const [currentPage, setCurrentPage] = useState(1);
+	const [totalPages, setTotalPages] = useState();
+	const [onPageChange, setOnPageChange] = useState();
 
 	const handleSearch = (query) => {
 		setIsLoading(true);
 		Promise.all([fetchAllHarvardObjectList(query), fetchAllVAObjectList(query)])
 			.then(([harvardCollection, vaCollection]) => {
+				console.log(vaCollection);
 				const combinedCollections = [
 					...harvardCollection.map((item) => ({
 						title: item.title,
@@ -24,13 +29,15 @@ const ArtworkCollection = () => {
 						century: item.century,
 						date: item.dated,
 						department: item.department,
+						origin: item.provenance,
+						location: item.creditline,
 					})),
 					...vaCollection.map((item) => ({
 						title: item._primaryTitle,
 						image:
 							item._images?._iiif_image_base_url + "full/full/0/default.jpg",
 						type: item.objectType,
-						location: item.location,
+						location: item._currentLocation.site,
 						date: item._primaryDate,
 					})),
 				];
@@ -54,6 +61,12 @@ const ArtworkCollection = () => {
 					<CollectionListCard key={id} item={item} />
 				))
 			)}
+
+			<Pagination
+				currentPage={currentPage}
+				totalPages={totalPages}
+				onPageChange={onPageChange}
+			/>
 		</div>
 	);
 };

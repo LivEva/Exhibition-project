@@ -11,8 +11,8 @@ const api2 = axios.create({
 });
 
 
-const fetchAllHarvardObjectList = (query, params = {}) => {
-    return api.get(`/object`, { params: { q: query}}).then((response) => response.data.records.filter(art => art.images))
+const fetchAllHarvardObjectList = (query, params = {}, page) => {
+    return api.get(`/object`, { params: { q: query, page: page }}).then((response) => response.data.records.filter(art => art.images))
     
     .catch((error) => {
 
@@ -33,8 +33,8 @@ const fetchHarvardObjectById = (object_id) => {
     })
 }
 
-const fetchAllVAObjectList = (query, params = {}) => {
-    return api2.get('/objects/search', { params: { q: query }}).then((response) => response.data.records.filter(art => art._images._iiif_image_base_url))
+const fetchAllVAObjectList = (query, params = {}, page = 1) => {
+    return api2.get('/objects/search', { params: { q: query, page: page }}).then((response) => response.data.records.filter(art => art._images._iiif_image_base_url))
 
     .catch((error) => {
 
