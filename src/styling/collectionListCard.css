@@ -6,6 +6,7 @@
     color: black;
     text-align: center;
     background-color: bisque;
+    width: 100%;
 }
 
 .collection-card-container img{
@@ -15,9 +16,12 @@
 .search-and-pagination-container{
   display: flex;
   background-color: bisque;
-  margin: 10px;
   justify-content: space-around;
   align-items: center;
+}
+
+#input-box{
+  height: 30px;
 }
 
 .collection-container{

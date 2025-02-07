@@ -1,6 +1,6 @@
 import "../../styling/pagination.css";
 
-const Pagination = ({ setEachPage, eachPage }) => {
+const PaginationElement = ({ setEachPage, eachPage }) => {
 	return (
 		<div>
 			<button
@@ -15,4 +15,4 @@ const Pagination = ({ setEachPage, eachPage }) => {
 	);
 };
 
-export default Pagination;
+export default PaginationElement;

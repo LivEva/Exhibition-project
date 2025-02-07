@@ -6,7 +6,7 @@ import { useEffect, useState } from "react";
 import CollectionListCard from "../cards/CollectionListCard";
 import "../../styling/exhibitionCollection.css";
 import SearchArtworks from "../main/SearchArtworks";
-import Pagination from "../main/Pagination";
+import PaginationElement from "../main/Pagination";
 
 const ArtworkCollection = () => {
 	const [collections, setCollections] = useState([]);
@@ -20,7 +20,9 @@ const ArtworkCollection = () => {
 	};
 
 	const fetchCollections = () => {
-		if (!query) return;
+		if (!query) {
+			return;
+		}
 
 		setIsLoading(true);
 		Promise.all([
@@ -71,7 +73,7 @@ const ArtworkCollection = () => {
 
 				<h3>Results for: {query}</h3>
 
-				<Pagination setEachPage={setEachPage} eachPage={eachPage} />
+				<PaginationElement setEachPage={setEachPage} eachPage={eachPage} />
 			</div>
 
 			<div className="collection-container">

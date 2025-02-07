@@ -20,6 +20,7 @@ const SearchArtworks = ({ onSearch }) => {
 		<form className="search-bar-container" onSubmit={handleSubmit}>
 			<label id="enterString">E.g Art, Department, Artist...</label>
 			<input
+				id="input-box"
 				label="search term..."
 				onChange={handleChange}
 				value={currentSearchTerm}

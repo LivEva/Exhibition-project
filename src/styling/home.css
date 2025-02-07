@@ -1,0 +1,19 @@
+.home-container img{
+
+    width: 100%;
+
+}
+
+.home-container{
+    height: auto;
+    width: 100%;
+   
+}
+
+.art-info{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+
+}
