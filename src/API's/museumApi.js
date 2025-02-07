@@ -11,7 +11,7 @@ const api2 = axios.create({
 });
 
 
-const fetchAllHarvardObjectList = (query, params = {}, page) => {
+const fetchAllHarvardObjectList = (query, params = {}, page = 1) => {
     return api.get(`/object`, { params: { q: query, page: page }}).then((response) => response.data.records.filter(art => art.images?.length === 1))
     
     .catch((error) => {

@@ -2,7 +2,7 @@ import {
 	fetchAllHarvardObjectList,
 	fetchAllVAObjectList,
 } from "../../API's/museumApi";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import CollectionListCard from "../cards/CollectionListCard";
 import "../../styling/exhibitionCollection.css";
 import SearchArtworks from "../main/SearchArtworks";
@@ -11,13 +11,22 @@ import Pagination from "../main/Pagination";
 const ArtworkCollection = () => {
 	const [collections, setCollections] = useState([]);
 	const [isLoading, setIsLoading] = useState(false);
-	const [currentPage, setCurrentPage] = useState(1);
-	const [totalPages, setTotalPages] = useState();
-	const [onPageChange, setOnPageChange] = useState();
+	const [eachPage, setEachPage] = useState(1);
+	const [query, setQuery] = useState("");
 
-	const handleSearch = (query) => {
+	const handleSearch = (searchQuery) => {
+		setQuery(searchQuery);
+		setEachPage(1);
+	};
+
+	const fetchCollections = () => {
+		if (!query) return;
+
 		setIsLoading(true);
-		Promise.all([fetchAllHarvardObjectList(query), fetchAllVAObjectList(query)])
+		Promise.all([
+			fetchAllHarvardObjectList(query, {}, eachPage),
+			fetchAllVAObjectList(query, {}, eachPage),
+		])
 			.then(([harvardCollection, vaCollection]) => {
 				const combinedCollections = [
 					...harvardCollection.map((item) => ({
@@ -40,7 +49,7 @@ const ArtworkCollection = () => {
 						date: item._primaryDate,
 					})),
 				];
-				console.log(combinedCollections);
+
 				setCollections(combinedCollections);
 				setIsLoading(false);
 			})
@@ -50,17 +59,27 @@ const ArtworkCollection = () => {
 			});
 	};
 
-	return (
-		<div className="collection-container">
-			<SearchArtworks onSearch={handleSearch} />
+	useEffect(() => {
+		fetchCollections();
+	}, [eachPage, query]);
 
-			{isLoading ? (
-				<h2>Loading Collections...</h2>
-			) : (
-				collections.map((item, id) => (
-					<CollectionListCard key={id} item={item} />
-				))
-			)}
+	return (
+		<div className="collection">
+			<div className="search-and-pagination-container">
+				<SearchArtworks onSearch={handleSearch} />
+
+				<Pagination setEachPage={setEachPage} eachPage={eachPage} />
+			</div>
+
+			<div className="collection-container">
+				{isLoading ? (
+					<h2>Loading Collections...</h2>
+				) : (
+					collections.map((item, id) => (
+						<CollectionListCard key={id} item={item} />
+					))
+				)}
+			</div>
 		</div>
 	);
 };

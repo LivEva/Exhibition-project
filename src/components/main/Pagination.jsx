@@ -1,18 +1,16 @@
 import "../../styling/pagination.css";
 
-const Pagination = ({ currentPage, totalPages, onPageChange }) => {
-	const handleChange = (event) => {
-		console.log(event.target.value);
-		event.preventDefault();
-		onPageChange(event);
-	};
+const Pagination = ({ setEachPage, eachPage }) => {
 	return (
-		<div className="pagination-container">
-			<button onClick={handleChange}>Next</button>
-			<button>1</button>
-			<button>2</button>
-			<button>3</button>
-			<button>Previous</button>
+		<div>
+			<button
+				onClick={() => setEachPage((prev) => Math.max(prev - 1, 1))}
+				disabled={eachPage === 1}
+			>
+				Previous
+			</button>
+			<span>Page {eachPage}</span>
+			<button onClick={() => setEachPage((prev) => prev + 1)}>Next</button>
 		</div>
 	);
 };

@@ -3,16 +3,18 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin: 20px;
     color: black;
-    width: 500px;
     text-align: center;
     background-color: bisque;
-    
 }
 
 .collection-card-container img{
     width: 100%;
+}
+
+.search-and-pagination-container{
+  display: flex;
+  
 }
 
 .collection-container{
