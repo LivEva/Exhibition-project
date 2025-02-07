@@ -19,7 +19,6 @@ const ArtworkCollection = () => {
 		setIsLoading(true);
 		Promise.all([fetchAllHarvardObjectList(query), fetchAllVAObjectList(query)])
 			.then(([harvardCollection, vaCollection]) => {
-				console.log(vaCollection);
 				const combinedCollections = [
 					...harvardCollection.map((item) => ({
 						title: item.title,
@@ -41,6 +40,7 @@ const ArtworkCollection = () => {
 						date: item._primaryDate,
 					})),
 				];
+				console.log(combinedCollections);
 				setCollections(combinedCollections);
 				setIsLoading(false);
 			})
