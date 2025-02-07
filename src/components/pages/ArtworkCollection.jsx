@@ -45,7 +45,8 @@ const ArtworkCollection = () => {
 						image:
 							item._images?._iiif_image_base_url + "full/full/0/default.jpg",
 						type: item.objectType,
-						location: item._currentLocation.site,
+						location: (item._currentLocation.site =
+							"Victoria and Albert Museum"),
 						date: item._primaryDate,
 					})),
 				];
@@ -67,6 +68,8 @@ const ArtworkCollection = () => {
 		<div className="collection">
 			<div className="search-and-pagination-container">
 				<SearchArtworks onSearch={handleSearch} />
+
+				<h3>Results for: {query}</h3>
 
 				<Pagination setEachPage={setEachPage} eachPage={eachPage} />
 			</div>

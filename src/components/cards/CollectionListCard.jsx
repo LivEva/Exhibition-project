@@ -7,10 +7,10 @@ const CollectionListCard = (props) => {
 		<div className="collection-card-container">
 			<img src={item.image} alt="image of art" />
 			<h1>{item.title}</h1>
-			<p>Location: {item.location}</p>
-			<p>Date: {item.date}</p>
-			<p>Type: {item.type}</p>
-			<p>Department: {item.department}</p>
+			<p>{item.location}</p>
+			<p>{item.date}</p>
+			<p>{item.type}</p>
+			<p>{item.department}</p>
 		</div>
 	);
 };
