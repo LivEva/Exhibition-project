@@ -12,7 +12,9 @@ const api2 = axios.create({
 
 
 const fetchAllHarvardObjectList = (query, params = {}, page = 1) => {
-    return api.get(`/object`, { params: { q: query, page: page }}).then((response) => response.data.records.filter(art => art.images?.length === 1))
+    return api.get(`/object`, { params: { q: query, page: page }}).then((response) => {
+        
+        return response.data.records.filter(art => art.images?.length === 1)})
     
     .catch((error) => {
 
@@ -21,8 +23,26 @@ const fetchAllHarvardObjectList = (query, params = {}, page = 1) => {
     })
 }
 
+const fetchAllVAObjectList = (query, params = {}, page = 1) => {
+    return api2.get('/objects/search', { params: { q: query, page: page }}).then((response) => 
+        
+        {
+            
+            return response.data.records.filter(art => art._images._iiif_image_base_url)})
+
+
+
+    .catch((error) => {
+
+        console.log("This is the error in VA object list api call: ", error);
+
+    })
+}
+
+//HARVARD BY ID
+
 const fetchHarvardObjectById = (object_id) => {
-    return api.get('/object/${object_id}').then((response) => {
+    return api.get(`/object/${object_id}`).then((response) => {
 
         return response.data;
 
@@ -33,18 +53,12 @@ const fetchHarvardObjectById = (object_id) => {
     })
 }
 
-const fetchAllVAObjectList = (query, params = {}, page = 1) => {
-    return api2.get('/objects/search', { params: { q: query, page: page }}).then((response) => response.data.records.filter(art => art._images._iiif_image_base_url))
+// VAM BY ID
 
-    .catch((error) => {
+const fetchVAObjectById = (object_id) => {
+    return api2.get(`/objects/${object_id}`).then((response) => {
 
-        console.log("This is the error in VA object list api call: ", error);
-
-    })
-}
-
-const fetchVAObjectById = (systemNumber) => {
-    return api2.get('/objects/${systemNumber}').then((response) => {
+        console.log(response, "VA RESPONSE")
 
         return response.data;
 

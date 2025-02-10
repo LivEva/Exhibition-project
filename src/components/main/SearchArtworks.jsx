@@ -19,6 +19,7 @@ const SearchArtworks = ({ onSearch }) => {
 	return (
 		<form className="search-bar-container" onSubmit={handleSubmit}>
 			<label id="enterString">E.g Art, Department, Artist...</label>
+
 			<input
 				id="input-box"
 				label="search term..."

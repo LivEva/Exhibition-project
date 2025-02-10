@@ -32,6 +32,8 @@ const ArtworkCollection = () => {
 			.then(([harvardCollection, vaCollection]) => {
 				const combinedCollections = [
 					...harvardCollection.map((item) => ({
+						id: item.id,
+						source: "Harvard",
 						title: item.title,
 						image: item.primaryimageurl || "no image",
 						type: item.division,
@@ -43,6 +45,8 @@ const ArtworkCollection = () => {
 						location: item.creditline,
 					})),
 					...vaCollection.map((item) => ({
+						id: item.systemNumber,
+						source: "va",
 						title: item._primaryTitle,
 						image:
 							item._images?._iiif_image_base_url + "full/full/0/default.jpg",
@@ -81,7 +85,7 @@ const ArtworkCollection = () => {
 					<h2>Loading Collections...</h2>
 				) : (
 					collections.map((item, id) => (
-						<CollectionListCard key={id} item={item} />
+						<CollectionListCard item={item} key={id} />
 					))
 				)}
 			</div>
