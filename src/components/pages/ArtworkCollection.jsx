@@ -46,7 +46,7 @@ const ArtworkCollection = () => {
 					})),
 					...vaCollection.map((item) => ({
 						id: item.systemNumber,
-						source: "va",
+						source: "Harvard",
 						title: item._primaryTitle,
 						image:
 							item._images?._iiif_image_base_url + "full/full/0/default.jpg",

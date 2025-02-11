@@ -1,8 +1,11 @@
 import { useState } from "react";
 import "../../styling/searchBar.css";
+import { useNavigate } from "react-router";
 
 const SearchArtworks = ({ onSearch }) => {
 	const [currentSearchTerm, setCurrentSearchTerm] = useState("");
+
+	const navigate = useNavigate();
 
 	const handleChange = (event) => {
 		setCurrentSearchTerm(event.target.value);
@@ -13,6 +16,7 @@ const SearchArtworks = ({ onSearch }) => {
 		if (currentSearchTerm.trim()) {
 			onSearch(currentSearchTerm);
 			setCurrentSearchTerm("");
+			navigate("/collections");
 		}
 	};
 

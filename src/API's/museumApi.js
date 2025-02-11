@@ -55,8 +55,8 @@ const fetchHarvardObjectById = (object_id) => {
 
 // VAM BY ID
 
-const fetchVAObjectById = (object_id) => {
-    return api2.get(`/objects/${object_id}`).then((response) => {
+const fetchVAObjectById = (systemNumber) => {
+    return api2.get(`/objects/${systemNumber}`).then((response) => {
 
         console.log(response, "VA RESPONSE")
 

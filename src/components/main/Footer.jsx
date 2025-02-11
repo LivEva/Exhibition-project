@@ -3,7 +3,7 @@ import "../../styling/footer.css";
 const Footer = () => {
 	return (
 		<footer>
-			<p>© 2024 Your Company Name. All rights reserved.</p>
+			<p>© 2025 Exhibiton Time. All rights reserved.</p>
 		</footer>
 	);
 };

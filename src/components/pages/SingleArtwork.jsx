@@ -4,7 +4,7 @@ import {
 	fetchHarvardObjectById,
 	fetchVAObjectById,
 } from "../../API's/museumApi";
-import CollectionsListCard from "../cards/CollectionListCard";
+import "../../styling/SingleArtwork.css";
 
 const SingleArtwork = () => {
 	const [artwork, setArtwork] = useState([]);
@@ -19,37 +19,38 @@ const SingleArtwork = () => {
 			return;
 		}
 
-		// Set loading state to true
 		setIsLoading(true);
 
-		// Use Promise.all to make both API calls at once
-		Promise.all([fetchHarvardObjectById(id), fetchVAObjectById(id)])
-			.then(([harvardData, vaData]) => {
-				// Combine the data from both sources if available
-				const combinedData = { ...harvardData, ...vaData };
+		if (source === "Harvard") {
+			fetchHarvardObjectById(id).then((response) => {
+				console.log(response, "HARVARD RESPONSE");
 
-				setArtwork(combinedData); // Set combined artwork data to state
-				setIsLoading(false); // Set loading state to false
-			})
-			.catch((error) => {
-				console.log(error);
-
-				setIsLoading(false);
+				setArtwork(response);
 			});
+			setIsLoading(false);
+		} else {
+			fetchVAObjectById(id).then((response) => {
+				console.log(response, "VA RESPONSE");
+
+				setArtwork(response);
+			});
+			setIsLoading(false);
+		}
+
+		setIsLoading(true);
 	}, [id, source]);
 
-	if (isLoading) {
-		<h1>Loading single artwork...</h1>;
-	}
-
 	return (
-		<>
+		<div className="single-artwork-container">
 			<Link to={`/object/${source}/${id}`}></Link>
 
-			<h1>{artwork.title}</h1>
+			{console.log(artwork, "LOGGED ARTWORK")}
 
-			<h3>{artwork.department}</h3>
-		</>
+			<h2>{artwork.title}</h2>
+			<img src={artwork.primaryimageurl} alt="" />
+			<h3>{artwork.division}</h3>
+			<p>{artwork.description}</p>
+		</div>
 	);
 };
 

@@ -5,7 +5,7 @@ import NavBar from "./components/main/NavBar";
 import Filter from "./components/main/Filter";
 import Home from "./components/pages/Home";
 import SingleArtwork from "./components/pages/SingleArtwork";
-import { Routes, Route, Navigate } from "react-router";
+import { Routes, Route, Navigate, useLocation, Router } from "react-router";
 
 function App() {
 	return (
@@ -19,10 +19,14 @@ function App() {
 			<ArtworkCollection />
 
 			<Routes>
+				<Route path="/collections" element={<ArtworkCollection />} />
 				<Route path="/" element={<Navigate to="/Home" replace />} />
 				<Route path="/Home" element={<Home />} />
 
-				<Route path="/object/:source/:id" element={<SingleArtwork />} />
+				<Route
+					path="/object/:source/:id"
+					element={<SingleArtwork key={window.location.pathname} />}
+				/>
 			</Routes>
 
 			<Footer />
