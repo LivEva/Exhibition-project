@@ -1,55 +1,39 @@
 import { useEffect, useState } from "react";
-import { useParams, Link } from "react-router-dom";
-import {
-	fetchHarvardObjectById,
-	fetchVAObjectById,
-} from "../../API's/museumApi";
+import { useParams } from "react-router-dom";
+import { Link } from "react-router";
+
 import "../../styling/SingleArtwork.css";
+import { fetchObjectById } from "../../API's/museumApi";
 
 const SingleArtwork = () => {
-	const [artwork, setArtwork] = useState([]);
+	const [artwork, setArtwork] = useState(null);
 	const [isLoading, setIsLoading] = useState(false);
 
-	let { source, id } = useParams();
-
-	id = parseInt(id);
+	const { source, id } = useParams();
 
 	useEffect(() => {
-		if (!id || !source) {
-			return;
-		}
-
-		setIsLoading(true);
-
-		if (source === "Harvard") {
-			fetchHarvardObjectById(id).then((response) => {
-				console.log(response, "HARVARD RESPONSE");
-
-				setArtwork(response);
+		fetchObjectById(id, source)
+			.then((response) => {
+				setArtwork(response.data);
+				setIsLoading(false);
+			})
+			.catch((error) => {
+				console.log(
+					error,
+					"THIS IS THE ERROR IS GETTING THE OBJECT BY ID IN THE SINGLE PAGE"
+				);
 			});
-			setIsLoading(false);
-		} else {
-			fetchVAObjectById(id).then((response) => {
-				console.log(response, "VA RESPONSE");
-
-				setArtwork(response);
-			});
-			setIsLoading(false);
-		}
-
-		setIsLoading(true);
 	}, [id, source]);
 
+	if (isLoading) {
+		return <h1>Loading Artwork...</h1>;
+	}
+
 	return (
-		<div className="single-artwork-container">
+		<div>
 			<Link to={`/object/${source}/${id}`}></Link>
 
-			{console.log(artwork, "LOGGED ARTWORK")}
-
-			<h2>{artwork.title}</h2>
-			<img src={artwork.primaryimageurl} alt="" />
-			<h3>{artwork.division}</h3>
-			<p>{artwork.description}</p>
+			<h1>THIS WORKS</h1>
 		</div>
 	);
 };
