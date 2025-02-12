@@ -6,6 +6,7 @@ import SearchArtworks from "../main/SearchArtworks";
 import PaginationElement from "../main/Pagination";
 import { useSearchParams } from "react-router-dom";
 import SortBy from "../main/Sortby";
+import { useLocation } from "react-router-dom";
 
 const ArtworkCollection = () => {
 	const [collections, setCollections] = useState([]);
@@ -15,6 +16,7 @@ const ArtworkCollection = () => {
 	const [searchParams, setSearchParams] = useSearchParams();
 	const [sortByCriteria, setSortByCriteria] = useState("created_at");
 	const [sortOrder, setSortOrder] = useState("desc");
+	const location = useLocation();
 
 	useEffect(() => {
 		const sort_by = searchParams.get("sort_by") || "created_at";
@@ -36,7 +38,7 @@ const ArtworkCollection = () => {
 					setIsLoading(false);
 				});
 		}
-	}, [query, eachPage]);
+	}, [query, eachPage, location]);
 
 	return (
 		<div className="collection">

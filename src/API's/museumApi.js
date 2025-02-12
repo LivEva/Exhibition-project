@@ -17,8 +17,6 @@ const fetchAllObjects = (query, page = 1, sort_by, order) => {
         api2.get(`/objects/search`, { params: { q: query, page: page, sort_by: sort_by, order: order }})
     ]).then(([harvardResponse, vaResponse]) => {
 
-        console.log(vaResponse)
-
         const harvardData = harvardResponse.data.records.filter(art => art.images?.length === 1).map((art) => {
 
             return {
@@ -83,14 +81,17 @@ const fetchObjectById = (id, source) => {
 
         });
     } else if(source === "VA"){
-        return api2.get(`/objects/${id}`).then((response) => ({
+        return api2.get(`/object/${id}`).then((response) => (
+           
+            {
 
-            id: response.data.systemNumber,
+            id: response.data.record.systemNumber,
             source: "VA",
-            title: response.data._primaryTitle || "[ No title ]",
-            image: response.data._images?._iiif_image_base_url + "full/full/0/default.jpg",
+            title: response.data.record.titles[0].title|| "[ No title ]",
+            description: response.data.record.briefDescription,
+            image: `https://framemark.vam.ac.uk/collections/${response.data.record.images[0]}/full/full/0/default.jpg`,
             type: response.data.objectType,
-            location: response.data._currentLocation.site = "Victoria and Albert Museum",
+            location: response.data._currentLocation?.site,
             date: response.data._primaryDate,
 
         })).catch((error) => {

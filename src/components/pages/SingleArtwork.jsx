@@ -11,12 +11,9 @@ const SingleArtwork = () => {
 
 	const { source, id } = useParams();
 
-	console.log(source, id);
-
 	useEffect(() => {
 		fetchObjectById(id, source)
 			.then((response) => {
-				console.log(response, "WHAT IS THIS GIVING ME");
 				setArtwork(response);
 				setIsLoading(false);
 			})
