@@ -6,6 +6,7 @@ import Filter from "./components/main/Filter";
 import Home from "./components/pages/Home";
 import SingleArtwork from "./components/pages/SingleArtwork";
 import { Routes, Route, Navigate } from "react-router";
+import SearchArtworks from "./components/main/SearchArtworks";
 
 function App() {
 	return (
@@ -16,7 +17,7 @@ function App() {
 
 			<Filter />
 
-			<ArtworkCollection />
+			<SearchArtworks />
 
 			<Routes>
 				<Route path="/" element={<Navigate to="/Home" replace />} />

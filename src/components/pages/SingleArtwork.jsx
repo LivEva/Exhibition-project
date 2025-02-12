@@ -11,10 +11,13 @@ const SingleArtwork = () => {
 
 	const { source, id } = useParams();
 
+	console.log(source, id);
+
 	useEffect(() => {
 		fetchObjectById(id, source)
 			.then((response) => {
-				setArtwork(response.data);
+				console.log(response, "WHAT IS THIS GIVING ME");
+				setArtwork(response);
 				setIsLoading(false);
 			})
 			.catch((error) => {
@@ -31,9 +34,9 @@ const SingleArtwork = () => {
 
 	return (
 		<div>
-			<Link to={`/object/${source}/${id}`}></Link>
-
-			<h1>THIS WORKS</h1>
+			<h1>{artwork?.title}</h1>
+			<img src={artwork?.image} alt={artwork?.title} />
+			<p>{artwork?.description}</p>
 		</div>
 	);
 };

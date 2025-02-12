@@ -16,14 +16,10 @@ const ArtworkCollection = () => {
 	const [sortByCriteria, setSortByCriteria] = useState("created_at");
 	const [sortOrder, setSortOrder] = useState("desc");
 
-	const handleSearch = (searchQuery) => {
-		setQuery(searchQuery);
-		setEachPage(1);
-	};
-
 	useEffect(() => {
 		const sort_by = searchParams.get("sort_by") || "created_at";
 		const order = searchParams.get("order") || "desc";
+		const query = searchParams.get("q");
 
 		if (query.trim()) {
 			setIsLoading(true);
@@ -45,8 +41,6 @@ const ArtworkCollection = () => {
 	return (
 		<div className="collection">
 			<div className="search-and-pagination-container">
-				<SearchArtworks onSearch={handleSearch} />
-
 				<SortBy
 					setSearchParams={setSearchParams}
 					setSortByCriteria={setSortByCriteria}
