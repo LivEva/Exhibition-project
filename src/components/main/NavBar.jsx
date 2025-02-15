@@ -1,4 +1,5 @@
 import "../../styling/navBar.css";
+import { Link } from "react-router";
 
 const NavBar = () => {
 	return (
@@ -6,7 +7,9 @@ const NavBar = () => {
 			<div className="buttons">
 				<button>Collections</button>
 				<button>Exhibitions</button>
-				<button>My Artwork</button>
+				<Link to={"/myExhibitions"}>
+					<button>My Artwork</button>
+				</Link>
 			</div>
 		</div>
 	);

@@ -1,12 +1,11 @@
 import ArtworkCollection from "./components/pages/ArtworkCollection";
+import SearchArtworks from "./components/main/SearchArtworks";
+import SingleArtwork from "./components/pages/SingleArtwork";
 import Header from "./components/main/Header";
 import Footer from "./components/main/Footer";
 import NavBar from "./components/main/NavBar";
-
 import Home from "./components/pages/Home";
-import SingleArtwork from "./components/pages/SingleArtwork";
 import { Routes, Route, Navigate } from "react-router";
-import SearchArtworks from "./components/main/SearchArtworks";
 
 function App() {
 	return (

@@ -57,7 +57,7 @@ const ArtworkCollection = () => {
 
 			<Filter
 				collections={collections}
-				setFilteredCollections={setFilteredCollections}
+				setFilteredArtwork={setFilteredCollections}
 			/>
 
 			<div className="collection-container">

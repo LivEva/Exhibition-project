@@ -13,8 +13,11 @@ const api2 = axios.create({
 const fetchAllObjects = (query, page = 1, sort_by, order) => {
 
     return Promise.all([
-        api.get(`/object`, { params: { q: query, page: page, sort_by: sort_by, order: order }}),
+
+        api.get(`/object`, { params: { q: query, page: page, sort_by: sort_by, order: order}}),
+
         api2.get(`/objects/search`, { params: { q: query, page: page, sort_by: sort_by, order: order }})
+
     ]).then(([harvardResponse, vaResponse]) => {
 
         const harvardData = harvardResponse.data.records.filter(art => art.images?.length === 1).map((art) => {
@@ -35,7 +38,11 @@ const fetchAllObjects = (query, page = 1, sort_by, order) => {
             }
         });
 
-        const vaData = vaResponse.data.records.filter(art => art._images?._iiif_image_base_url).map((art) => {
+        const vaData = vaResponse.data.records.filter(art => art._images?._iiif_image_base_url).map((art) => 
+
+            //CONCERNED WITH THIS API CALL, IT DOESN'T INVOLVE THE WHOLE API DATA
+            
+            {
 
             return {
                 id: art.systemNumber,
@@ -81,7 +88,10 @@ const fetchObjectById = (id, source) => {
 
         });
     } else if(source === "VA"){
-        return api2.get(`/object/${id}`).then((response) => (
+        return api2.get(`/object/${id}`).then((response) => 
+            
+        
+            (
            
             {
 
