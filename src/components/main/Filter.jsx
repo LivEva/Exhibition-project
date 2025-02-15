@@ -4,7 +4,14 @@ import "../../styling/filter.css";
 const Filter = ({ collections, setFilteredArtwork }) => {
 	const [selectedSource, setSelectedSource] = useState("");
 	const [selectedType, setSelectedType] = useState("");
-	const [selectedYear, setSelectedYear] = useState("");
+	const [uniqueTypes, setUniqueTypes] = useState([]);
+
+	useEffect(() => {
+		if (collections.length > 0) {
+			const types = [...new Set(collections.map((art) => art.type))];
+			setUniqueTypes(types);
+		}
+	}, [collections]);
 
 	useEffect(() => {
 		let filtered = collections;
@@ -15,20 +22,11 @@ const Filter = ({ collections, setFilteredArtwork }) => {
 
 		if (selectedType) {
 			filtered = collections.filter((art) => art.type === selectedType);
-		}
-
-		if (selectedYear) {
-			filtered = collections.filter((art) => art.yearAdded === selectedYear);
+			console.log(filtered);
 		}
 
 		setFilteredArtwork(filtered);
-	}, [
-		selectedSource,
-		collections,
-		setFilteredArtwork,
-		selectedType,
-		selectedYear,
-	]);
+	}, [selectedSource, collections, setFilteredArtwork, selectedType]);
 
 	return (
 		<div className="filter-container">
@@ -39,6 +37,17 @@ const Filter = ({ collections, setFilteredArtwork }) => {
 				<option value="">All locations</option>
 				<option value="Harvard">Harvard Museum</option>
 				<option value="VA">Victoria and Albert Museum</option>
+			</select>
+			<select
+				onChange={(e) => setSelectedType(e.target.value)}
+				value={selectedType}
+			>
+				<option value="">All types</option>
+				{uniqueTypes.map((type) => (
+					<option value={type} key={type}>
+						{type}
+					</option>
+				))}
 			</select>
 		</div>
 	);
