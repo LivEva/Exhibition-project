@@ -2,7 +2,7 @@ import { fetchAllObjects } from "../../API's/museumApi";
 import { useEffect, useState } from "react";
 import CollectionListCard from "../cards/CollectionListCard";
 import "../../styling/exhibitionCollection.css";
-// import Filter from "../main/Filter";
+import Filters from "../main/Filters";
 import PaginationElement from "../main/Pagination";
 import { useSearchParams } from "react-router-dom";
 import SortBy from "../main/Sortby";
@@ -55,10 +55,10 @@ const ArtworkCollection = () => {
 				<PaginationElement setEachPage={setEachPage} eachPage={eachPage} />
 			</div>
 
-			{/* <Filter
+			<Filters
 				collections={collections}
 				setFilteredArtwork={setFilteredCollections}
-			/> */}
+			/>
 
 			<div className="collection-container">
 				{isLoading ? (
