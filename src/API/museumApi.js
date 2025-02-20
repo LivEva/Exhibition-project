@@ -10,17 +10,18 @@ const api2 = axios.create({
     baseURL: 'https://api.vam.ac.uk/v2'
 });
 
-const fetchAllObjects = (query, page = 1, sortBy) => {
+const fetchAllObjects = (query, page = 1, sortBy, sortOrder) => {
 
-    let paramsVa = { q: query, page: page}
+    console.log(sortOrder)
 
-    let paramsHarvard = { q: query, page: page}
+    let paramsVa = { q: query, page: page, order_sort: sortOrder}
+
+    let paramsHarvard = { q: query, page: page, sort: "accessionyear", order_sort: sortOrder}
 
     if(sortBy){
         paramsVa.order_by = sortBy;
         sortBy === "date" ? paramsHarvard.sort = "century" : sortBy === "location" ? paramsHarvard.sort = "division" : sortBy === "place" ? paramsHarvard.sort = "period" : "any";
     }
-
 
     return Promise.all([
 

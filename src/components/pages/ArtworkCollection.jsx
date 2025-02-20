@@ -16,9 +16,9 @@ const ArtworkCollection = () => {
 	const [query, setQuery] = useState("");
 	const [searchParams, setSearchParams] = useSearchParams();
 	const [sortBy, setSortBy] = useState('');
+	const [sortOrder, setSortOrder] = useState('asc');
 
 	const location = useLocation();
-
 
 	useEffect(() => {
 	
@@ -26,7 +26,7 @@ const ArtworkCollection = () => {
 
 		if (query?.trim()) {
 			setIsLoading(true);
-			fetchAllObjects(query, eachPage, sortBy)
+			fetchAllObjects(query, eachPage, sortBy, sortOrder)
 				.then((response) => {
 					setCollections(response);
 					setFilteredCollections(response);
@@ -40,7 +40,7 @@ const ArtworkCollection = () => {
 				});
 				
 		}
-	}, [query, eachPage, location, sortBy]);
+	}, [query, eachPage, location, sortBy, sortOrder]);
 
 
 	return (
@@ -58,7 +58,7 @@ const ArtworkCollection = () => {
 				setFilteredArtwork={setFilteredCollections}
 			/>
 
-			<SortBy onSelect={setSortBy}/>
+			<SortBy onSelect={setSortBy} orderOnSelect={setSortOrder}/>
 
 			<div className="collection-container">
 				{isLoading ? (
