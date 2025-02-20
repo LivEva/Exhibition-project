@@ -16,7 +16,7 @@ const fetchAllObjects = (query, page = 1, sortBy, sortOrder) => {
 
     let paramsVa = { q: query, page: page, order_sort: sortOrder}
 
-    let paramsHarvard = { q: query, page: page, sort: "accessionyear", order_sort: sortOrder}
+    let paramsHarvard = { q: query, page: page, sort: "accessionyear", sortorder: sortOrder}
 
     if(sortBy){
         paramsVa.order_by = sortBy;
