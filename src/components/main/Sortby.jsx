@@ -1,36 +1,31 @@
-const SortBy = (props) => {
-	const {
-		setSearchParams,
-		setSortByCriteria,
-		setSortOrder,
-		sortByCriteria,
-		sortOrder,
-	} = props;
+import { useState } from "react";
 
-	const handleSortBy = (event) => {
-		const value = event.target.value;
-		setSortByCriteria(value);
-		setSearchParams({ sort_by: value, order: sortOrder });
+const sortOptions = [
+	{ id: "date", vna: "date", harvard: "century", label: "Date" },
+	{ id: "location", vna: "location", harvard: "department", label: "Location" },
+	{ id: "place", vna: "place", harvard: "period", label: "Place" },
+  ];
+  const SortBy = ({onSelect}) => {
+	const [selectedSort, setSelectedSort] = useState("");
+	
+	const handleChange = (event) => {
+	  const newValue = event.target.value;
+	  setSelectedSort(newValue)
+	  onSelect(newValue);
 	};
 
-	const handleOrderBy = () => {
-		const newOrder = sortOrder === "asc" ? "desc" : "asc";
-		setSortOrder(newOrder);
-		setSearchParams({ sort_by: sortByCriteria, order: newOrder });
-	};
 
 	return (
-		<div>
-			<select value={sortByCriteria} onChange={handleSortBy}>
-				<option value="title">Title</option>
-				<option value="date">Date</option>
-				<option value="type">Type</option>
-			</select>
-
-			<button onClick={handleOrderBy}>
-				{sortOrder === "asc" ? "Ascending" : "Descending"}
-			</button>
-		</div>
+	  <div>
+		<select onChange={handleChange} value={selectedSort}>
+		  <option value="">Select Sort</option>
+		  {sortOptions.map((option) => (
+			<option key={option.id} value={option.id}>
+			  {option.label}
+			</option>
+		  ))}
+		</select>
+	  </div>
 	);
-};
-export default SortBy;
+  };
+  export default SortBy;

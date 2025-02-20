@@ -1,12 +1,12 @@
-import { fetchAllObjects } from "../../API's/museumApi";
+import { fetchAllObjects } from "../../API/museumApi";
 import { useEffect, useState } from "react";
 import CollectionListCard from "../cards/CollectionListCard";
 import "../../styling/exhibitionCollection.css";
 import Filters from "../main/Filters";
 import PaginationElement from "../main/Pagination";
 import { useSearchParams } from "react-router-dom";
-import SortBy from "../main/Sortby";
 import { useLocation } from "react-router-dom";
+import SortBy from "../main/Sortby";
 
 const ArtworkCollection = () => {
 	const [collections, setCollections] = useState([]);
@@ -15,40 +15,38 @@ const ArtworkCollection = () => {
 	const [eachPage, setEachPage] = useState(1);
 	const [query, setQuery] = useState("");
 	const [searchParams, setSearchParams] = useSearchParams();
-	const [sortByCriteria, setSortByCriteria] = useState("created_at");
-	const [sortOrder, setSortOrder] = useState("desc");
+	const [sortBy, setSortBy] = useState('');
+
 	const location = useLocation();
 
+
 	useEffect(() => {
-		const sort_by = searchParams.get("sort_by") || "created_at";
-		const order = searchParams.get("order") || "desc";
+	
 		const query = searchParams.get("q");
 
 		if (query?.trim()) {
 			setIsLoading(true);
-			fetchAllObjects(query, eachPage, sort_by, order)
+			fetchAllObjects(query, eachPage, sortBy)
 				.then((response) => {
 					setCollections(response);
 					setFilteredCollections(response);
 					setIsLoading(false);
+				
+				
 				})
 				.catch((error) => {
 					console.log(error, "ERROR FETCHING ARTWORK");
 					setIsLoading(false);
 				});
+				
 		}
-	}, [query, eachPage, location]);
+	}, [query, eachPage, location, sortBy]);
+
 
 	return (
 		<div className="collection">
 			<div className="search-and-pagination-container">
-				<SortBy
-					setSearchParams={setSearchParams}
-					setSortByCriteria={setSortByCriteria}
-					setSortOrder={setSortOrder}
-					sortByCriteria={sortByCriteria}
-					sortOrder={sortOrder}
-				/>
+			
 
 				<h3>Results for: {query}</h3>
 
@@ -59,6 +57,8 @@ const ArtworkCollection = () => {
 				collections={collections}
 				setFilteredArtwork={setFilteredCollections}
 			/>
+
+			<SortBy onSelect={setSortBy}/>
 
 			<div className="collection-container">
 				{isLoading ? (

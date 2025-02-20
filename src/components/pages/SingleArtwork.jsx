@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 import { Link } from "react-router";
 
 import "../../styling/SingleArtwork.css";
-import { fetchObjectById } from "../../API's/museumApi";
+import { fetchObjectById } from "../../API/museumApi";
 
 const SingleArtwork = () => {
 	const [artwork, setArtwork] = useState(null);

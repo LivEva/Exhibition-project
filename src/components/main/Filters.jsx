@@ -8,8 +8,11 @@ const Filters = ({ collections, setFilteredArtwork }) => {
 
 	useEffect(() => {
 		if (collections.length > 0) {
-			const types = [...new Set(collections.map((art) => art.type))];
-			setUniqueTypes(types);
+			const typeCounts = collections.reduce((acc, art) => {
+				acc[art.type] = (acc[art.type] || 0) + 1;
+				return acc;
+			}, {});
+			setUniqueTypes(typeCounts);
 		}
 	}, [collections]);
 
@@ -17,16 +20,15 @@ const Filters = ({ collections, setFilteredArtwork }) => {
 		let filtered = collections;
 
 		if (selectedSource) {
-			filtered = collections.filter((art) => art.source === selectedSource);
+			filtered = filtered.filter((art) => art.source === selectedSource);
 		}
 
 		if (selectedType) {
-			filtered = collections.filter((art) => art.type === selectedType);
-			console.log(filtered);
+			filtered = filtered.filter((art) => art.type === selectedType);
 		}
 
 		setFilteredArtwork(filtered);
-	}, [selectedSource, collections, setFilteredArtwork, selectedType]);
+	}, [selectedSource, selectedType, collections, setFilteredArtwork]);
 
 	return (
 		<div className="filter-container">
@@ -43,9 +45,9 @@ const Filters = ({ collections, setFilteredArtwork }) => {
 				value={selectedType}
 			>
 				<option value="">All types</option>
-				{uniqueTypes.map((type) => (
+				{Object.entries(uniqueTypes).map(([type, count]) => (
 					<option value={type} key={type}>
-						{type}
+						{type} ({count})
 					</option>
 				))}
 			</select>

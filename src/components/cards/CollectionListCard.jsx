@@ -14,6 +14,7 @@ const CollectionListCard = (props) => {
 			<p>{item.date}</p>
 			<p>{item.type}</p>
 			<p>{item.department}</p>
+			{/* <button>save</button> */}
 		</div>
 	);
 };

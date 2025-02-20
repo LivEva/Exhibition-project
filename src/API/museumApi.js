@@ -10,17 +10,32 @@ const api2 = axios.create({
     baseURL: 'https://api.vam.ac.uk/v2'
 });
 
-const fetchAllObjects = (query, page = 1, sort_by, order) => {
+const fetchAllObjects = (query, page = 1, sortBy) => {
+
+    let paramsVa = { q: query, page: page}
+
+    let paramsHarvard = { q: query, page: page}
+
+    if(sortBy){
+        paramsVa.order_by = sortBy;
+        sortBy === "date" ? paramsHarvard.sort = "century" : sortBy === "location" ? paramsHarvard.sort = "division" : sortBy === "place" ? paramsHarvard.sort = "period" : "any";
+    }
+
 
     return Promise.all([
 
-        api.get(`/object`, { params: { q: query, page: page, sort_by: sort_by, order: order}}),
+        api.get(`/object`, {params: paramsHarvard }),
 
-        api2.get(`/objects/search`, { params: { q: query, page: page, sort_by: sort_by, order: order }})
+        api2.get(`/objects/search`, {params: paramsVa})
 
-    ]).then(([harvardResponse, vaResponse]) => {
 
-        const harvardData = harvardResponse.data.records.filter(art => art.images?.length === 1).map((art) => {
+    ]).then(([harvardResponse, vaResponse]) =>
+        
+        
+        {
+
+
+        const harvardData = harvardResponse.data?.records.filter(art => art.images?.length === 1).map((art) => {
 
             return {
                 id: art.id,
