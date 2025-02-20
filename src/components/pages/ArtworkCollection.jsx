@@ -17,6 +17,7 @@ const ArtworkCollection = () => {
 	const [searchParams, setSearchParams] = useSearchParams();
 	const [sortBy, setSortBy] = useState('');
 	const [sortOrder, setSortOrder] = useState('asc');
+	const [selectedCategory, setSelectedCategory] = useState("");
 
 	const location = useLocation();
 
@@ -26,7 +27,7 @@ const ArtworkCollection = () => {
 
 		if (query?.trim()) {
 			setIsLoading(true);
-			fetchAllObjects(query, eachPage, sortBy, sortOrder)
+			fetchAllObjects(query, eachPage, sortBy, sortOrder, selectedCategory)
 				.then((response) => {
 					setCollections(response);
 					setFilteredCollections(response);
@@ -40,7 +41,9 @@ const ArtworkCollection = () => {
 				});
 				
 		}
-	}, [query, eachPage, location, sortBy, sortOrder]);
+	}, [query, eachPage, location, sortBy, sortOrder, selectedCategory]);
+
+	console.log(selectedCategory)
 
 
 	return (
@@ -56,6 +59,7 @@ const ArtworkCollection = () => {
 			<Filters
 				collections={collections}
 				setFilteredArtwork={setFilteredCollections}
+				selectedCategory={setSelectedCategory}
 			/>
 
 			<SortBy onSelect={setSortBy} orderOnSelect={setSortOrder}/>
