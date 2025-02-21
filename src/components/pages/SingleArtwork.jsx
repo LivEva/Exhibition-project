@@ -15,6 +15,8 @@ const saveObject = (object) => {
 const SingleArtwork = () => {
 	const [artwork, setArtwork] = useState(null);
 	const [isLoading, setIsLoading] = useState(false);
+	const [collectionName, setCollectionName] = useState("");
+
 
 	const { source, id } = useParams();
 
@@ -32,19 +34,36 @@ const SingleArtwork = () => {
 			});
 	}, [id, source]);
 
+	const saveObject = () => {
+		if(!collectionName.trim()){
+			return <h1>Please enter a folder name</h1>
+		}
+
+		let savedCollections = JSON.parse(localStorage.getItem("savedCollections")) || {};
+
+		if(!savedCollections[collectionName]){
+			savedCollections[collectionName] = [];
+		}
+
+		if(!savedCollections[collectionName].some(obj => obj.id === artwork.id)){
+			savedCollections[collectionName].push(artwork);
+			localStorage.setItem("savedCollections", JSON.stringify(savedCollections));
+		}
+	}
+
 	if (isLoading) {
 		return <h1>Loading Artwork...</h1>;
 	}
 
-	console.log(artwork)
-
 	return (
 		<div>
-			<h1>{artwork?.title}</h1>
+			<h2>{artwork?.title}</h2>
 			<img src={artwork?.image} alt={artwork?.title} />
 			<p>{artwork?.description}</p>
-			<button onClick={() => saveObject(artwork)}>save</button>
-			
+			<p>{artwork?.dimensions}</p>
+			<p>{artwork?.type}</p>
+			<input type="text" placeholder="Enter collection name" value={collectionName} onChange={(e) => setCollectionName(e.target.value)} />
+			<button onClick={saveObject}>save to collection</button>
 		</div>
 	);
 };

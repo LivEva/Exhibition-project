@@ -108,8 +108,8 @@ const fetchObjectById = (id, source) => {
         });
     } else if(source === "VA"){
         return api2.get(`/object/${id}`).then((response) => 
-            
         
+
             (
            
             {
@@ -122,6 +122,9 @@ const fetchObjectById = (id, source) => {
             type: response.data.objectType,
             location: response.data._currentLocation?.site,
             date: response.data._primaryDate,
+            dimensions: response.data.dimensions,
+            categories: response.data.categories
+
 
         })).catch((error) => {
             console.log(error, "THIS IS THE ERROR FETCHING THE VA OBJECT BY ID")

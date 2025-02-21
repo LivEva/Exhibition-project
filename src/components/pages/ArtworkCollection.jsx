@@ -41,15 +41,6 @@ const ArtworkCollection = () => {
 		}
 	}, [query, eachPage, location, sortBy, sortOrder, selectedCategory]);
 
-	const saveObject = (object) => {
-		let savedArtworks = JSON.parse(localStorage.getItem("savedArtworks")) || [];
-	
-		if (!savedArtworks.some(obj => obj.id === object.id)) {
-			savedArtworks.push(object);
-			localStorage.setItem("savedArtworks", JSON.stringify(savedArtworks)); 
-		}
-	};
-	
 	return (
 		<div className="collection">
 			<div className="search-and-pagination-container">

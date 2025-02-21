@@ -15,8 +15,7 @@ const SearchArtworks = ({ onSearch }) => {
 	const handleSubmit = (event) => {
 		event.preventDefault();
 		if (currentSearchTerm.trim()) {
-			// onSearch(currentSearchTerm);
-			// setCurrentSearchTerm("");
+	
 			navigate(`/collections?q=${currentSearchTerm}`);
 		}
 	};
