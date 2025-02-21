@@ -43,8 +43,6 @@ const ArtworkCollection = () => {
 		}
 	}, [query, eachPage, location, sortBy, sortOrder, selectedCategory]);
 
-	console.log(selectedCategory)
-
 
 	return (
 		<div className="collection">

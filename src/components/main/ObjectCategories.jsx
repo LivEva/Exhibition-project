@@ -31,9 +31,7 @@ const ObjectCategories = ({onSelect}) => {
             );
 
             onSelect(selectCat ? selectCat.id : null);
-            console.log(selectCat)
-
-
+            
           }
 
         
