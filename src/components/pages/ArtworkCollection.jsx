@@ -33,21 +33,26 @@ const ArtworkCollection = () => {
 					setFilteredCollections(response);
 					setIsLoading(false);
 				
-				
 				})
 				.catch((error) => {
 					console.log(error, "ERROR FETCHING ARTWORK");
 					setIsLoading(false);
-				});
-				
+				});	
 		}
 	}, [query, eachPage, location, sortBy, sortOrder, selectedCategory]);
 
-
+	const saveObject = (object) => {
+		let savedArtworks = JSON.parse(localStorage.getItem("savedArtworks")) || [];
+	
+		if (!savedArtworks.some(obj => obj.id === object.id)) {
+			savedArtworks.push(object);
+			localStorage.setItem("savedArtworks", JSON.stringify(savedArtworks)); 
+		}
+	};
+	
 	return (
 		<div className="collection">
 			<div className="search-and-pagination-container">
-			
 
 				<h3>Results for: {query}</h3>
 
@@ -67,7 +72,7 @@ const ArtworkCollection = () => {
 					<h2>Loading Collections...</h2>
 				) : (
 					filteredCollections.map((item) => (
-						<CollectionListCard item={item} key={item.id} />
+						<CollectionListCard item={item} key={item.id}  />
 					))
 				)}
 			</div>

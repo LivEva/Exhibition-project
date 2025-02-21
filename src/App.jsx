@@ -18,6 +18,7 @@ function App() {
 			<SearchArtworks />
 
 			<Routes>
+				
 				<Route path="/" element={<Navigate to="/Home" replace />} />
 
 				<Route path="/collections" element={<ArtworkCollection />} />

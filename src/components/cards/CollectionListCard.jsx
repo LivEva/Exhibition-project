@@ -1,9 +1,8 @@
-import { Link } from "react-router";
+import { Link } from "react-router-dom";
 import "../../styling/collectionListCard.css";
-Link;
 
-const CollectionListCard = (props) => {
-	const { item } = props;
+const CollectionListCard = ({item}) => {
+
 	return (
 		<div className="collection-card-container">
 			<Link to={`/object/${item.source}/${item.id}`}>
@@ -14,7 +13,7 @@ const CollectionListCard = (props) => {
 			<p>{item.date}</p>
 			<p>{item.type}</p>
 			<p>{item.department}</p>
-			<button>save</button>
+			
 		</div>
 	);
 };
