@@ -10,83 +10,69 @@ const api2 = axios.create({
     baseURL: 'https://api.vam.ac.uk/v2'
 });
 
-const fetchAllObjects = (query, page = 1, sortBy, sortOrder, selectedCategory) => {
-    
-
-    let paramsVa = { q: query, page: page, size: 10, order_sort: sortOrder}
-
-    let paramsHarvard = { q: query, page: page, size: 10, sort: "accessionyear", sortorder: sortOrder}
-
-    if(sortBy){
-        paramsVa.order_by = sortBy;
-        sortBy === "date" ? paramsHarvard.sort = "century" : sortBy === "location" ? paramsHarvard.sort = "division" : sortBy === "place" ? paramsHarvard.sort = "period" : "any";
+const fetchAllObjects = async (query, page = 1, sortBy, sortOrder, selectedCategory, minResults = 20) => {
+    let results = [];
+    let currentPage = page;
+    while (results.length < minResults) {
+        let paramsVa = { q: query, page: currentPage, size: 10, order_sort: sortOrder }
+        let paramsHarvard = { q: query, page: currentPage, size: 10, sort: "accessionyear", sortorder: sortOrder }
+        if (sortBy) {
+            paramsVa.order_by = sortBy;
+            sortBy === "date" ? paramsHarvard.sort = "century"
+            : sortBy === "location" ? paramsHarvard.sort = "division"
+            : sortBy === "place" ? paramsHarvard.sort = "period"
+            : "any";
+        }
+        if (selectedCategory) {
+            paramsVa.id_category = selectedCategory.vnaID;
+            paramsHarvard.classification = selectedCategory.harvardId;
+        }
+        try {
+            const [harvardResponse, vaResponse] = await Promise.all([
+                api.get(`/object`, { params: paramsHarvard }),
+                api2.get(`/objects/search`, { params: paramsVa })
+            ]);
+            console.log(harvardResponse.data.records);
+            const harvardData = harvardResponse.data?.records
+                .filter(art => art.images?.length === 1)
+                .map(art => ({
+                    id: art.id,
+                    yearAdded: art.accessionyear,
+                    source: "Harvard",
+                    title: art.title || "[ No title ]",
+                    image: art.images?.[0]?.baseimageurl || "no image",
+                    type: art.division,
+                    dimensions: art.dimensions,
+                    century: art.century,
+                    date: art.dated,
+                    department: art.department,
+                    origin: art.provenance,
+                    location: art.creditline,
+                }));
+            const vaData = vaResponse.data.records
+                .filter(art => art._images?._iiif_image_base_url)
+                .map(art => ({
+                    id: art.systemNumber,
+                    yearAdded: art.accessionNumber.slice(-4),
+                    source: "VA",
+                    title: art._primaryTitle || "[ No title ]",
+                    image: art._images?._iiif_image_base_url + "/full/full/0/default.jpg",
+                    type: art.objectType,
+                    location: art._currentLocation.site = "Victoria and Albert Museum",
+                    date: art._primaryDate,
+                }));
+            const newResults = [...harvardData, ...vaData];
+            if (newResults.length === 0) break;
+            results = [...results, ...newResults];
+            currentPage++;
+        } catch (error) {
+            console.log(error, "THIS IS THE ERROR FOR THE COMBINED API DATA");
+            break;
+        }
     }
-
-    if(selectedCategory){
-
-        paramsVa.id_category = selectedCategory.vnaID;
-        paramsHarvard.classification = selectedCategory.harvardId;
-        
-    }
-
-    return Promise.all([
-
-        api.get(`/object`, {params: paramsHarvard }),
-
-        api2.get(`/objects/search`, {params: paramsVa})
-
-
-    ]).then(([harvardResponse, vaResponse]) =>
-
-        
-        
-        {
-
-            console.log(harvardResponse.data.records)
-
-        const harvardData = harvardResponse.data?.records.filter(art => art.images?.length === 1).map((art) => {
-
-            return {
-                id: art.id,
-                yearAdded: art.accessionyear,
-                source: "Harvard",
-                title: art.title || "[ No title ]",
-                image: art.images?.[0]?.baseimageurl || "no image",
-                type: art.division,
-                dimensions: art.dimensions,
-                century: art.century,
-                date: art.dated,
-                department: art.department,
-                origin: art.provenance,
-                location: art.creditline,
-            }
-        });
-
-        const vaData = vaResponse.data.records.filter(art => art._images?._iiif_image_base_url).map((art) => 
-
-            //CONCERNED WITH THIS API CALL, IT DOESN'T INVOLVE THE WHOLE API DATA
-            
-            {
-
-            return {
-                id: art.systemNumber,
-                yearAdded: art.accessionNumber.slice(-4),
-				source: "VA",
-				title: art._primaryTitle || "[ No title ]",
-				image: art._images?._iiif_image_base_url + "/full/full/0/default.jpg",
-				type: art.objectType,
-				location: art._currentLocation.site = "Victoria and Albert Museum",
-				date: art._primaryDate,
-            }
-        });
-  
-        return [...harvardData, ...vaData];
-    }).catch((error) => {
-
-        console.log(error, "THIS IS THE ERROR FOR THE COMBINED API DATA")
-
-    });
+    return results.slice(0, minResults);
 };
+
 
 const fetchObjectById = (id, source) => {
 
