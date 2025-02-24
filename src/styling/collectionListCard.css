@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap');
+
+
 .collection-card-container{
     display: flex;
     flex-direction: column;
@@ -5,17 +8,31 @@
     align-items: center;
     color: black;
     text-align: center;
-    background-color: rgb(157, 190, 185);
+    background-color: rgb(194, 206, 204);
     width: 100%;
+    text-decoration: none;
+
+}
+
+.collection-card-container a{
+
+  text-decoration: none;
+  color: inherit;
+
+}
+
+.collection-card-container h1{
+  font-family: "Abril Fatface";
 }
 
 .collection-card-container img{
-    width: 50%;
+    width: 60%;
+    margin: 10px;
 }
 
 .search-and-pagination-container{
   display: flex;
-  background-color: rgb(157, 190, 185);
+  background-color: rgb(8, 143, 123);
   justify-content: space-around;
   align-items: center;
 }
@@ -55,5 +72,38 @@
       grid-template-columns: 1fr; 
     }
   }
+
+
+.saved-collection-container{
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); 
+  gap: 20px; 
+  padding: 20px;
+  justify-items: center; 
+
+}
+
+@media only screen and (max-width: 1024px) {
+  .saved-collection-container {
+    grid-template-columns: repeat(3, 1fr); 
+    
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .saved-collection-container {
+    grid-template-columns: repeat(2, 1fr); 
+  }
+
+  .saved-collection-container {
+    max-width: 100%; 
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .saved-collection-container {
+    grid-template-columns: 1fr; 
+  }
+}
   
 

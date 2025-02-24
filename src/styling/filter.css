@@ -1,7 +1,15 @@
 .filter-container{
-  background-color: rgb(157, 190, 185);
   display: flex;
-  width: 50%;
   justify-content: space-around;
   align-items: center;
+  background-color: rgb(55, 197, 197);
+  padding: 30px;
+}
+
+.filter-container select{
+  width: 200px;
+}
+
+.filter-box{
+  padding: 10px;
 }

@@ -1,6 +1,7 @@
 h1{
 
     font-size: 2em;
+    text-decoration: none;
 }
 
 .header-container{
@@ -8,4 +9,10 @@ h1{
     justify-content: center;
     width: 100%;
     background-color: rgb(157, 190, 185);
+
+}
+
+.header-container a{
+    text-decoration: none;
+    color: inherit;
 }

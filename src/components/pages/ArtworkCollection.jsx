@@ -41,13 +41,16 @@ const ArtworkCollection = () => {
 		}
 	}, [query, eachPage, location, sortBy, sortOrder, selectedCategory]);
 
+	const totalItems = collections.length;
+	const totalPages = Math.ceil(totalItems / 10);
+
 	return (
 		<div className="collection">
 			<div className="search-and-pagination-container">
 
 				<h3>Results for: {query}</h3>
 
-				<PaginationElement setEachPage={setEachPage} eachPage={eachPage} />
+				<PaginationElement setEachPage={setEachPage} eachPage={eachPage} totalPages={totalPages} />
 			</div>
 
 			<Filters

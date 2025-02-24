@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import '../../styling/CollectionListCard.css'
 
 
+
 const SavedExhibitions = () => {
     const [savedCollections, setSavedCollections] = useState([]);
     const [selectedFolder, setSelectedFolder] = useState("");
@@ -23,14 +24,15 @@ const SavedExhibitions = () => {
 
     return (
 
-		<div>
+		<div className="collection-card-container">
 			<h1>Saved Exhibitions</h1>
 
 			{!selectedFolder ? (
 
-				<div>
-					<h2>Your Collections:</h2>
+				<div className="saved-collection-container">
+					
 					{Object.keys(savedCollections).length > 0 ? (
+						
 						<ul>
 							{Object.keys(savedCollections).map(folder => (
 								<li key={folder}>

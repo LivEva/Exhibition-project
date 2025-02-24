@@ -1,0 +1,12 @@
+.sort-by-container{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: rgb(19, 209, 171);
+    padding: 30px;
+}
+
+
+.sort-by-box{
+    padding: 10px;
+}

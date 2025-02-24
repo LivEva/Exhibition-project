@@ -2,6 +2,8 @@ import { useEffect, useState } from "react";
 import "../../styling/filter.css";
 import ObjectCategories from "./ObjectCategories";
 
+
+
 const Filters = ({ collections, setFilteredArtwork, selectedCategory }) => {
 	const [selectedSource, setSelectedSource] = useState("");
 	const [selectedType, setSelectedType] = useState("");
@@ -23,6 +25,7 @@ const Filters = ({ collections, setFilteredArtwork, selectedCategory }) => {
 			<select
 				onChange={(e) => setSelectedSource(e.target.value)}
 				value={selectedSource}
+				className="filter-box"
 			>
 				<option value="">All locations</option>
 				<option value="Harvard">Harvard Museum</option>

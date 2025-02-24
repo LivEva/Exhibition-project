@@ -11,10 +11,11 @@ const api2 = axios.create({
 });
 
 const fetchAllObjects = (query, page = 1, sortBy, sortOrder, selectedCategory) => {
+    
 
-    let paramsVa = { q: query, page: page, order_sort: sortOrder}
+    let paramsVa = { q: query, page: page, size: 10, order_sort: sortOrder}
 
-    let paramsHarvard = { q: query, page: page, sort: "accessionyear", sortorder: sortOrder}
+    let paramsHarvard = { q: query, page: page, size: 10, sort: "accessionyear", sortorder: sortOrder}
 
     if(sortBy){
         paramsVa.order_by = sortBy;
@@ -36,8 +37,12 @@ const fetchAllObjects = (query, page = 1, sortBy, sortOrder, selectedCategory) =
 
 
     ]).then(([harvardResponse, vaResponse]) =>
+
+        
         
         {
+
+            console.log(harvardResponse.data.records)
 
         const harvardData = harvardResponse.data?.records.filter(art => art.images?.length === 1).map((art) => {
 

@@ -1,4 +1,5 @@
 import { useState } from "react";
+import '../../styling/sortBy.css'
 
 const sortOptions = [
 	{ id: "date", vna: "date", harvard: "century", label: "Date" },
@@ -29,8 +30,8 @@ const sortOptions = [
 
 	
 	return (
-	  <div>
-		<select onChange={handleChange} value={selectedSort}>
+	  <div className="sort-by-container">
+		<select onChange={handleChange} value={selectedSort} className="sort-by-box">
 		  <option value="">Select Sort</option>
 		  {sortOptions.map((option) => (
 			<option key={option.id} value={option.id}>
@@ -38,7 +39,7 @@ const sortOptions = [
 			</option>
 		  ))}
 		</select>
-		<select onChange={handleOrderChange} value={selectedOrder}>
+		<select onChange={handleOrderChange} value={selectedOrder} className="sort-by-box">
 			<option value="asc">asc</option>
 			<option value="desc">desc</option>
 		</select>
