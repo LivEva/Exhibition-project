@@ -26,7 +26,7 @@
 }
 
 .collection-card-container img{
-    width: 60%;
+    width: 70%;
     margin: 10px;
 }
 
@@ -44,7 +44,7 @@
 .collection-container{
     display: grid;
     grid-template-columns: repeat(4, 1fr); 
-    gap: 20px; 
+    gap: 10px; 
     padding: 20px;
     justify-items: center; 
 
@@ -104,6 +104,17 @@
   .saved-collection-container {
     grid-template-columns: 1fr; 
   }
+}
+
+.in-collection-badge{
+  margin-top: 10px;
+  padding: 5px 10px;
+  background-color: #4CAF50;
+  color: white;
+  font-weight: bold;
+  border-radius: 5px;
+  text-align: center;
+  display: inline-block;
 }
   
 

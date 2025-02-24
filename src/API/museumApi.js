@@ -32,7 +32,7 @@ const fetchAllObjects = async (query, page = 1, sortBy, sortOrder, selectedCateg
                 api.get(`/object`, { params: paramsHarvard }),
                 api2.get(`/objects/search`, { params: paramsVa })
             ]);
-            console.log(harvardResponse.data.records);
+
             const harvardData = harvardResponse.data?.records
                 .filter(art => art.images?.length === 1)
                 .map(art => ({
