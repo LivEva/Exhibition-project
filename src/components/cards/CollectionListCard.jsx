@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
-import "../../styling/collectionListCard.css";
+import "../styling/collectionListCard.css";
 
 
 const CollectionListCard = ({ item }) => {

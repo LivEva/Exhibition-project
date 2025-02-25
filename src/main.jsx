@@ -1,6 +1,6 @@
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
-import "./styling/index.css";
+import '../src/components/styling/index.css';
 import App from "./App.jsx";
 import { BrowserRouter } from "react-router";
 

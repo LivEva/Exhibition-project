@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import '../../styling/collectionListCard.css';
+import '../styling/collectionListCard.css';
 
 
 const SavedExhibitions = () => {

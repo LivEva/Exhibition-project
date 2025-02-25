@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import "../../styling/filter.css";
+import "../styling/filter.css";
 import ObjectCategories from "./ObjectCategories";
 
 

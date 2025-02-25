@@ -1,5 +1,5 @@
 import { useState } from "react";
-import "../../styling/searchBar.css";
+import "../styling/searchBar.css";
 import { useNavigate } from "react-router";
 import { useEffect } from "react";
 

@@ -1,4 +1,4 @@
-import "../../styling/pagination.css";
+import "../styling/pagination.css";
 
 const PaginationElement = ({ setEachPage, eachPage }) => {
 	return (

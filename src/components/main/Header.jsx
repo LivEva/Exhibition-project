@@ -1,4 +1,4 @@
-import "../../styling/header.css";
+import "../styling/header.css";
 import { Link } from "react-router";
 
 const Header = () => {

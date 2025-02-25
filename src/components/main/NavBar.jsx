@@ -1,4 +1,4 @@
-import "../../styling/navBar.css";
+import "../styling/navBar.css";
 import { Link } from "react-router";
 
 const NavBar = () => {

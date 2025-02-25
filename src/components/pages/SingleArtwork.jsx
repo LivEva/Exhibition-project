@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useParams, Link } from "react-router-dom";
-import '../../styling/singleArtwork.css'
+import '../styling/singleArtwork.css'
 import { fetchObjectById } from "../../API/museumApi";
 
 const saveObject = (object) => {

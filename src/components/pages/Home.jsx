@@ -1,4 +1,4 @@
-import "../../styling/home.css";
+import "../styling/home.css";
 
 const Home = () => {
 	return (
