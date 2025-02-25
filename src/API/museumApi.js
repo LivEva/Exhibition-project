@@ -1,13 +1,7 @@
 import axios from "axios";
 
 const api = axios.create({
-    baseURL: "https://api.harvardartmuseums.org",
-params: {
-    apikey: `5057e844-28d1-4bc1-acfe-1b9f6d27807e`
-}});
-
-const api2 = axios.create({
-    baseURL: 'https://api.vam.ac.uk/v2'
+    baseURL: "https://museum-exhibition.onrender.com/api"
 });
 
 const fetchAllObjects = async (query, page = 1, sortBy, sortOrder, selectedCategory, minResults = 20) => {
@@ -29,8 +23,8 @@ const fetchAllObjects = async (query, page = 1, sortBy, sortOrder, selectedCateg
         }
         try {
             const [harvardResponse, vaResponse] = await Promise.all([
-                api.get(`/object`, { params: paramsHarvard }),
-                api2.get(`/objects/search`, { params: paramsVa })
+                api.get(`/harvard/objects`, { params: paramsHarvard }),
+                api.get(`/va/objects`, { params: paramsVa })
             ]);
 
             const harvardData = harvardResponse.data?.records
@@ -73,11 +67,10 @@ const fetchAllObjects = async (query, page = 1, sortBy, sortOrder, selectedCateg
     return results.slice(0, minResults);
 };
 
-
+// Fetch object by ID
 const fetchObjectById = (id, source) => {
-
-    if(source === "Harvard"){
-        return api.get(`/object/${id}`).then((response) => ({
+    if (source === "Harvard") {
+        return api.get(`/harvard/objects/${id}`).then((response) => ({
             id: response.data.id,
             source: "Harvard",
             title: response.data.title || "[ No title ]",
@@ -89,25 +82,15 @@ const fetchObjectById = (id, source) => {
             department: response.data.department,
             origin: response.data.provenance,
             location: response.data.creditline,
-
-         
         })).catch((error) => {
-
-            console.log("THIS IS THE ERROR FOR FETCHING HARVARD OBJECT BY ID")
+            console.log("THIS IS THE ERROR FOR FETCHING HARVARD OBJECT BY ID");
             return null;
-
         });
-    } else if(source === "VA"){
-        return api2.get(`/object/${id}`).then((response) => 
-        
-
-            (
-           
-            {
-
+    } else if (source === "VA") {
+        return api.get(`/va/objects/${id}`).then((response) => ({
             id: response.data.record.systemNumber,
             source: "VA",
-            title: response.data.record.titles[0].title|| "[ No title ]",
+            title: response.data.record.titles[0].title || "[ No title ]",
             description: response.data.record.briefDescription,
             image: `https://framemark.vam.ac.uk/collections/${response.data.record.images[0]}/full/full/0/default.jpg`,
             type: response.data.objectType,
@@ -115,15 +98,12 @@ const fetchObjectById = (id, source) => {
             date: response.data._primaryDate,
             dimensions: response.data.dimensions,
             categories: response.data.categories
-
-
         })).catch((error) => {
-            console.log(error, "THIS IS THE ERROR FETCHING THE VA OBJECT BY ID")
+            console.log(error, "THIS IS THE ERROR FETCHING THE VA OBJECT BY ID");
             return null;
         });
-    }
-    else{
-        return Promise.reject("INVALID")
+    } else {
+        return Promise.reject("INVALID");
     }
 };
 
