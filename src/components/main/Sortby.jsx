@@ -1,5 +1,5 @@
 import { useState } from "react";
-import '../../styling/sortBy.css'
+import '../../styling/sortBy.css';
 
 const sortOptions = [
 	{ id: "date", vna: "date", harvard: "century", label: "Date" },

@@ -2,7 +2,7 @@ import { fetchAllObjects } from "../../API/museumApi";
 import { useEffect, useState } from "react";
 import CollectionListCard from "../cards/CollectionListCard";
 import SkeletonCard from '../main/SkeletonCard' // Ensure import path is correct
-import "../../styling/exhibitionCollection.css";
+import '../../styling/CollectionListCard.css'
 import Filters from "../main/Filters";
 import PaginationElement from "../main/Pagination";
 import { useSearchParams } from "react-router-dom";
