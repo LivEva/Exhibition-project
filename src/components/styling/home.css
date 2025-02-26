@@ -1,7 +1,5 @@
 .home-container img{
-
     width: 100%;
-
 }
 
 .home-container{
@@ -10,10 +8,10 @@
    
 }
 
-.art-info{
+.info{
     display: flex;
-    justify-content: space-around;
-    align-items: center;
-
-
+    gap: 5px;
+    color: grey;
+    padding-left: 30px;
+    background-color: rgb(147, 211, 202);
 }

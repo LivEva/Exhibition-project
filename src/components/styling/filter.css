@@ -1,9 +1,10 @@
 .filter-container{
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
   align-items: center;
   background-color: rgb(55, 197, 197);
   padding: 30px;
+  gap: 10px;
 }
 
 .filter-container select{

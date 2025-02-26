@@ -68,7 +68,7 @@ const ArtworkCollection = () => {
         )}
       </div>
       <div className="search-and-pagination-container">
-        <h3>Results for: {query}</h3>
+       
         <PaginationElement setEachPage={setEachPage} eachPage={eachPage} totalPages={totalPages} />
       </div>
     </div>

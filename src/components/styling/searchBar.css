@@ -22,6 +22,10 @@
  
 }
 
+#input-box{
+    width: 200px;
+}
+
 .search-bar-container button:hover{
 
     transform: translateY(-2px); 
