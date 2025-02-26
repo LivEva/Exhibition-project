@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import '../styling/collectionListCard.css';
+import '../styling/savedExhibitions.css'
 
 
 const SavedExhibitions = () => {
@@ -21,21 +21,23 @@ const SavedExhibitions = () => {
         localStorage.setItem("savedCollections", JSON.stringify(updatedCollections));  
     };
 
+	const fileTitle = selectedFolder.charAt(0).toUpperCase() + selectedFolder.slice(1);
+
     return (
 
-		<div className="collection-card-container">
-			<h1>Saved Exhibitions</h1>
+		<div className="saved-collection-container">
+			<h1>{fileTitle} collection</h1>
 
 			{!selectedFolder ? (
 
-				<div className="saved-collection-container">
+				<div className="saved-artwork-card">
 					
 					{Object.keys(savedCollections).length > 0 ? (
 						
 						<ul>
 							{Object.keys(savedCollections).map(folder => (
 								<li key={folder}>
-									<button onClick={() => setSelectedFolder(folder)}>
+									<button onClick={() => setSelectedFolder(folder)} className="saved-collection-container">
 										{folder} ({savedCollections[folder].length} items)
 									</button>
 								</li>
@@ -47,9 +49,9 @@ const SavedExhibitions = () => {
 					)}
 				</div>
 			) : (
-				<div>
-					<h2>{selectedFolder} Collection</h2>
-					<button onClick={() => setSelectedFolder(null)}>Back to Collections</button>
+				<div className="saved-exhibition-container">
+					
+					<button onClick={() => setSelectedFolder(null)} className="saved-collection-buttons">Back to Collections</button>
 
 	
 					{savedCollections[selectedFolder].map(artwork => (
@@ -58,7 +60,7 @@ const SavedExhibitions = () => {
 								<img src={artwork.image} alt={artwork.title} width="200" />
 							</Link>
 							<h2>{artwork.title}</h2>
-							<button onClick={() => removeArtwork(selectedFolder, artwork.id)}>Remove</button>
+							<button onClick={() => removeArtwork(selectedFolder, artwork.id)} className="saved-collection-buttons" id="remove-button">Remove</button>
 						</div>
 					))}
 				</div>

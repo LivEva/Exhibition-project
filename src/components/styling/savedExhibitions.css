@@ -1,0 +1,55 @@
+.saved-collection-container{
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: black;
+    text-align: center;
+    background-color: rgb(194, 206, 204);
+    text-decoration: none;
+}
+
+.saved-artwork-card button{
+
+    background-color: blanchedalmond;
+
+}
+
+.saved-artwork-card a{
+
+    text-decoration: none;
+    color: inherit;
+  
+  }
+
+  .saved-collection-buttons{
+    background-color: #fff;
+    color: #333;
+    padding: 10px 20px; 
+    font-family: "Cedarville Cursive";
+    font-weight: 900;
+    font-size: 1.2em;
+    cursor: pointer; 
+    border: none; 
+    outline: none; 
+    transition: all 0.3s ease; 
+    background-color: #f0f0f0; 
+    margin-bottom: 30px;
+  }
+
+ .artwork-card img:hover{
+    transform: translateY(-2px); 
+    box-shadow: 0 10px 12px rgba(216, 207, 207, 0.368),0 0 5px 5px  rgba(216, 207, 207, 0.368) ; 
+  }
+
+  .artwork-card button{
+    margin-bottom: 30px;
+
+  }
+
+  .artwork-card button:hover{
+
+    background-color: rgb(198, 56, 56);
+
+  }
