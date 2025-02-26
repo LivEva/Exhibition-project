@@ -58,8 +58,8 @@ const SingleArtwork = () => {
     <div className="single-artwork-container">
   
       {showAlert && (
-        <div className="w-full flex justify-center my-3">
-          <Alert color="success" title="Artwork added to collection successfully!" />
+        <div className="w-full flex justify-center my-3" id="alert-design">
+          <Alert color="success" >Artwork added to '{collectionName}' collection successfully ✓</Alert>
         </div>
       )}
 
@@ -78,7 +78,7 @@ const SingleArtwork = () => {
       <div className="save-section">
         <input
           type="text"
-          placeholder="Enter collection name"
+          placeholder="Enter collection name..."
           value={collectionName}
           onChange={(e) => setCollectionName(e.target.value)}
         />

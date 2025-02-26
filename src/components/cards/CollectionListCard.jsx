@@ -18,6 +18,7 @@ const CollectionListCard = ({ item }) => {
   }, [item.id]);
 
   return (
+
     <div className="collection-card-container">
       <Link to={`/object/${item.source}/${item.id}`}>
         <img src={item.image} alt="image of art" />
@@ -29,6 +30,7 @@ const CollectionListCard = ({ item }) => {
       </Link>
       {isInCollection && <p className="in-collection-badge">In Your Collection</p>}
     </div>
+
   );
 };
 

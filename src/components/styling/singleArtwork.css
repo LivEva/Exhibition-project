@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Acme&family=Autour+One&family=Edu+AU+VIC+WA+NT+Arrows:wght@400..700&family=Rubik+Mono+One&display=swap');
 
 
 .single-artwork-container{
@@ -13,17 +14,6 @@
 
 #art-image{
     width: 60%;
-  
-    
-}
-
-.art-info{
-
-    padding: 10px;
-    border-radius: 8px;
-    margin: 10px;
-    display: flex;
-    font-size: 16px;
 }
 
 .save-section{
@@ -31,6 +21,35 @@
     justify-content: center;
     gap: 10px;
     margin: 10px;
+}
+
+.save-section input{
+    padding: 10px;
+    border-radius: 10px;
+    font-weight: bold;
+    padding: 5px;
+    font-family: "Rubik Mono One";
+}
+
+.save-section button{
+    background-color: #fff;
+    color: #333;
+    padding: 10px 20px; 
+    font-size: 1.2em;
+    cursor: pointer; 
+    border: none; 
+    outline: none; 
+    transition: all 0.3s ease; 
+    background-color: #f0f0f0; 
+    font-family: "Rubik Mono One";
+}
+
+.save-section button:hover{
+
+        transform: translateY(-2px); 
+        box-shadow: 0 10px 12px rgba(216, 207, 207, 0.368),0 0 5px 5px  rgba(216, 207, 207, 0.368) ; 
+        background-color: green;
+        
 }
 
 .melting-text-container {
@@ -42,14 +61,14 @@
 
 .melting-text {
     font-size: 2rem;
+    font-family: "Rubik Mono One";
     font-weight: bold;
     text-transform: uppercase;
     position: relative;
     animation: melt 10s infinite ease-in-out;
-    background: linear-gradient(90deg, #1e0fa0, #77b0d6, #d3dade);
+    background: linear-gradient(90deg, #185e4b, #35ad6f, #039ef7);
     -webkit-background-clip: text;
     color: transparent;
-   
 }
 
 .melting-text::before,
@@ -74,7 +93,7 @@
     opacity: 0.3;
 }
 
-/* Keyframes for melting effect */
+
 @keyframes melt {
     0%, 100% {
         transform: translateY(0);
@@ -95,4 +114,14 @@
     }
 }
 
+#alert-design{
+    color: #09aa03;
+    padding: 10px 20px; 
+    font-size: 0.8em;
+    cursor: pointer; 
+    border: none; 
+    outline: none; 
+    transition: all 0.3s ease; 
+    font-family: "Rubik Mono One";
+}
 
