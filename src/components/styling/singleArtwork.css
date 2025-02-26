@@ -125,3 +125,26 @@
     font-family: "Rubik Mono One";
 }
 
+.error-message{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background-color: #f1afd0;
+    padding: 10px;
+
+}
+
+.loading-message{
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background-color: #d9e45e;
+    padding: 10px;
+
+}
+
+
+

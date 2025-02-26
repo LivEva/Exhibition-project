@@ -34,6 +34,12 @@
 
 }
 
+.collection-card-container p{
+  color: rgb(54, 52, 52);
+  font-weight: bold;
+  font-family: "Rubik Mono One";
+}
+
 .collection-card-container img{
   width: 80%;
   max-width: 80%;

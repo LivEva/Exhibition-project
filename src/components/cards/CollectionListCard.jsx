@@ -5,16 +5,27 @@ import "../styling/collectionListCard.css";
 
 const CollectionListCard = ({ item }) => {
   const [isInCollection, setIsInCollection] = useState(false);
+  const [collectionName, setCollectionName] = useState("");
 
   useEffect(() => {
 
     const savedCollections = JSON.parse(localStorage.getItem("savedCollections")) || {};
-    const isSaved = Object.values(savedCollections).some(collection =>
-      collection.some(art => art.id === item.id)
+   
+    let foundFolder = "";
+    let isSaved = false;
 
-    );
+
+    for (const folder in savedCollections) {
+        if (savedCollections[folder].some(art => art.id === item.id)) {
+            isSaved = true;
+            foundFolder = folder;
+            break; 
+        }
+    }
+  
 
     setIsInCollection(isSaved);
+    setCollectionName(foundFolder)
   }, [item.id]);
 
   return (
@@ -28,7 +39,7 @@ const CollectionListCard = ({ item }) => {
         <p>{item.type}</p>
         <p>{item.department}</p>
       </Link>
-      {isInCollection && <p className="in-collection-badge">In Your Collection</p>}
+      {isInCollection && <p className="in-collection-badge">Saved in: {collectionName}</p>}
     </div>
 
   );

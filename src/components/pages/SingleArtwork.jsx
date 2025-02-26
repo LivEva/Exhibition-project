@@ -28,6 +28,7 @@ const SingleArtwork = () => {
       });
   }, [id, source]);
 
+
   const saveObject = () => {
     if (!collectionName.trim()) {
       return;
@@ -51,7 +52,7 @@ const SingleArtwork = () => {
   };
 
   if (isLoading) {
-    return <h1>Loading Artwork...</h1>;
+    return <h1 className="loading-message">Loading Artwork...</h1>;
   }
 
   return (
@@ -63,11 +64,15 @@ const SingleArtwork = () => {
         </div>
       )}
 
+      {!artwork || Object.keys(artwork).length === 0 ? <h1 className="error-message">sorry, there seems to be an issue loading this object. Please try again later!</h1> : 
+
+      <>
+
       <div className="melting-text-container">
         <h1 className="melting-text">{artwork?.title}</h1>
       </div>
 
-      <img src={artwork?.image} alt={artwork?.title} id="art-image" />
+      <img src={artwork?.image} alt={artwork?.title} id="art-image"/>
 
       <div className="art-info">
         <p>{artwork?.description}</p>
@@ -84,7 +89,11 @@ const SingleArtwork = () => {
         />
         <button onClick={saveObject}>Save to Collection</button>
       </div>
+
+</>
+}; 
     </div>
+      
   );
 };
 
