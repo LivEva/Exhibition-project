@@ -1,7 +1,7 @@
 import { useState } from "react";
 import "../styling/searchBar.css";
 import { useNavigate } from "react-router";
-import { useEffect } from "react";
+
 
 const SearchArtworks = ({ onSearch }) => {
 	const [currentSearchTerm, setCurrentSearchTerm] = useState("");
@@ -22,9 +22,11 @@ const SearchArtworks = ({ onSearch }) => {
 
 	return (
 		<form className="search-bar-container" onSubmit={handleSubmit}>
-			<label id="enterString">E.g Art, Department, Artist...</label>
-
+			<label id="enterString">What are you looking for...</label>
 			<input
+			   type="text"
+			    name="input-box"
+			    placeholder="E.g Art, Department, Artist..."
 				id="input-box"
 				label="search term..."
 				onChange={handleChange}

@@ -1,7 +1,4 @@
-h1{
-    font-size: 3em;
-    text-decoration: none;
-}
+
 
 .header-container{
     display: flex;
@@ -13,3 +10,8 @@ h1{
     text-decoration: none;
      color: inherit;
 }
+
+#logo{
+    width: 150px;
+}
+

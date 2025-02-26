@@ -13,9 +13,13 @@ function App() {
 		<>
 			<Header />
 
-			<NavBar />
+			<div className="nav-bar-container">
 
 			<SearchArtworks />
+
+			<NavBar />
+
+			</div>
 
 			<Routes>
 				
