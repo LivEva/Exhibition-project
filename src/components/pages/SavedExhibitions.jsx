@@ -21,12 +21,12 @@ const SavedExhibitions = () => {
         localStorage.setItem("savedCollections", JSON.stringify(updatedCollections));  
     };
 
-	const fileTitle = selectedFolder.charAt(0).toUpperCase() + selectedFolder.slice(1);
+	
 
     return (
 
 		<div className="saved-collection-container">
-			<h1>{fileTitle} collection</h1>
+			<h1>{selectedFolder} collection</h1>
 
 			{!selectedFolder ? (
 

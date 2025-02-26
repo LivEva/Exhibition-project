@@ -5,6 +5,7 @@
     padding: 30px;
     background-color: rgb(136, 194, 178);
     gap: 10px;
+    
 }
 
 .search-bar-container button{
@@ -19,11 +20,15 @@
     outline: none; 
     transition: all 0.3s ease; 
     background-color: #f0f0f0; 
+    border-radius: 10px;
  
 }
 
 #input-box{
     width: 200px;
+    border-radius: 10px;
+    font-weight: bold;
+    padding: 5px;
 }
 
 .search-bar-container button:hover{

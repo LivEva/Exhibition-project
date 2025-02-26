@@ -5,9 +5,18 @@
     background-color: rgb(19, 209, 171);
     padding: 30px;
     gap: 10px;
+  
 }
 
 
 .sort-by-box{
+    margin: 10px;
     padding: 10px;
+    display: flex;
+    border-radius: 10px;
+    color: grey;
+    font-weight: bold;
+ 
 }
+
+

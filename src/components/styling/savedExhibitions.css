@@ -5,6 +5,7 @@
     justify-content: center;
     align-items: center;
     color: black;
+    font-weight: bold;
     text-align: center;
     background-color: rgb(194, 206, 204);
     text-decoration: none;
@@ -13,8 +14,17 @@
 .saved-artwork-card button{
 
     background-color: blanchedalmond;
+    padding: 30px;
 
 }
+
+.saved-artwork-card button:hover{
+
+  background-color: blanchedalmond;
+  transform: translateY(-2px); 
+  box-shadow: 0 10px 12px rgba(216, 207, 207, 0.368),0 0 5px 5px  rgba(216, 207, 207, 0.368) ; 
+}
+
 
 .saved-artwork-card a{
 

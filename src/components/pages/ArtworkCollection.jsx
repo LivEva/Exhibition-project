@@ -8,6 +8,7 @@ import PaginationElement from "../main/Pagination";
 import { useSearchParams } from "react-router-dom";
 import { useLocation } from "react-router-dom";
 import SortBy from "../main/Sortby";
+import Loading from "../cards/Loading";
 
 const ArtworkCollection = () => {
   const [collections, setCollections] = useState([]);
@@ -25,8 +26,12 @@ const ArtworkCollection = () => {
   useEffect(() => {
     const query = searchParams.get("q");
 
+    setIsLoading(true);
+
+
+
     if (query?.trim()) {
-      setIsLoading(true);
+    
       fetchAllObjects(query, eachPage, sortBy, sortOrder, selectedCategory)
         .then((response) => {
           setCollections(response);
@@ -43,9 +48,12 @@ const ArtworkCollection = () => {
   const totalItems = collections.length;
   const totalPages = Math.ceil(totalItems / 10);
 
+  if(isLoading){
+    return (<Loading />)
+  }
+
   return (
     <div className="collection">
-    
 
       <Filters
         collections={collections}
