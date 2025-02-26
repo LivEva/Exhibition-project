@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Acme&family=Autour+One&family=Edu+AU+VIC+WA+NT+Arrows:wght@400..700&family=Rubik+Mono+One&display=swap');
+
+
 .search-bar-container{
     display: flex;
     justify-content: flex-start;
@@ -5,6 +8,9 @@
     padding: 30px;
     background-color: rgb(136, 194, 178);
     gap: 10px;
+    font-family: "Rubik Mono One";
+    box-shadow: 0 10px 12px rgba(19, 11, 11, 0.368),0 0 5px 5px  rgba(24, 12, 12, 0.368) ; 
+     
     
 }
 
@@ -21,6 +27,7 @@
     transition: all 0.3s ease; 
     background-color: #f0f0f0; 
     border-radius: 10px;
+    font-family: "Rubik Mono One";
  
 }
 
@@ -29,11 +36,14 @@
     border-radius: 10px;
     font-weight: bold;
     padding: 5px;
+    font-family: "Rubik Mono One";
+
 }
 
 .search-bar-container button:hover{
 
     transform: translateY(-2px); 
-    box-shadow: 0 10px 12px rgba(216, 207, 207, 0.368),0 0 5px 5px  rgba(216, 207, 207, 0.368) ; 
+    box-shadow: 0 10px 12px rgba(54, 34, 34, 0.368),0 0 5px 5px  rgba(216, 207, 207, 0.368) ; 
+    background-color: green;
     }
       

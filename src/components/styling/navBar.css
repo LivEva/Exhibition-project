@@ -1,5 +1,8 @@
+@import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Acme&family=Autour+One&family=Edu+AU+VIC+WA+NT+Arrows:wght@400..700&family=Rubik+Mono+One&display=swap');
+
+
 .nav-bar-container{
-    background-color: rgb(147, 211, 202);
+    background-color:rgb(70, 171, 137);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -31,12 +34,13 @@
     outline: none; 
     transition: all 0.3s ease; 
     background-color: #f0f0f0; 
+    font-family: "Rubik Mono One";
 
   }
 
   .buttons :hover{
     transform: translateY(-2px); 
-    box-shadow: 0 10px 12px rgba(216, 207, 207, 0.368),0 0 5px 5px  rgba(216, 207, 207, 0.368) ; 
+    box-shadow: 0 10px 12px rgba(46, 23, 23, 0.368),0 0 5px 5px  rgba(216, 207, 207, 0.368) ; 
   }
   
 

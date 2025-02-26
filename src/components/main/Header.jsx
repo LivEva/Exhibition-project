@@ -1,12 +1,16 @@
 import "../styling/header.css";
 import { Link } from "react-router";
-import logo from '../../images/logo.jpeg'
+
+
 
 const Header = () => {
 	return (
 		<div className="header-container">
 			<Link to={"/Home"}>
-				<img src={logo} alt="website logo" className="logo"/>
+				<button><h1 className="V">V</h1>
+				<h1 className="T">E</h1>
+				<h1 className="A">x</h1>
+				</button>
 			</Link>
 		</div>
 	);

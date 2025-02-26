@@ -8,7 +8,7 @@ import PaginationElement from "../main/Pagination";
 import { useSearchParams } from "react-router-dom";
 import { useLocation } from "react-router-dom";
 import SortBy from "../main/Sortby";
-import Loading from "../cards/Loading";
+
 
 const ArtworkCollection = () => {
   const [collections, setCollections] = useState([]);
@@ -48,9 +48,7 @@ const ArtworkCollection = () => {
   const totalItems = collections.length;
   const totalPages = Math.ceil(totalItems / 10);
 
-  if(isLoading){
-    return (<Loading />)
-  }
+
 
   return (
     <div className="collection">

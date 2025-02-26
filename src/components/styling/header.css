@@ -1,9 +1,24 @@
 
-
 .header-container{
     display: flex;
     justify-content: center;
-    background-color: rgb(157, 190, 185);
+    align-items: center;
+
+}
+
+.header-container h1{
+
+font-size: 3em; /* Minimum 2em, responsive scaling with 8vw, max 6em */
+
+}
+
+.header-container button{
+    display: flex;
+    width: 100px;
+    height: 100px;
+    justify-content: center;
+    align-items: center;
+   
 }
 
 .header-container a{
@@ -11,12 +26,8 @@
      color: inherit;
 }
 
-.logo{
-    width: 150px;
-}
 
 .logo :hover{
-
 transform: translateY(-2px); 
 box-shadow: 0 10px 12px rgba(216, 207, 207, 0.368),0 0 5px 5px  rgba(216, 207, 207, 0.368) ; 
       }

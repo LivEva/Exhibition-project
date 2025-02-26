@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import '../styling/savedExhibitions.css'
 
 
+
 const SavedExhibitions = () => {
     const [savedCollections, setSavedCollections] = useState([]);
     const [selectedFolder, setSelectedFolder] = useState("");
@@ -17,6 +18,14 @@ const SavedExhibitions = () => {
         let updatedCollections = {...savedCollections};
         updatedCollections[folder] = updatedCollections[folder].filter((artwork) => artwork.id !== id);
 
+		if(updatedCollections[folder].length === 0){
+			delete updatedCollections[folder];
+
+			if(selectedFolder === folder){
+				setSelectedFolder(null);
+			}
+		}
+
         setSavedCollections(updatedCollections);
         localStorage.setItem("savedCollections", JSON.stringify(updatedCollections));  
     };
@@ -26,7 +35,7 @@ const SavedExhibitions = () => {
     return (
 
 		<div className="saved-collection-container">
-			<h1>{selectedFolder} collection</h1>
+			<h1>{selectedFolder} collections</h1>
 
 			{!selectedFolder ? (
 
@@ -44,6 +53,8 @@ const SavedExhibitions = () => {
 							))}
 						</ul>
 					) : (
+
+						
 						<p>No collections yet. Save some artwork!</p>
 						
 					)}
@@ -51,7 +62,8 @@ const SavedExhibitions = () => {
 			) : (
 				<div className="saved-exhibition-container">
 					
-					<button onClick={() => setSelectedFolder(null)} className="saved-collection-buttons">Back to Collections</button>
+					
+					<button onClick={() => setSelectedFolder(null)} className="saved-collection-buttons"> ← Back to Collections</button>
 
 	
 					{savedCollections[selectedFolder].map(artwork => (

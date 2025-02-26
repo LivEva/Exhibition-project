@@ -44,7 +44,7 @@ const ObjectCategories = ({onSelect}) => {
 
     return (
 
-        <div className="filter-container">
+        <div className="filter-container-two">
 
         <select value={selectedCategories} onChange={handleChange} className="filter-box">
             <option value="any">All categories</option>

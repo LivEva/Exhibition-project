@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Acme&family=Autour+One&family=Edu+AU+VIC+WA+NT+Arrows:wght@400..700&family=Rubik+Mono+One&display=swap');
+
+
 .saved-collection-container{
 
     display: flex;
@@ -9,6 +12,7 @@
     text-align: center;
     background-color: rgb(194, 206, 204);
     text-decoration: none;
+    font-family: "Rubik Mono One";
 }
 
 .saved-artwork-card button{
@@ -30,6 +34,7 @@
 
     text-decoration: none;
     color: inherit;
+    
   
   }
 
@@ -46,6 +51,7 @@
     transition: all 0.3s ease; 
     background-color: #f0f0f0; 
     margin-bottom: 30px;
+    font-family: "Rubik Mono One";
   }
 
  .artwork-card img:hover{

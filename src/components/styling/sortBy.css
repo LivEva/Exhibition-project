@@ -1,21 +1,26 @@
+@import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Acme&family=Autour+One&family=Edu+AU+VIC+WA+NT+Arrows:wght@400..700&family=Rubik+Mono+One&display=swap');
+
+
 .sort-by-container{
     display: flex;
-    justify-content: flex-end;
     align-items: center;
     background-color: rgb(19, 209, 171);
     padding: 30px;
     gap: 10px;
+    box-shadow: 0 10px 12px rgba(24, 13, 13, 0.368),0 0 5px 5px  rgba(36, 17, 17, 0) ; 
+     
   
 }
 
 
 .sort-by-box{
-    margin: 10px;
+
     padding: 10px;
     display: flex;
     border-radius: 10px;
     color: grey;
     font-weight: bold;
+    font-family: "Rubik Mono One";
  
 }
 
