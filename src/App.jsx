@@ -11,15 +11,10 @@ import { Routes, Route, Navigate } from "react-router";
 function App() {
 	return (
 		<>
-			<Header />
-
-			<div className="nav-bar-container">
-
-			<SearchArtworks />
 
 			<NavBar />
 
-			</div>
+			<SearchArtworks />
 
 			<Routes>
 				

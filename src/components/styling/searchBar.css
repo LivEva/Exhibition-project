@@ -1,12 +1,25 @@
 .search-bar-container{
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
     padding: 30px;
+    background-color: rgb(136, 194, 178);
+    gap: 10px;
 }
 
 .search-bar-container button{
-    width: 100px;
+    background-color: #fff;
+    color: #333;
+    padding: 10px 20px; 
+    font-family: "Cedarville Cursive";
+    font-weight: 900;
+    font-size: 1.2em;
+    cursor: pointer; 
+    border: none; 
+    outline: none; 
+    transition: all 0.3s ease; 
+    background-color: #f0f0f0; 
+ 
 }
 
 .search-bar-container button:hover{

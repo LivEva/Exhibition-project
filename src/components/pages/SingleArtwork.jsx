@@ -17,7 +17,6 @@ const SingleArtwork = () => {
 	const [isLoading, setIsLoading] = useState(false);
 	const [collectionName, setCollectionName] = useState("");
 
-
 	const { source, id } = useParams();
 
 	useEffect(() => {
@@ -56,16 +55,25 @@ const SingleArtwork = () => {
 	}
 
 	return (
-		<div>
-			<h2>{artwork?.title}</h2>
-			<img src={artwork?.image} alt={artwork?.title} />
+		<div className="single-artwork-container">
+			<div className="melting-text-container">
+    <h1 className="melting-text">{artwork?.title}</h1>
+</div>
+			
+			<img src={artwork?.image} alt={artwork?.title} id="art-image"/>
+			<div className="art-info">
 			<p>{artwork?.description}</p>
 			<p>{artwork?.dimensions}</p>
 			<p>{artwork?.type}</p>
+			</div>
+			<div className="save-section">
 			<input type="text" placeholder="Enter collection name" value={collectionName} onChange={(e) => setCollectionName(e.target.value)} />
 			<button onClick={saveObject}>save to collection</button>
+			</div>
 		</div>
 	);
+
+	
 };
 
 export default SingleArtwork;
