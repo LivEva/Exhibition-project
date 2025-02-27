@@ -6,14 +6,16 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+
 }
 
 #title{
-    font-size: 50px;
+    font-size: 25%;
 }
 
 #art-image{
     width: 50%;
+    margin-top: 20px;
 }
 
 .art-info{
@@ -22,7 +24,8 @@
     justify-content: center;
     align-items: center;
     text-align: center;
-    font-family: "Rubik Mono One";
+     font-family: "Rubik Mono One";
+     margin: 20px;
 }
 
 .save-section{
@@ -76,11 +79,11 @@
     display: flex;
     justify-content: center;
     align-items: center;
-   
+    flex: 1 1 50%;
 }
 
 .melting-text {
-    font-size: 2rem;
+    font-size: 1.5rem;
     font-family: "Rubik Mono One";
     font-weight: bold;
     text-transform: uppercase;
@@ -89,6 +92,28 @@
     background: linear-gradient(90deg, #185e4b, #35ad6f, #039ef7);
     -webkit-background-clip: text;
     color: transparent;
+}
+
+@media (max-width: 1024px) {
+  .melting-text-container {
+      font-size: 2rem;
+  }
+  
+  .melting-text-container {
+      flex: 1 1 30%; 
+  }
+}
+
+@media (max-width: 768px) {
+  .melting-text-container {
+      flex: 1 1 45%; 
+  }
+}
+
+@media (max-width: 500px) {
+  .melting-text-container {
+      flex: 1 1 100%; 
+  }
 }
 
 .melting-text::before,

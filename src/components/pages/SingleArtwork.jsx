@@ -83,6 +83,7 @@ const SingleArtwork = () => {
       </div>
 
       <div className="save-section">
+        
         <input
           type="text"
           placeholder="Enter collection name..."
