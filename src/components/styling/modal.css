@@ -1,0 +1,23 @@
+.modal-image{
+    max-height: 90%;
+    max-width: 90%;
+    object-fit: contain;
+}
+
+#art-image{
+    cursor: pointer;
+    max-width: 100%;
+}
+
+.opened-modal{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    background-color: rgba(0,0,0,0.8);
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+}

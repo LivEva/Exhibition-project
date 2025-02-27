@@ -4,6 +4,7 @@ import { Alert } from "@heroui/react";
 import "../styling/singleArtwork.css";
 import { fetchObjectById } from "../../API/museumApi";
 import SkeletonCard from "../main/SkeletonCard";
+import ImageModal from "../cards/ImageModal";
 
 const SingleArtwork = () => {
   const [artwork, setArtwork] = useState(null);
@@ -69,7 +70,11 @@ const SingleArtwork = () => {
 
       <>
 
-      <img src={artwork?.image} alt={artwork?.title} id="art-image"/>
+      <div className="image-modal">
+
+      <ImageModal artwork={artwork}/>
+
+      </div>
 
       <div className="melting-text-container">
         <h2 className="melting-text">{artwork?.title}</h2>
@@ -78,7 +83,7 @@ const SingleArtwork = () => {
       <div className="art-info">
 
      
-        <h3>Description</h3><p>{artwork?.description}</p>
+        <p>{artwork?.description}</p>
         <h3>Dimensions</h3><p>{artwork?.dimensions}</p>
         <h3>Type</h3><p>{artwork?.type}</p>
         <h3>Date</h3> <p>{artwork?.date}</p>
