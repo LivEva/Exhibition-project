@@ -6,22 +6,38 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+
 }
 
 
 #art-image{
-    width: 50%;
+    width: 70%;
     margin-top: 20px;
 }
 
 .art-info{
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
+
     font-family: "Rubik Mono One";
+    max-width: 80%;
+    flex-direction: inline;
 }
+
+.art-info {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+  }
+  
+  .tag {
+    font-weight: bold;
+    margin-right: 5px;
+    display: inline-block;
+    min-width: 120px; 
+    color: grey;
+  }
+  
 
 .art-info h3{
     color: grey;
@@ -184,5 +200,22 @@
     color: grey;
     font-family: "Rubik Mono One";
 }
+
+
+
+.art-info {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+  }
+  
+  .tag {
+    font-weight: bold;
+    margin-right: 5px;
+    display: inline-block;
+    min-width: 120px; /* Adjust as needed */
+  }
+
+ 
 
 

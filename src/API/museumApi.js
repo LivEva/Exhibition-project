@@ -28,7 +28,7 @@ const fetchAllObjects = async (query, page = 1, sortBy, sortOrder, selectedCateg
             ]);
 
             const harvardData = harvardResponse.data?.records
-                .filter(art => art.images?.length === 1 && art.title?.length === 1)
+                .filter(art => art.images?.length === 1 && art.title)
                 .map(art => ({
                     id: art.id,
                     yearAdded: art.accessionyear,
@@ -68,10 +68,13 @@ const fetchAllObjects = async (query, page = 1, sortBy, sortOrder, selectedCateg
     return results.slice(0, minResults);
 };
 
-// Fetch object by ID
 const fetchObjectById = (id, source) => {
     if (source === "Harvard") {
-        return api.get(`/harvard/objects/${id}`).then((response) => ({
+        return api.get(`/harvard/objects/${id}`).then((response) => 
+            
+         
+            
+            ({
             id: response.data.id,
             source: "Harvard",
             title: response.data.title || "[ No title ]",
@@ -82,30 +85,44 @@ const fetchObjectById = (id, source) => {
             date: response.data.dated,
             department: response.data.department,
             origin: response.data.provenance,
-            location: response.data.creditline,
+            location: "Harvard museum",
+            credit: response.data.creditline,
+            physicalDescription: response.data.medium,
         })).catch((error) => {
             console.log("THIS IS THE ERROR FOR FETCHING HARVARD OBJECT BY ID");
             return null;
         });
     } else if (source === "VA") {
-        return api.get(`/va/objects/${id}`).then((response) => ({
+     
+        return api.get(`/va/objects/${id}`).then((response) => 
+        
+            (
+            {
+                
             id: response.data.record.systemNumber,
             source: "VA",
             title: response.data.record.titles[0].title || "[ No title ]",
             description: response.data.record.briefDescription,
             image: `https://framemark.vam.ac.uk/collections/${response.data.record.images[0]}/full/full/0/default.jpg`,
-            type: response.data.objectType,
-            location: response.data._currentLocation?.site,
-            date: response.data._primaryDate,
-            dimensions: response.data.dimensions,
-            categories: response.data.categories
+            type: response.data.record.objectType,
+            location: "Victoria and Albert museum",
+            date: response.data.record._primaryDate,
+            dimensions: `${response.data.record.dimensions[0].dimension}: ${response.data.record.dimensions[0].value}${response.data.record.dimensions[0].unit}`,
+            categories: response.data.record.categories,
+            credit: response.data.record.creditLine,
+            summary: response.data.record.summaryDescription || null,
+            physicalDescription: response.data.record.physicalDescription,
+        
+
         })).catch((error) => {
             console.log(error, "THIS IS THE ERROR FETCHING THE VA OBJECT BY ID");
             return null;
         });
+
     } else {
-        return Promise.reject("INVALID");
+        return Promise.reject("INVALID");   
     }
+    
 };
 
 export { fetchAllObjects, fetchObjectById };

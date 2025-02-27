@@ -81,17 +81,17 @@ const SingleArtwork = () => {
       </div>
 
       <div className="art-info">
+  <p>{artwork?.description}</p>
+  <p><span className="tag">Physical Description:</span> {artwork?.physicalDescription}</p>
+  <p><span className="tag">Credit:</span> {artwork?.credit}</p>
+  <p><span className="tag">Dimensions:</span> {artwork?.dimensions}</p>
+  <p><span className="tag">Century:</span> {artwork?.century}</p>
+  <p><span className="tag">Created:</span> {artwork?.date}</p>
+  <p><span className="tag">Department:</span> {artwork?.department}</p>
+  <p><span className="tag">Location:</span> {artwork?.location}</p>
+  <p>{artwork?.summary}</p>
+</div>
 
-     
-        <p>{artwork?.description}</p>
-        <h3>Dimensions</h3><p>{artwork?.dimensions}</p>
-        <h3>Type</h3><p>{artwork?.type}</p>
-        <h3>Date</h3> <p>{artwork?.date}</p>
-        <h3>Department</h3><p>{artwork?.department}</p>
-        <h3>location</h3><p>{artwork?.location}</p>
-        <h3>Century</h3><p>{artwork?.century}</p>
-
-      </div>
 
       <div className="save-section">
         
