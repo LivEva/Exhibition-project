@@ -68,16 +68,18 @@ const SingleArtwork = () => {
 
       <>
 
-      <div className="melting-text-container">
-        <h1 className="melting-text">{artwork?.title}</h1>
-      </div>
-
       <img src={artwork?.image} alt={artwork?.title} id="art-image"/>
 
       <div className="art-info">
+      <div className="melting-text-container">
+        <h2 className="melting-text">{artwork?.title}</h2>
+      </div>
         <p>{artwork?.description}</p>
         <p>{artwork?.dimensions}</p>
         <p>{artwork?.type}</p>
+        <p>{artwork?.department}</p>
+        <p>{artwork?.location}</p>
+        <p>{artwork?.century}</p>
       </div>
 
       <div className="save-section">

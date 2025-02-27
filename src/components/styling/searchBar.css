@@ -3,15 +3,15 @@
 
 .search-bar-container{
     display: flex;
-    justify-content: flex-start;
+    justify-content: center;
     align-items: center;
+    text-align: center;
     padding: 30px;
     background-color: rgb(136, 194, 178);
     gap: 10px;
     font-family: "Rubik Mono One";
     box-shadow: 0 10px 12px rgba(19, 11, 11, 0.368),0 0 5px 5px  rgba(24, 12, 12, 0.368) ; 
-     
-    
+    flex-wrap: wrap; 
 }
 
 .search-bar-container button{
@@ -28,14 +28,13 @@
     background-color: #f0f0f0; 
     border-radius: 10px;
     font-family: "Rubik Mono One";
- 
 }
 
 #input-box{
-    width: 200px;
+    min-width: 100%;
     border-radius: 10px;
     font-weight: bold;
-    padding: 5px;
+    padding: 10px;
     font-family: "Rubik Mono One";
 
 }

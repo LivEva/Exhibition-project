@@ -1,25 +1,65 @@
 @import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Acme&family=Autour+One&family=Edu+AU+VIC+WA+NT+Arrows:wght@400..700&family=Rubik+Mono+One&display=swap');
 
+.collection-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px; 
+  padding: 20px;
+  background-color: rgb(227, 235, 234);
+  
+}
 
-.collection-card-container{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    color: black;
-    text-align: center;
-    background-color: rgb(194, 206, 204);
-    text-decoration: none;
-    flex-wrap: wrap;
-    margin-bottom: 20px;
-    margin-top: 20px;
+.collection-card-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex: 1 1 300px; 
+  max-width: 400px;  
+  min-width: 180px; 
+  color: black;
+  text-align: center;
+  background-color: rgb(194, 206, 204);
+  text-decoration: none;
+  transition: all 0.3s ease-in-out;
+}
+
+
+.collection-card-container img {
+  width: 100%;
+  height: auto;
+  max-width: 80%;
+}
+
+
+@media (max-width: 1024px) {
+  .collection-container {
+      justify-content: space-evenly; 
+  }
+  
+  .collection-card-container {
+      flex: 1 1 30%; 
+  }
+}
+
+@media (max-width: 768px) {
+  .collection-card-container {
+      flex: 1 1 45%; 
+  }
+}
+
+@media (max-width: 500px) {
+  .collection-card-container {
+      flex: 1 1 100%; 
+  }
 }
 
 .collection-card-container img:hover{
 
-    transform: translateY(-5px); 
-    box-shadow: 0 20px 20px rgba(216, 207, 207, 0.368),0 0 5px 5px  rgba(109, 99, 99, 0.368) ; 
-  
+  transform: translateY(-5px); 
+  box-shadow: 0 20px 20px rgba(216, 207, 207, 0.368),0 0 5px 5px  rgba(109, 99, 99, 0.368) ; 
+
 }
 
 .collection-card-container a{
@@ -40,89 +80,11 @@
   font-family: "Rubik Mono One";
 }
 
-.collection-card-container img{
-  width: 80%;
-  max-width: 80%;
-  height: auto;
-
-}
-
 .search-and-pagination-container{
   display: flex;
   background-color: rgb(8, 143, 123);
   justify-content: space-around;
   align-items: center;
-}
-
-#input-box{
-  height: 30px;
-}
-
-.collection-container{
-    display: grid;
-    grid-template-columns: repeat(4, 1fr); 
-    gap: 10px; 
-    padding: 20px;
-    justify-items: center; 
-    background-color: rgb(227, 235, 234);
-
-}
-
-@media only screen and (max-width: 1024px) {
-    .collection-container {
-      grid-template-columns: repeat(3, 1fr); 
-      margin-bottom: 20px;
-      
-    }
-  }
-  
-  @media only screen and (max-width: 768px) {
-    .collection-container {
-      grid-template-columns: repeat(2, 1fr); 
-    }
-  
-    .collection-container {
-      max-width: 100%; 
-    }
-  }
-  
-  @media only screen and (max-width: 500px) {
-    .collection-container {
-      grid-template-columns: 1fr; 
-    }
-  }
-
-
-.saved-collection-container{
-  display: grid;
-  grid-template-columns: repeat(4, 1fr); 
-  gap: 20px; 
-  padding: 20px;
-  justify-items: center; 
-
-}
-
-@media only screen and (max-width: 1024px) {
-  .saved-collection-container {
-    grid-template-columns: repeat(3, 1fr); 
-    
-  }
-}
-
-@media only screen and (max-width: 768px) {
-  .saved-collection-container {
-    grid-template-columns: repeat(2, 1fr); 
-  }
-
-  .saved-collection-container {
-    max-width: 100%; 
-  }
-}
-
-@media only screen and (max-width: 500px) {
-  .saved-collection-container {
-    grid-template-columns: 1fr; 
-  }
 }
 
 .in-collection-badge{
@@ -135,5 +97,8 @@
   text-align: center;
   display: inline-block;
 }
-  
 
+
+  
+ 
+ 
