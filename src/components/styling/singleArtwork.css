@@ -6,12 +6,8 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-
 }
 
-#title{
-    font-size: 25%;
-}
 
 #art-image{
     width: 50%;
@@ -24,8 +20,12 @@
     justify-content: center;
     align-items: center;
     text-align: center;
-     font-family: "Rubik Mono One";
-     margin: 20px;
+    font-family: "Rubik Mono One";
+}
+
+.art-info h3{
+    color: grey;
+   
 }
 
 .save-section{
@@ -76,10 +76,10 @@
 }
 
 .melting-text-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex: 1 1 50%;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   text-align: center;
 }
 
 .melting-text {
@@ -94,27 +94,7 @@
     color: transparent;
 }
 
-@media (max-width: 1024px) {
-  .melting-text-container {
-      font-size: 2rem;
-  }
-  
-  .melting-text-container {
-      flex: 1 1 30%; 
-  }
-}
 
-@media (max-width: 768px) {
-  .melting-text-container {
-      flex: 1 1 45%; 
-  }
-}
-
-@media (max-width: 500px) {
-  .melting-text-container {
-      flex: 1 1 100%; 
-  }
-}
 
 .melting-text::before,
 .melting-text::after {

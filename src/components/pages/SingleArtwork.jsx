@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import { Alert } from "@heroui/react";
 import "../styling/singleArtwork.css";
 import { fetchObjectById } from "../../API/museumApi";
+import SkeletonCard from "../main/SkeletonCard";
 
 const SingleArtwork = () => {
   const [artwork, setArtwork] = useState(null);
@@ -70,16 +71,21 @@ const SingleArtwork = () => {
 
       <img src={artwork?.image} alt={artwork?.title} id="art-image"/>
 
-      <div className="art-info">
       <div className="melting-text-container">
         <h2 className="melting-text">{artwork?.title}</h2>
       </div>
-        <p>{artwork?.description}</p>
-        <p>{artwork?.dimensions}</p>
-        <p>{artwork?.type}</p>
-        <p>{artwork?.department}</p>
-        <p>{artwork?.location}</p>
-        <p>{artwork?.century}</p>
+
+      <div className="art-info">
+
+     
+        <h3>Description</h3><p>{artwork?.description}</p>
+        <h3>Dimensions</h3><p>{artwork?.dimensions}</p>
+        <h3>Type</h3><p>{artwork?.type}</p>
+        <h3>Date</h3> <p>{artwork?.date}</p>
+        <h3>Department</h3><p>{artwork?.department}</p>
+        <h3>location</h3><p>{artwork?.location}</p>
+        <h3>Century</h3><p>{artwork?.century}</p>
+
       </div>
 
       <div className="save-section">

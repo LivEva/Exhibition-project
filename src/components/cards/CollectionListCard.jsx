@@ -35,9 +35,8 @@ const CollectionListCard = ({ item }) => {
         <img src={item.image} alt="image of art" />
         <h2>{item.title}</h2>
         <p>{item.location}</p>
-        <p>{item.date}</p>
         <p>{item.type}</p>
-        <p>{item.department}</p>
+ 
       </Link>
       {isInCollection && <p className="in-collection-badge">Saved in: {collectionName}</p>}
     </div>
