@@ -28,12 +28,12 @@ const fetchAllObjects = async (query, page = 1, sortBy, sortOrder, selectedCateg
             ]);
 
             const harvardData = harvardResponse.data?.records
-                .filter(art => art.images?.length === 1)
+                .filter(art => art.images?.length === 1 && art.title?.length === 1)
                 .map(art => ({
                     id: art.id,
                     yearAdded: art.accessionyear,
                     source: "Harvard",
-                    title: art.title || "[ No title ]",
+                    title: art.title,
                     image: art.images?.[0]?.baseimageurl || "no image",
                     type: art.division,
                     dimensions: art.dimensions,
@@ -44,18 +44,19 @@ const fetchAllObjects = async (query, page = 1, sortBy, sortOrder, selectedCateg
                     location: art.creditline,
                 }));
             const vaData = vaResponse.data.records
-                .filter(art => art._images?._iiif_image_base_url)
+                .filter(art => art._images?._iiif_image_base_url && art._primaryTitle)
                 .map(art => ({
                     id: art.systemNumber,
                     yearAdded: art.accessionNumber.slice(-4),
                     source: "VA",
-                    title: art._primaryTitle || "[ No title ]",
+                    title: art._primaryTitle,
                     image: art._images?._iiif_image_base_url + "/full/full/0/default.jpg",
                     type: art.objectType,
                     location: art._currentLocation.site = "Victoria and Albert Museum",
                     date: art._primaryDate,
                 }));
             const newResults = [...harvardData, ...vaData];
+     
             if (newResults.length === 0) break;
             results = [...results, ...newResults];
             currentPage++;
