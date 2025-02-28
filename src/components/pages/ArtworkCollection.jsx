@@ -9,6 +9,7 @@ import { useSearchParams } from "react-router-dom";
 import { useLocation } from "react-router-dom";
 import SortBy from "../main/Sortby";
 import { useMemo } from "react";
+import { Alert } from "@heroui/react";
 
 
 const ArtworkCollection = () => {
@@ -21,6 +22,7 @@ const ArtworkCollection = () => {
   const [sortBy, setSortBy] = useState('');
   const [sortOrder, setSortOrder] = useState('asc');
   const [selectedCategory, setSelectedCategory] = useState("");
+  const [noArtError, setNoArtError] = useState(false);
 
   const location = useLocation();
 
@@ -47,8 +49,11 @@ const ArtworkCollection = () => {
   const totalItems = collections.length;
   const totalPages = useMemo(() => Math.ceil(totalItems / 10), [totalItems]);
 
+
   return (
     <div className="collection">
+
+     
 
       <Filters
         collections={collections}

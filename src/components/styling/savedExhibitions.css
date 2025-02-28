@@ -11,8 +11,10 @@
     font-weight: bold;
     text-align: center;
     background-color: rgb(194, 206, 204);
+    background-size: cover;
     text-decoration: none;
     font-family: "Rubik Mono One";
+    min-height: 40vw;
 }
 
 .saved-artwork-card button{
@@ -69,3 +71,4 @@
     background-color: rgb(198, 56, 56);
 
   }
+

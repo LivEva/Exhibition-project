@@ -3,4 +3,27 @@ html, body{
   width: 100%;
   margin: 0;
   padding: 0;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Make the wrapper take the full height */
+.app-wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* Allow the content to grow and push the footer down */
+.content {
+  flex: 1;
+}
+
+/* Footer styling */
+footer {
+  background-color: #333;
+  color: white;
+  text-align: center;
+  padding: 10px;
 }
