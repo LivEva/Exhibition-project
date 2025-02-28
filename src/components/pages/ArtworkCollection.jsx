@@ -53,8 +53,6 @@ const ArtworkCollection = () => {
   return (
     <div className="collection">
 
-     
-
       <Filters
         collections={collections}
         setFilteredArtwork={setFilteredCollections}

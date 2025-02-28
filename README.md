@@ -32,33 +32,12 @@ and open project in code editor.
 npm install
 ```
 
-## Create an env file
+Now click on the following link to setup the backend you will need for this project and follow it's instructions:
 
-In this project we are using two different API's to gather museum information. Harvard and Victoria and Albert Museum.
+https://github.com/LivEva/freelance-exhibition-be
 
-However, for Harvard we need a unique key to use this api, to achieve this do the following...
+## once the backend is setup 
 
-Visit this link and fill the request form for your unique key
-
-https://docs.google.com/forms/d/e/1FAIpQLSfkmEBqH76HLMMiCC-GPPnhcvHC9aJS86E32dOd0Z8MpY2rvQ/viewform
-
-You should then recieve an email containing this key.
-
-Now in your repo create a file called .env and inside the file add the line:
-
-```sh
-API_KEY=your_api_key_here 
-```
-
-and replace 'your_api_key_here' with the api key you have been sent.
-
-This securely stores the key. 
-
-
-
-
-
-
-
+You should be good to go now!
 
 
