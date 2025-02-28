@@ -8,6 +8,7 @@ import PaginationElement from "../main/Pagination";
 import { useSearchParams } from "react-router-dom";
 import { useLocation } from "react-router-dom";
 import SortBy from "../main/Sortby";
+import { useMemo } from "react";
 
 
 const ArtworkCollection = () => {
@@ -28,8 +29,6 @@ const ArtworkCollection = () => {
 
     setIsLoading(true);
 
-
-
     if (query?.trim()) {
     
       fetchAllObjects(query, eachPage, sortBy, sortOrder, selectedCategory)
@@ -46,9 +45,7 @@ const ArtworkCollection = () => {
   }, [query, eachPage, location, sortBy, sortOrder, selectedCategory]);
 
   const totalItems = collections.length;
-  const totalPages = Math.ceil(totalItems / 10);
-
-
+  const totalPages = useMemo(() => Math.ceil(totalItems / 10), [totalItems]);
 
   return (
     <div className="collection">
@@ -64,7 +61,7 @@ const ArtworkCollection = () => {
       <div className="collection-container">
         {isLoading ? (
       
-          Array(10)
+          Array(Math.max(filteredCollections.length, 10))
             .fill(0)
             .map((_, index) => <SkeletonCard key={index} />)
         ) : (

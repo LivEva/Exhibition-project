@@ -4,25 +4,15 @@
 .nav-bar-container{
     background-color:rgb(70, 171, 137);
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
-    padding: 30px;
+    padding: 15px;
+    color: white;
 }
 
 
-.buttons {
-    list-style: none;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: flex-end; 
-    gap: 10px;
-    padding: 0;
-    margin: 0;
-    width: 100%; 
-  }
-
   
-  .nav-button {
+  nav button {
     background-color: #fff;
     color: #333;
     padding: 10px 20px; 
@@ -31,16 +21,62 @@
     font-size: 1.2em;
     cursor: pointer; 
     border: none; 
+    margin: 5px;
     outline: none; 
     transition: all 0.3s ease; 
     background-color: #f0f0f0; 
     font-family: "Rubik Mono One";
+    cursor: pointer;
+    display: flex;
 
   }
 
-  .buttons :hover{
+  .hamburger {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 2rem;
+    color: white;
+    cursor: pointer;
+  }
+
+  @media (max-width: 768px) {
+    .buttons {
+      display: none;
+      flex-direction: column;
+      position: absolute;
+      top: 80px;
+      right: 0;
+      background-color: #03490a;
+      text-align: center;
+    }
+  
+    .buttons.open {
+      display: flex;
+    }
+  
+    .buttons ul {
+      flex-direction: column;
+      padding: 0;
+    }
+  
+    .buttons li {
+      margin: 10px 0;
+    }
+  
+    .hamburger {
+      display: block;
+    }
+  }
+
+  li button:hover{
     transform: translateY(-2px); 
     box-shadow: 0 10px 12px rgba(46, 23, 23, 0.368),0 0 5px 5px  rgba(216, 207, 207, 0.368) ; 
+  }
+
+  nav ul{
+    list-style-type: none;
+    
   }
   
 
@@ -49,6 +85,7 @@
       padding: 8px 15px; 
       font-size: 1.2em; 
       flex-basis: 150px; 
+      
     }
   }
   
@@ -59,4 +96,32 @@
       flex-basis: 120px; 
     }
   }
+
+  @media (max-width: 576px) {
+    nav {
+        flex-direction: row;
+        flex-wrap: wrap;
+        margin-left: 0;
+        margin-right: 0;
+    }
+    /* Because we are in mobile mode, we want to display it as a
+       vertical list */
+    nav ul {
+        display: block;
+        
+    }
+    /* We have two lists: the first one are the always visibile items
+       in the menu bar. The second one is the one that will be hidden */
+    nav ul:last-child {
+        width: 100%;
+        flex-basis: 100%;
+    }
+    nav ul li {
+        margin-bottom: 0;
+        width: 100%;
+        text-align: right;
+        padding: 0.5em;
+    }
+}
+  
 

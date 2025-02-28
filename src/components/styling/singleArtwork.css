@@ -155,15 +155,36 @@
     }
 }
 
-#alert-design{
+#success-design{
     color: #09aa03;
-    padding: 10px 20px; 
+    margin-bottom: 20px;
     font-size: 0.8em;
     cursor: pointer; 
     border: none; 
     outline: none; 
     transition: all 0.3s ease; 
     font-family: "Rubik Mono One";
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+
+}
+
+#alert-design{
+    color: red;
+    margin-bottom: 20px;
+    font-size: 0.8em;
+    cursor: pointer; 
+    border: none; 
+    outline: none; 
+    transition: all 0.3s ease; 
+    font-family: "Rubik Mono One";
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+
 }
 
 .error-message{

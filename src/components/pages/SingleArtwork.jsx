@@ -9,7 +9,8 @@ const SingleArtwork = () => {
   const [artwork, setArtwork] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
   const [collectionName, setCollectionName] = useState("");
-  const [showAlert, setShowAlert] = useState(false); 
+  const [showSuccess, setShowSuccess] = useState(false); 
+  const [showAlert, setShowAlert] = useState(false);
 
   const { source, id } = useParams();
 
@@ -44,13 +45,23 @@ const SingleArtwork = () => {
     if (!savedCollections[collectionName].some(obj => obj.id === artwork.id)) {
       savedCollections[collectionName].push(artwork);
       localStorage.setItem("savedCollections", JSON.stringify(savedCollections));
-      setShowAlert(true); 
+      setShowSuccess(true); 
 
+      setTimeout(() => {
+        setShowSuccess(false);
+      }, 3000);
+    } else if(savedCollections[collectionName].some(obj => obj.id === artwork.id)){
+      setShowAlert(true)
       setTimeout(() => {
         setShowAlert(false);
       }, 3000);
+
     }
   };
+
+  
+
+
 
   if (isLoading) {
     return <h1 className="loading-message">Loading Artwork...</h1>;
@@ -58,12 +69,6 @@ const SingleArtwork = () => {
 
   return (
     <div className="single-artwork-container">
-  
-      {showAlert && (
-        <div className="w-full flex justify-center my-3" id="alert-design">
-          <Alert color="success" >Artwork added to '{collectionName}' collection successfully ✓</Alert>
-        </div>
-      )}
 
       {!artwork || Object.keys(artwork).length === 0 ? <h1 className="error-message">sorry, there seems to be an issue loading this object. Please try again later!</h1> : 
 
@@ -91,6 +96,17 @@ const SingleArtwork = () => {
   <p>{artwork?.summary}</p>
 </div>
 
+{showSuccess && (
+        <div className="w-full flex justify-center my-3" id="success-design">
+          <Alert color="success" >Artwork added to '{collectionName}' collection successfully ✓</Alert>
+        </div>
+      )}
+
+      {showAlert && 
+
+      (<div className="w-full flex justify-center my-3" id="alert-design">
+          <Alert color="error" >Artwork already added to '{collectionName}' collection!</Alert>
+        </div>)}
 
       <div className="save-section">
         
