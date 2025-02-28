@@ -16,6 +16,7 @@ Clear instructions on how to run the project locally, including setup steps (e.g
    
   ```sh
    git clone https://github.com/yourusername/project-name.git
+   ```
 
 2. Navigate to your project:
 
@@ -27,7 +28,7 @@ and open project in code editor.
 
 3. To install local dependencies run the following in your terminal:
 
-```sh
+```
 npm install
 ```
 
