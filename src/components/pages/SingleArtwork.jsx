@@ -3,7 +3,6 @@ import { useParams } from "react-router-dom";
 import { Alert } from "@heroui/react";
 import "../styling/singleArtwork.css";
 import { fetchObjectById } from "../../API/museumApi";
-import SkeletonCard from "../main/SkeletonCard";
 import ImageModal from "../cards/ImageModal";
 
 const SingleArtwork = () => {

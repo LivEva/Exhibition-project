@@ -32,7 +32,7 @@ const CollectionListCard = ({ item }) => {
 
     <div className="collection-card-container">
       <Link to={`/object/${item.source}/${item.id}`}>
-        <img src={item.image} alt="image of art" />
+        <img src={item.image} alt="image of museum object" />
         <h2>{item.title}</h2>
         <p>{item.location}</p>
         <p>{item.type}</p>

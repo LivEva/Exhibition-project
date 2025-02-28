@@ -31,7 +31,7 @@ const sortOptions = [
 	  <div className="sort-by-container">
 
 
-		<select onChange={handleChange} value={selectedSort} className="sort-by-box">
+		<select onChange={handleChange} value={selectedSort} className="sort-by-box" aria-label="sort-by-options">
 		  <option value="">Select Sort</option>
 		  {sortOptions.map((option) => (
 			<option key={option.id} value={option.id}>
@@ -40,7 +40,7 @@ const sortOptions = [
 		  ))}
 		</select>
 	
-		<select onChange={handleOrderChange} value={selectedOrder} className="sort-by-box">
+		<select onChange={handleOrderChange} value={selectedOrder} className="sort-by-box" aria-label="asc-and-desc-sort-by">
 			<option value="asc">asc</option>
 			<option value="desc">desc</option>
 		</select>

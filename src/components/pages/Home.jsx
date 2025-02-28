@@ -1,10 +1,11 @@
 import "../styling/home.css";
+import homeImage from '../../images/homeImage.png'
 
 const Home = () => {
 	return (
 		<div className="home-container">
 			<h1>Virtual Exhibition</h1>
-			<img src="https://framemark.vam.ac.uk/collections/2016JC1448/full/full/0/default.jpg"></img>
+			<img src={homeImage} alt="image the artwork Japanese Resting on the Mountain by Emil Orlik" ></img>
 			<div className="info">
 				<p>Japanese Resting on the Mountain</p>
 				<p>Emil Orlik</p>

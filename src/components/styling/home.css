@@ -27,13 +27,9 @@
     align-items: center;
     width: 100%;
     background-color: rgb(89, 206, 204);
-
-        transform: translateY(-2px); 
-        box-shadow: 0 10px 12px rgba(33, 17, 17, 0.368),0 0 5px 5px  rgba(39, 24, 24, 0.368) ; 
-              
-  
+    transform: translateY(-2px); 
+    box-shadow: 0 10px 12px rgba(33, 17, 17, 0.368),0 0 5px 5px  rgba(39, 24, 24, 0.368) ;        
 }
-
 
 .info{
     display: flex;
@@ -57,47 +53,6 @@
 
 }
 
-.I{
-
-    font-family: "Lora";
-    color: aquamarine;
-
-}
-
-.R{
-
-    font-family: "Oswald";
-    color: rgb(51, 163, 92);
-
-}
-
-.T{
-
-    font-family: "Playfair display";
-    color: darkgoldenrod;
-
-}
-
-.U{
-
-    font-family: "Raleway";
-    color: magenta;
-
-}
-
-.A{
-
-    font-family: "Source Sans Pro";
-    color: lightseagreen;
-
-}
-
-.L{
-
-    font-family: "Poppins";
-    color: beige;
-
-}
 
 .home-container h1 {
     font-family: "Rubik Mono One";
