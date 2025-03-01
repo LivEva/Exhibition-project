@@ -74,7 +74,7 @@
 }
 
 
-#success-design{
+.success-design{
     color: #09aa03;
     margin-bottom: 20px;
     font-size: 0.8em;
@@ -88,7 +88,7 @@
     text-align: center;
 }
 
-#alert-design{
+.alert-design{
     color: red;
     margin-bottom: 20px;
     font-size: 0.8em;

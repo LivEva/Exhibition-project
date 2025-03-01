@@ -92,14 +92,14 @@ const SingleArtwork = () => {
 </div>
 
 {showSuccess && (
-        <div className="w-full flex justify-center my-3" id="success-design">
+        <div className="success-design">
           <p>Artwork added to '{collectionName}' collection successfully ✓</p>
         </div>
       )}
 
       {showAlert && 
 
-      (<div className="w-full flex justify-center my-3" id="alert-design">
+      (<div className="alert-design">
           <p>Artwork already added to '{collectionName}' collection!</p>
         </div>)}
 
