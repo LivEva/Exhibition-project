@@ -5,7 +5,8 @@
     display: flex;
     justify-content: center;
     align-items: center;
-
+    flex-wrap: wrap;
+    flex: 1 1 50%;
 }
 
 .pagination-container button:hover{
@@ -17,6 +18,7 @@
 
 .pagination-container button{
     margin: 30px;
+
     
 }
 

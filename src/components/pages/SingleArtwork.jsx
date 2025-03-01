@@ -59,10 +59,6 @@ const SingleArtwork = () => {
     }
   };
 
-  
-
-
-
   if (isLoading) {
     return <h1 className="loading-message">Loading Artwork...</h1>;
   }
@@ -80,8 +76,8 @@ const SingleArtwork = () => {
 
       </div>
 
-      <div className="melting-text-container">
-        <h2 className="melting-text">{artwork?.title}</h2>
+      <div className="title-container">
+        <h2>{artwork?.title}</h2>
       </div>
 
       <div className="art-info">

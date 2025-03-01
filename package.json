@@ -11,7 +11,6 @@
   },
   "dependencies": {
     "@heroicons/react": "^2.2.0",
-    "@heroui/accordion": "^2.2.11",
     "@heroui/pagination": "^2.2.9",
     "@heroui/react": "^2.7.2",
     "@heroui/select": "^2.4.13",

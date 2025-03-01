@@ -10,18 +10,25 @@
     color: black;
     font-weight: bold;
     text-align: center;
-    background-color: rgb(194, 206, 204);
-    background-size: cover;
     text-decoration: none;
     font-family: "Rubik Mono One";
-    min-height: 40vw;
+
+  
 }
 
 .saved-artwork-card button{
 
     background-color: blanchedalmond;
     padding: 30px;
+    width: auto;
+    height: auto;
+    position: relative;
+    transition: all 0.3s ease; 
+    margin: 10px;
+}
 
+.saved-artwork-card ul{
+  list-style-type: none;
 }
 
 .saved-artwork-card button:hover{
@@ -36,8 +43,7 @@
 
     text-decoration: none;
     color: inherit;
-    
-  
+
   }
 
   .saved-collection-buttons{
@@ -54,6 +60,8 @@
     background-color: #f0f0f0; 
     margin-bottom: 30px;
     font-family: "Rubik Mono One";
+
+   
   }
 
  .artwork-card img:hover{
@@ -63,6 +71,7 @@
 
   .artwork-card button{
     margin-bottom: 30px;
+
 
   }
 

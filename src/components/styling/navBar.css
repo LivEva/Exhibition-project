@@ -104,14 +104,12 @@
         margin-left: 0;
         margin-right: 0;
     }
-    /* Because we are in mobile mode, we want to display it as a
-       vertical list */
+
     nav ul {
         display: block;
         
     }
-    /* We have two lists: the first one are the always visibile items
-       in the menu bar. The second one is the one that will be hidden */
+
     nav ul:last-child {
         width: 100%;
         flex-basis: 100%;
