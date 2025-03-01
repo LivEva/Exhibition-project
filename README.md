@@ -1,13 +1,11 @@
-README Documentation should include:
-A summary of the project
-
-
-(you may consider recording a video walkthrough of your platform, highlighting key features. Host this video on a free platform (e.g., YouTube) and include a link in your README.)
-
-Clear instructions on how to run the project locally, including setup steps (e.g., installing dependencies and configuring environment variables).
-
-
 ## Welcome to the... Virtual Exhibition Project!
+
+
+This is a web application I developed to serve as a platform where users can explore virtual exhibitions from combined collections of antiquities and fine art. This platform will serve researchers, students, and art enthusiasts, providing a searchable and interactive experience of the collections.
+
+## Link to demonstration video on YouTube:
+
+https://youtu.be/J8alxGIKVa8
 
 ## How to run this project locally
 
@@ -36,7 +34,7 @@ Now click on the following link to setup the backend you will need for this proj
 
 https://github.com/LivEva/freelance-exhibition-be
 
-## once the backend is setup 
+## Once the backend is setup...
 
 You should be good to go now!
 
