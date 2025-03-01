@@ -41,7 +41,7 @@
 
 .home-container h1 {
   
-    font-size: clamp(2em, 8vw, 6em); /* Minimum 2em, responsive scaling with 8vw, max 6em */
+    font-size: clamp(2em, 8vw, 6em); 
     text-align: center;
 
 }

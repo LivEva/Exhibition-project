@@ -13,11 +13,21 @@ const SingleArtwork = () => {
 
   const { source, id } = useParams();
 
+  const deleteHtmlTags = (input) => {
+    return input.replace(/<\/?[^>]+(>|$)/g, ""); 
+  };
+
   useEffect(() => {
     setIsLoading(true);
     fetchObjectById(id, source)
       .then((response) => {
-        setArtwork(response);
+        const correctArtworkText = {
+          ...response,
+          description: deleteHtmlTags(response.description || ''),
+          physicalDescription: deleteHtmlTags(response.physicalDescription || ''),
+          summary: deleteHtmlTags(response.summary || ''),
+        };
+        setArtwork(correctArtworkText);
         setIsLoading(false);
       })
       .catch((error) => {

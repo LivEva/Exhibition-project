@@ -1,7 +1,6 @@
 import { useState } from "react";
 import '../styling/filter.css';
 
-
 const sortOptions = [
 	{ id: "date", vna: "date", harvard: "century", label: "Date" },
 	{ id: "location", vna: "location", harvard: "department", label: "Location" },
