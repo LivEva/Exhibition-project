@@ -17,7 +17,7 @@
 
 
 .search-bar-container button{
-    background-color: rgb(233, 238, 236);
+    background-color: rgb(255, 255, 255);
     color: #333;
     padding: 10px 20px; 
     font-family: "Cedarville Cursive";
@@ -38,7 +38,7 @@
     border-radius: 10px;
     font-weight: bold;
     padding: 10px;
-    background-color: rgb(233, 238, 236);
+    background-color: rgb(255, 255, 255);
 }
 
 .search-bar-container button:hover{

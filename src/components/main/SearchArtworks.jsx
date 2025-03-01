@@ -41,7 +41,7 @@ const SearchArtworks = ({ onSearch }) => {
 			></input>
 
 			<button type="submit">search</button>
-			{errorMessage && <p className="alert-design">{errorMessage}</p>}
+			{errorMessage && <p className="alert-design">{errorMessage}hello</p>}
 	
 		</form>
 	);

@@ -72,22 +72,23 @@ const fetchObjectById = (id, source) => {
     if (source === "Harvard") {
         return api.get(`/harvard/objects/${id}`).then((response) => 
             
-         
-            
             ({
             id: response.data.id,
             source: "Harvard",
             title: response.data.title || "[ No title ]",
+            description: response.data.description || "*not available*",
             image: response.data.images?.[0]?.baseimageurl || "no image",
             type: response.data.division || "*not available*",
             dimensions: response.data.dimensions || "*not available*",
-            century: response.data.century || "*not available*",
             date: response.data.dated || "*not available*",
             department: response.data.department || "*not available*",
             origin: response.data.provenance || "*not available*",
             location: "Harvard museum",
             credit: response.data.creditline || "*not available*",
             physicalDescription: response.data.medium || "*not available*",
+            summary: "*not available*",
+           
+            
         })).catch((error) => {
             console.log("THIS IS THE ERROR FOR FETCHING HARVARD OBJECT BY ID");
             return null;
@@ -105,13 +106,13 @@ const fetchObjectById = (id, source) => {
             description: response.data.record.briefDescription || "*not available*",
             image: `https://framemark.vam.ac.uk/collections/${response.data.record.images[0]}/full/full/0/default.jpg`,
             type: response.data.record.objectType || "*not available*",
-            location: "Victoria and Albert museum",
-            date: response.data.record._primaryDate || "*not available*",
             dimensions: `${response.data.record.dimensions[0].dimension}: ${response.data.record.dimensions[0].value}${response.data.record.dimensions[0].unit}` || "*not available*",
-            categories: response.data.record.categories || "*not available*",
+            date: response.data.record.productionDates[0].date.text || "*not available*",
+            department: "*not available*",
+            location: "Victoria and Albert museum",
             credit: response.data.record.creditLine || "*not available*",
-            summary: response.data.record.summaryDescription || "*not available*",
             physicalDescription: response.data.record.physicalDescription || "*not available*",
+            summary: response.data.record.summaryDescription || "*not available*",
         
 
         })).catch((error) => {

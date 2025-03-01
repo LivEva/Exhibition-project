@@ -88,17 +88,18 @@ const SingleArtwork = () => {
       <div className="title-container">
         <h2>{artwork?.title}</h2>
       </div>
-
+ 
       <div className="art-info">
-  <p>{artwork?.description}</p>
-  <p><span className="tag">Physical Description:</span> {artwork?.physicalDescription}</p>
-  <p><span className="tag">Credit:</span> {artwork?.credit}</p>
-  <p><span className="tag">Dimensions:</span> {artwork?.dimensions}</p>
-  <p><span className="tag">Century:</span> {artwork?.century}</p>
-  <p><span className="tag">Created:</span> {artwork?.date}</p>
-  <p><span className="tag">Department:</span> {artwork?.department}</p>
-  <p><span className="tag">Location:</span> {artwork?.location}</p>
-  <p>{artwork?.summary}</p>
+
+  <p><span className="tag">Type: </span>{artwork?.type}</p>
+  <p><span className="tag">Department: </span>{artwork?.department}</p>
+  <p><span className="tag">Location: </span>{artwork?.location}</p>
+  <p><span className="tag">Art Description: </span>{artwork?.description}</p>
+  <p><span className="tag">Physical Description: </span>{artwork?.physicalDescription}</p>
+  <p><span className="tag">Credit: </span>{artwork?.credit}</p>
+  <p><span className="tag">Dimensions: </span>{artwork?.dimensions}</p>
+  <p><span className="tag">Created: </span>{artwork?.date}</p>
+  <p><span className="tag">Summary: </span>{artwork?.summary}</p>
 </div>
 
 {showSuccess && (
