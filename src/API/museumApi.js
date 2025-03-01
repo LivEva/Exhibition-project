@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const api = axios.create({
-    baseURL: "https://virtual-exhibition-project.onrender.com",
+    baseURL: 'https://virtual-exhibition-project.onrender.com/api',
 });
 
 const fetchAllObjects = async (query, page = 1, sortBy, sortOrder, selectedCategory, minResults = 20) => {
