@@ -2,8 +2,6 @@ import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import '../styling/savedExhibitions.css'
 
-
-
 const SavedExhibitions = () => {
     const [savedCollections, setSavedCollections] = useState([]);
     const [selectedFolder, setSelectedFolder] = useState("");

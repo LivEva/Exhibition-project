@@ -30,10 +30,11 @@
     background-color: #f0f0f0; 
     border-radius: 10px;
     font-family: "Rubik Mono One";
+    max-width: 100%;
 }
 
 #input-box{
-    min-width: 100%;
+    width: 100%;
     border-radius: 10px;
     font-weight: bold;
     padding: 10px;

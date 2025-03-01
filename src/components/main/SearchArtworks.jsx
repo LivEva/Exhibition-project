@@ -23,7 +23,8 @@ const SearchArtworks = ({ onSearch }) => {
 		}else{
 			setErrorMessage("Please enter a search term before searching.")
 		}
-	};
+		
+	}
 
 	return (
 
@@ -38,8 +39,10 @@ const SearchArtworks = ({ onSearch }) => {
 				onChange={handleChange}
 				value={currentSearchTerm}
 			></input>
+
 			<button type="submit">search</button>
 			{errorMessage && <p className="alert-design">{errorMessage}</p>}
+	
 		</form>
 	);
 };
