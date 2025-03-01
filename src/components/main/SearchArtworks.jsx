@@ -21,6 +21,7 @@ const SearchArtworks = ({ onSearch }) => {
 	};
 
 	return (
+
 		<form className="search-bar-container" onSubmit={handleSubmit}>
 			<label id="enterString">What are you looking for...</label>
 			<input

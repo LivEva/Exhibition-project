@@ -46,7 +46,7 @@ const ObjectCategories = ({onSelect}) => {
 
         <div className="filter-container-two">
 
-        <select value={selectedCategories} onChange={handleChange} className="filter-box">
+        <select value={selectedCategories} onChange={handleChange} className="filter-box" aria-label="category options">
             <option value="any">All categories</option>
            {categories.map((cls) => (
 

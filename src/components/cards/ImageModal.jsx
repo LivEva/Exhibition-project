@@ -34,7 +34,7 @@ const ImageModal = ({ artwork }) => {
           />
         </div>
       )}
-      <h6>(click image to enlarge)</h6>
+      <p>(click image to enlarge)</p>
     </div>
   );
 };

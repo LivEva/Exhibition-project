@@ -19,7 +19,7 @@
 .info{
     display: flex;
     gap: 5px;
-    color: grey;
+    color: rgb(39, 35, 35);
     background-color: rgb(147, 211, 202);
     width: 100%;
 }

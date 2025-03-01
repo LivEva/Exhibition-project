@@ -28,7 +28,10 @@
     font-family: "Rubik Mono One";
     cursor: pointer;
     display: flex;
+  }
 
+  nav a{
+    text-decoration: none;
   }
 
   .hamburger {

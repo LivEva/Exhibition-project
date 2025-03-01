@@ -20,7 +20,7 @@
   text-align: center;
   background-color: rgb(194, 206, 204);
   text-decoration: none;
-  transition: all 0.3s ease-in-out;
+
 }
 
 
@@ -29,7 +29,6 @@
   height: auto;
   max-width: 60%;
 }
-
 
 @media (max-width: 1024px) {
   .collection-container {
@@ -54,27 +53,24 @@
 }
 
 .collection-card-container img:hover{
-
   transform: translateY(-5px); 
   box-shadow: 0 20px 20px rgba(216, 207, 207, 0.368),0 0 5px 5px  rgba(109, 99, 99, 0.368) ; 
-
+  transition: all 0.3s ease; 
 }
 
 .collection-card-container a{
-
   text-decoration: none;
   color: inherit;
-
 }
 
 .collection-card-container h2{
+  font-size: 20px;
   width: 100%;
 }
 
 .collection-card-container p{
   color: rgb(54, 52, 52);
   font-weight: bold;
-
 }
 
 .search-and-pagination-container{
@@ -93,6 +89,10 @@
   border-radius: 5px;
   text-align: center;
   display: inline-block;
+}
+
+#location{
+  font-size: 12px;
 }
 
 

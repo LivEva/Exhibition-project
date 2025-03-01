@@ -1,5 +1,5 @@
 import "../styling/home.css";
-import homeImage from '../../images/homeImage.png'
+import homeImage from '../../images/homeImage.webp'
 
 const Home = () => {
 	return (

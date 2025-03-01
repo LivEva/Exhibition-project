@@ -8,8 +8,8 @@ const Header = () => {
 		<div className="header-container">
 			<Link to={"/Home"}>
 				<button><h1 className="V">V</h1>
-				<h1 className="T">E</h1>
-				<h1 className="A">x</h1>
+				<h1>E</h1>
+				<h1>X</h1>
 				</button>
 			</Link>
 		</div>

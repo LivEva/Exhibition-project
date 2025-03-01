@@ -26,6 +26,8 @@ const Filters = ({ collections, setFilteredArtwork, selectedCategory }) => {
 				onChange={(e) => setSelectedSource(e.target.value)}
 				value={selectedSource}
 				className="filter-box"
+				aria-label="filter options for search"
+				label="filter options for search"
 			>
 				<option value="">All locations</option>
 				<option value="Harvard">Harvard Museum</option>

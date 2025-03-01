@@ -6,14 +6,12 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    text-align: center;
 }
 
-.title-container h2{
-    text-decoration: underline;
-}
 
 #art-image{
-    width: 70%;
+    width: 50%;
     margin-top: 20px;
 }
 
@@ -23,26 +21,15 @@
     max-width: 80%;
     flex-direction: inline;
 }
-
-.art-info {
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
-  }
   
   .tag {
     font-weight: bold;
     margin-right: 5px;
     display: inline-block;
     min-width: 120px; 
-    color: grey;
+    color: rgb(80, 60, 60);
   }
   
-
-.art-info h3{
-    color: grey;
-}
-
 .save-section{
     display: flex;
     justify-content: center;
@@ -140,8 +127,9 @@
     text-align: center;
 }
 
-.modal h6{
-    color: grey;
+.modal p{
+    color: rgb(60, 39, 39);
+    font-size: 10px;
 }
 
 .art-info {
