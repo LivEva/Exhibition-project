@@ -61,8 +61,8 @@ const fetchAllObjects = async (query, page = 1, sortBy, sortOrder, selectedCateg
             results = [...results, ...newResults];
             currentPage++;
         } catch (error) {
-            console.log(error, "THIS IS THE ERROR FOR THE COMBINED API DATA");
-            break;
+            console.error("Error fetching api data: ", error);
+            throw new Error("Failed to fetch artwork. Please try again.")
         }
     }
     return results.slice(0, minResults);

@@ -1,5 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Acme&family=Autour+One&family=Edu+AU+VIC+WA+NT+Arrows:wght@400..700&family=Rubik+Mono+One&display=swap');
-
 
 .pagination-container{
     display: flex;
@@ -26,14 +24,12 @@
     margin: 10px;
     text-align: center;
     font-size: 1.2em;
-    font-family: "Rubik Mono One";
 }
 
 .pag-button{
 
     color: #333;
     padding: 10px 20px; 
-    font-family: "Cedarville Cursive";
     font-weight: 900;
     font-size: 1.2em;
     cursor: pointer; 
@@ -41,6 +37,5 @@
     outline: none; 
     transition: all 0.3s ease; 
     background-color: #f0f0f0; 
-    font-family: "Rubik Mono One";
 }
 

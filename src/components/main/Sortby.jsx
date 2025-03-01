@@ -1,5 +1,5 @@
 import { useState } from "react";
-import '../styling/sortBy.css';
+import '../styling/filter.css';
 
 
 const sortOptions = [

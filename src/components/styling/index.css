@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Acme&family=Autour+One&family=Edu+AU+VIC+WA+NT+Arrows:wght@400..700&family=Rubik+Mono+One&display=swap');
+
+
 html, body{
   overflow-x: hidden;
   width: 100%;
@@ -8,22 +11,27 @@ html, body{
   flex-direction: column;
 }
 
-/* Make the wrapper take the full height */
+
 .app-wrapper {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
 }
 
-/* Allow the content to grow and push the footer down */
+
 .content {
   flex: 1;
 }
 
-/* Footer styling */
+
 footer {
   background-color: #333;
   color: white;
   text-align: center;
   padding: 10px;
+}
+
+h2, p, button, select, h1, .page-count, input, label, h6{
+  font-family: "Rubik Mono One";
+  
 }

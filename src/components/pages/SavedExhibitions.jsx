@@ -61,11 +61,14 @@ const SavedExhibitions = () => {
 				</div>
 			) : (
 				<div className="saved-exhibition-container">
-					
-					
-					<button onClick={() => setSelectedFolder(null)} className="saved-collection-buttons"> ← Back to Collections</button>
 
-	
+					<div className="back-to-button">
+					
+					
+					    <button onClick={() => setSelectedFolder(null)} className="saved-collection-buttons"> ← Back to Collections</button>
+
+	                </div>
+
 					{savedCollections[selectedFolder].map(artwork => (
 						<div key={artwork.id} className="artwork-card">
 							<Link to={`/object/${artwork.source}/${artwork.id}`}>

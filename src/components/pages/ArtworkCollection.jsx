@@ -9,7 +9,8 @@ import { useSearchParams } from "react-router-dom";
 import { useLocation } from "react-router-dom";
 import SortBy from "../main/Sortby";
 import { useMemo } from "react";
-import { Alert } from "@heroui/react";
+import ErrorCard from "../cards/ErrorCard";
+import { Pagination } from "@heroui/pagination";
 
 
 const ArtworkCollection = () => {
@@ -22,7 +23,7 @@ const ArtworkCollection = () => {
   const [sortBy, setSortBy] = useState('');
   const [sortOrder, setSortOrder] = useState('asc');
   const [selectedCategory, setSelectedCategory] = useState("");
-  const [noArtError, setNoArtError] = useState(false);
+  const [error, setError] = useState(null);
 
   const location = useLocation();
 
@@ -30,25 +31,32 @@ const ArtworkCollection = () => {
     const query = searchParams.get("q");
 
     setIsLoading(true);
+    setError(null);
 
     if (query?.trim()) {
     
       fetchAllObjects(query, eachPage, sortBy, sortOrder, selectedCategory)
         .then((response) => {
+          if(response.length === 0){
+            setError(true)
+          }else{
+            setError(false)
+          }
           setCollections(response);
           setFilteredCollections(response);
           setIsLoading(false);
         })
         .catch((error) => {
           console.log(error, "ERROR FETCHING ARTWORK");
+          setError(error.message)
           setIsLoading(false);
+          
         });
     }
   }, [query, eachPage, location, sortBy, sortOrder, selectedCategory]);
 
   const totalItems = collections.length;
   const totalPages = useMemo(() => Math.ceil(totalItems / 10), [totalItems]);
-
 
   return (
     <div className="collection">
@@ -67,14 +75,14 @@ const ArtworkCollection = () => {
           Array(Math.max(filteredCollections.length, 10))
             .fill(0)
             .map((_, index) => <SkeletonCard key={index} />)
-        ) : (
+        ) : error ? (
+          <ErrorCard error={error} /> ) : (
           filteredCollections.map((item) => (
             <CollectionListCard item={item} key={item.id} />
           ))
         )}
       </div>
       <div className="search-and-pagination-container">
-       
         <PaginationElement setEachPage={setEachPage} eachPage={eachPage} totalPages={totalPages} />
       </div>
     </div>

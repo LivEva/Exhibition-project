@@ -1,21 +1,13 @@
-@import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Acme&family=Autour+One&family=Edu+AU+VIC+WA+NT+Arrows:wght@400..700&family=Rubik+Mono+One&display=swap');
-
-
 footer{
-
     background-color: rgb(157, 190, 185);
     display: flex;
     padding-bottom: 2px;
     width: 100%;
-    
 }
 
 footer p{
-
     font-size: 1em;
     font-weight: bold;
     color: rgb(0, 0, 0);
-    font-family: "Rubik Mono One";
-
 }
 

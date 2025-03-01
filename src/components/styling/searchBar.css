@@ -9,7 +9,6 @@
     padding: 30px;
     background-color: rgb(136, 194, 178);
     gap: 10px;
-    font-family: "Rubik Mono One";
     box-shadow: 0 10px 12px rgba(19, 11, 11, 0.368),0 0 5px 5px  rgba(24, 12, 12, 0.368) ; 
     flex-wrap: wrap; 
 }
@@ -35,7 +34,6 @@
     border-radius: 10px;
     font-weight: bold;
     padding: 10px;
-    font-family: "Rubik Mono One";
 
 }
 

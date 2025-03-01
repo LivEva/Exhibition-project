@@ -6,16 +6,11 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-
 }
 
 .title-container h2{
-
-    font-family: "Rubik Mono One";
     text-decoration: underline;
-
 }
-
 
 #art-image{
     width: 70%;
@@ -25,7 +20,6 @@
 .art-info{
     display: flex;
     flex-direction: column;
-    font-family: "Rubik Mono One";
     max-width: 80%;
     flex-direction: inline;
 }
@@ -47,7 +41,6 @@
 
 .art-info h3{
     color: grey;
-   
 }
 
 .save-section{
@@ -59,7 +52,6 @@
     background-color: rgb(136, 194, 178);
     gap: 10px;
     width: 100%;
-    font-family: "Rubik Mono One";
     box-shadow: 0 10px 12px rgba(19, 11, 11, 0.368),0 0 5px 5px  rgba(24, 12, 12, 0.368) ; 
     flex-wrap: wrap; 
 }
@@ -70,7 +62,6 @@
     border-radius: 10px;
     font-weight: bold;
     padding: 10px;
-    font-family: "Rubik Mono One";
 }
 
 .save-section button{
@@ -90,16 +81,10 @@
 }
 
 .save-section button:hover{
-
         transform: translateY(-2px); 
         box-shadow: 0 10px 12px rgba(216, 207, 207, 0.368),0 0 5px 5px  rgba(216, 207, 207, 0.368) ; 
-        background-color: green;
-        
+        background-color: green; 
 }
-
-
-
-
 
 
 #success-design{
@@ -110,12 +95,10 @@
     border: none; 
     outline: none; 
     transition: all 0.3s ease; 
-    font-family: "Rubik Mono One";
     display: flex;
     justify-content: center;
     align-items: center;
     text-align: center;
-
 }
 
 #alert-design{
@@ -126,12 +109,10 @@
     border: none; 
     outline: none; 
     transition: all 0.3s ease; 
-    font-family: "Rubik Mono One";
     display: flex;
     justify-content: center;
     align-items: center;
     text-align: center;
-
 }
 
 .error-message{
@@ -141,35 +122,27 @@
     text-align: center;
     background-color: #f1afd0;
     padding: 10px;
-
 }
 
 .loading-message{
-
     display: flex;
     justify-content: center;
     align-items: center;
     text-align: center;
     background-color: #d9e45e;
     padding: 10px;
-
 }
 
 .image-modal{
-
     display: flex;
     justify-content: center;
     align-items: center;
     text-align: center;
 }
 
-
 .modal h6{
     color: grey;
-    font-family: "Rubik Mono One";
 }
-
-
 
 .art-info {
     display: flex;
@@ -181,7 +154,7 @@
     font-weight: bold;
     margin-right: 5px;
     display: inline-block;
-    min-width: 120px; /* Adjust as needed */
+    min-width: 120px; 
   }
 
  

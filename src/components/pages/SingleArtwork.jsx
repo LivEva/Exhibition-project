@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { Alert } from "@heroui/react";
 import "../styling/singleArtwork.css";
 import { fetchObjectById } from "../../API/museumApi";
 import ImageModal from "../cards/ImageModal";
@@ -94,14 +93,14 @@ const SingleArtwork = () => {
 
 {showSuccess && (
         <div className="w-full flex justify-center my-3" id="success-design">
-          <Alert color="success" >Artwork added to '{collectionName}' collection successfully ✓</Alert>
+          <p>Artwork added to '{collectionName}' collection successfully ✓</p>
         </div>
       )}
 
       {showAlert && 
 
       (<div className="w-full flex justify-center my-3" id="alert-design">
-          <Alert color="error" >Artwork already added to '{collectionName}' collection!</Alert>
+          <p>Artwork already added to '{collectionName}' collection!</p>
         </div>)}
 
       <div className="save-section">
