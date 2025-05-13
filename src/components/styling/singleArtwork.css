@@ -156,21 +156,28 @@
 
   }
 
-  .back-button{
-    background-color: #fff;
+  .single-artwork-container button{
     color: #333;
     padding: 10px 20px; 
-    font-family: "Cedarville Cursive";
+    margin-top: 20px;
     font-weight: 900;
     font-size: 1.2em;
     cursor: pointer; 
     border: none; 
     outline: none; 
     transition: all 0.3s ease; 
-    background-color: #f0f0f0; 
-    margin-bottom: 30px;
     font-family: "Rubik Mono One";
+    position: relative;
+
   }
+
+  .single-artwork-container button:hover{
+    transform: translateY(-2px); 
+    background-color: yellow;
+    box-shadow: 0 10px 12px rgba(216, 207, 207, 0.368),0 0 5px 5px  rgba(216, 207, 207, 0.368) ; 
+  }
+
+ 
   
 
  
