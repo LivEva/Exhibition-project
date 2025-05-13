@@ -28,6 +28,7 @@ const SavedExhibitions = () => {
         localStorage.setItem("savedCollections", JSON.stringify(updatedCollections));  
     };
 
+
 	
 
     return (

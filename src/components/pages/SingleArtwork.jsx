@@ -3,6 +3,8 @@ import { useParams } from "react-router-dom";
 import "../styling/singleArtwork.css";
 import { fetchObjectById } from "../../API/museumApi";
 import ImageModal from "../cards/ImageModal";
+import { useNavigate } from "react-router-dom";
+import '../styling/savedExhibitions'
 
 const SingleArtwork = () => {
   const [artwork, setArtwork] = useState(null);
@@ -10,8 +12,10 @@ const SingleArtwork = () => {
   const [collectionName, setCollectionName] = useState("");
   const [showSuccess, setShowSuccess] = useState(false); 
   const [showAlert, setShowAlert] = useState(false);
+  const [existingCollectionName, setExistingCollectionName] = useState("");
 
   const { source, id } = useParams();
+  const navigate = useNavigate();
 
   const deleteHtmlTags = (input) => {
     return input.replace(/<\/?[^>]+(>|$)/g, ""); 
@@ -51,22 +55,33 @@ const SingleArtwork = () => {
       savedCollections[collectionName] = [];
     }
 
-    if (!savedCollections[collectionName].some(obj => obj.id === artwork.id)) {
+    const foundCollection = Object.keys(savedCollections).find(collection => savedCollections[collection].some(obj => obj.id === artwork.id))
+
+    
+    if (!foundCollection) {
+      savedCollections[collectionName] = savedCollections[collectionName] || [];
       savedCollections[collectionName].push(artwork);
       localStorage.setItem("savedCollections", JSON.stringify(savedCollections));
-      setShowSuccess(true); 
-
+      setShowSuccess(true);
+      setExistingCollectionName(""); // clear any previous state
       setTimeout(() => {
         setShowSuccess(false);
       }, 3000);
-    } else if(savedCollections[collectionName].some(obj => obj.id === artwork.id)){
-      setShowAlert(true)
+    } else {
+      setExistingCollectionName(foundCollection);
+      setShowAlert(true);
       setTimeout(() => {
         setShowAlert(false);
       }, 3000);
-
     }
+    
   };
+
+  const handleBack = () => {
+    
+    navigate(-1)
+		
+	}
 
   if (isLoading) {
     return <h1 className="loading-message">Loading Artwork...</h1>;
@@ -74,6 +89,9 @@ const SingleArtwork = () => {
 
   return (
     <div className="single-artwork-container">
+
+
+<button onClick={() => handleBack()} className="back-button"> ← Back to Search Results</button>
 
       {!artwork || Object.keys(artwork).length === 0 ? <h1 className="error-message">sorry, there seems to be an issue loading this object. Please try again later!</h1> : 
 
@@ -115,7 +133,7 @@ const SingleArtwork = () => {
       {showAlert && 
 
       (<div className="alert-design">
-          <p>Artwork already added to '{collectionName}' collection!</p>
+          <p>Artwork already added to '{existingCollectionName}' collection!</p>
         </div>)}
 
       <div className="save-section">

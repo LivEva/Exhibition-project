@@ -155,6 +155,22 @@
     font-weight: bold;
 
   }
+
+  .back-button{
+    background-color: #fff;
+    color: #333;
+    padding: 10px 20px; 
+    font-family: "Cedarville Cursive";
+    font-weight: 900;
+    font-size: 1.2em;
+    cursor: pointer; 
+    border: none; 
+    outline: none; 
+    transition: all 0.3s ease; 
+    background-color: #f0f0f0; 
+    margin-bottom: 30px;
+    font-family: "Rubik Mono One";
+  }
   
 
  
