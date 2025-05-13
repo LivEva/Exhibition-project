@@ -4,7 +4,7 @@ import "../styling/singleArtwork.css";
 import { fetchObjectById } from "../../API/museumApi";
 import ImageModal from "../cards/ImageModal";
 import { useNavigate } from "react-router-dom";
-import '../styling/savedExhibitions'
+import '../styling/savedExhibitions.css'
 
 const SingleArtwork = () => {
   const [artwork, setArtwork] = useState(null);
