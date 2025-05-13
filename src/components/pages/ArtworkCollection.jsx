@@ -10,7 +10,7 @@ import { useLocation } from "react-router-dom";
 import SortBy from "../main/Sortby";
 import { useMemo } from "react";
 import ErrorCard from "../cards/ErrorCard";
-import { Pagination } from "@heroui/pagination";
+
 
 
 const ArtworkCollection = () => {
@@ -28,32 +28,35 @@ const ArtworkCollection = () => {
   const location = useLocation();
 
   useEffect(() => {
-    const query = searchParams.get("q");
-
+    const query = searchParams.get("q") || "";
+    const page = parseInt(searchParams.get("page")) || 1;
+  
+    setEachPage(page);
+  
+    if (!query.trim()) return;
+  
     setIsLoading(true);
     setError(null);
-
-    if (query?.trim()) {
-    
-      fetchAllObjects(query, eachPage, sortBy, sortOrder, selectedCategory)
-        .then((response) => {
-          if(response.length === 0){
-            setError(true)
-          }else{
-            setError(false)
-          }
-          setCollections(response);
-          setFilteredCollections(response);
-          setIsLoading(false);
-        })
-        .catch((error) => {
-          console.log(error, "ERROR FETCHING ARTWORK");
-          setError(error.message)
-          setIsLoading(false);
-          
-        });
-    }
-  }, [query, eachPage, location, sortBy, sortOrder, selectedCategory]);
+  
+    fetchAllObjects(query, page, sortBy, sortOrder, selectedCategory)
+      .then((response) => {
+        if (response.length === 0) {
+          setError(true);
+        } else {
+          setError(false);
+        }
+        setCollections(response);
+        setFilteredCollections(response);
+        setIsLoading(false);
+      })
+      .catch((error) => {
+        console.log(error, "ERROR FETCHING ARTWORK");
+        setError(error.message);
+        setIsLoading(false);
+      });
+  
+  }, [searchParams, sortBy, sortOrder, selectedCategory]);
+  
 
   const totalItems = collections.length;
   const totalPages = useMemo(() => Math.ceil(totalItems / 10), [totalItems]);
