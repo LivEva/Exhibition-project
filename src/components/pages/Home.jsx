@@ -4,14 +4,26 @@ import homeImage from '../../images/homeImage.webp'
 const Home = () => {
 	return (
 		<div className="home-container">
-			<h1>Virtual Exhibition</h1>
-			<img src={homeImage} alt="image the artwork Japanese Resting on the Mountain by Emil Orlik" ></img>
-			<div className="info">
-				<p>Japanese Resting on the Mountain</p>
-				<p>Emil Orlik</p>
-				<p>1870-1932</p>
-			</div>
-		</div>
+  <div className="hero-section">
+    <div className="masking-container">
+    <h1 className="masked-text">
+      Welcome to the <span className="V">Virtual Exhibition</span>
+    </h1>
+    </div>
+
+    <div className="lower-content">
+      <div className="overlay-text">
+        <p><strong>Discover Art & Antiquities Like Never Before.</strong> Step into immersive virtual exhibitions combining fine art and ancient artifacts.</p>
+        <p>Designed for curious minds—students, researchers, and enthusiasts alike—our platform offers powerful search tools and interactive displays to explore the past in new ways.</p>
+      </div>
+      <div className="info">
+        <p>Japanese Resting on the Mountain, Emil Orlik, 1870–1932</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+	  
 	);
 };
 
