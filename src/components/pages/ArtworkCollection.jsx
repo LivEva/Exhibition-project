@@ -10,6 +10,7 @@ import { useLocation } from "react-router-dom";
 import SortBy from "../main/Sortby";
 import { useMemo } from "react";
 import ErrorCard from "../cards/ErrorCard";
+import NavBar from "../main/NavBar";
 
 
 
@@ -63,6 +64,8 @@ const ArtworkCollection = () => {
 
   return (
     <div className="collection">
+
+      <NavBar/>
 
       <Filters
         collections={collections}

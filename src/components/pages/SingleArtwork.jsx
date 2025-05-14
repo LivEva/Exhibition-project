@@ -5,6 +5,7 @@ import { fetchObjectById } from "../../API/museumApi";
 import ImageModal from "../cards/ImageModal";
 import { useNavigate } from "react-router-dom";
 import '../styling/savedExhibitions.css'
+import NavBar from "../main/NavBar";
 
 const SingleArtwork = () => {
   const [artwork, setArtwork] = useState(null);
@@ -88,7 +89,10 @@ const SingleArtwork = () => {
   }
 
   return (
+  
     <div className="single-artwork-container">
+
+
 
 
 <button onClick={() => handleBack()} className="back-button"> ← Back to Search Results</button>
@@ -110,19 +114,26 @@ const SingleArtwork = () => {
       <div className="art-info">
 
         <div className="info-sectioned">
-  <p><span className="tag">Type: </span>{artwork?.type}</p>
-  <p><span className="tag">Department: </span>{artwork?.department}</p>
-  <p><span className="tag">Location: </span>{artwork?.location}</p>
-  <p><span className="tag">Art Description: </span>{artwork?.description}</p>
-  <p><span className="tag">Physical Description: </span>{artwork?.physicalDescription}</p>
-  </div>
-  <div className="info-sectioned">
-  <p><span className="tag">Credit: </span>{artwork?.credit}</p>
-  <p><span className="tag">Dimensions: </span>{artwork?.dimensions}</p>
-  <p><span className="tag">Created: </span>{artwork?.date}</p>
-  <p><span className="tag">Summary: </span>{artwork?.summary}</p>
-  </div>
-</div>
+        
+          <p><span className="tag">Art Description: </span>{artwork?.description}</p>
+          <p><span className="tag">Physical Description: </span>{artwork?.physicalDescription}</p>
+          <p><span className="tag">Dimensions: </span>{artwork?.dimensions}</p>
+          <p><span className="tag">Type: </span>{artwork?.type}</p>
+          <p><span className="tag">Department: </span>{artwork?.department}</p>
+          <p><span className="tag">Location: </span>{artwork?.location}</p>
+          <p><span className="tag">Credit: </span>{artwork?.credit}</p>
+          <p><span className="tag">Created: </span>{artwork?.date}</p>
+         
+
+       </div>
+
+       <div className="info-sectioned">
+
+          <p><span className="tag">Summary: </span>{artwork?.summary}</p>
+        
+       </div>
+
+     </div>
 
 {showSuccess && (
         <div className="success-design">

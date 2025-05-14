@@ -2,6 +2,7 @@ import { useState } from "react";
 import "../styling/searchBar.css";
 import { useNavigate } from "react-router";
 import "../styling/singleArtwork.css"
+import { div } from "framer-motion/client";
 
 
 const SearchArtworks = ({ onSearch }) => {
@@ -27,14 +28,14 @@ const SearchArtworks = ({ onSearch }) => {
 	}
 
 	return (
-
+<div className="search-wrapper">
 		<form className="search-bar-container" onSubmit={handleSubmit}>
-			<label id="enterString">What are you looking for...</label>
+			<label id="enterString"></label>
 			<input
 			   type="text"
 			    name="input-box"
 			    placeholder="E.g Art, Department, Artist..."
-				id="input-box"
+				className="input-box"
 				label="search term..."
 				onChange={handleChange}
 				value={currentSearchTerm}
@@ -44,6 +45,7 @@ const SearchArtworks = ({ onSearch }) => {
 			{errorMessage && <p className="alert-design">{errorMessage}hello</p>}
 	
 		</form>
+		</div>
 	);
 };
 

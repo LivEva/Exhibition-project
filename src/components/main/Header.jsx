@@ -6,7 +6,7 @@ import { Link } from "react-router";
 const Header = () => {
 	return (
 		<div className="header-container">
-			<Link to={"/Home"}>
+			<Link to={"/home"}>
 				<button><h1 className="V">V</h1>
 				<h1>E</h1>
 				<h1>X</h1>

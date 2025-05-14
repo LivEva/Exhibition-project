@@ -2,16 +2,18 @@
 
 
 .nav-bar-container{
-   background-color: beige;
+   background-color: rgb(31, 63, 34);
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 15px;
+    padding: 10px;
     color: white;
 }
 
+.nav-bar-container ul{
+  display: flex;
+}
 
-  
   nav button {
   
     color: #333;
@@ -24,11 +26,13 @@
     margin: 5px;
     outline: none; 
     transition: all 0.3s ease; 
-    background-color: rgb(131, 131, 109);
+    background-color: rgba(69, 181, 166, 0.633);
     font-family: "Rubik Mono One";
     cursor: pointer;
     display: flex;
   }
+
+
 
   nav a{
     text-decoration: none;
@@ -46,7 +50,7 @@
   @media (max-width: 768px) {
     .buttons {
       display: none;
-      flex-direction: column;
+  
       position: absolute;
       top: 80px;
       right: 0;
@@ -59,7 +63,7 @@
     }
   
     .buttons ul {
-      flex-direction: column;
+
       padding: 0;
     }
   

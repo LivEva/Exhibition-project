@@ -7,17 +7,13 @@
     justify-content: center;
     align-items: center;
     text-align: center;
-
 }
-
 
 #art-image{
     width: 50%;
     margin-top: 20px;
 }
 
-  
-  
 .save-section{
     display: flex;
     justify-content: center;
@@ -138,8 +134,9 @@
     gap: 2rem;
     flex-wrap: wrap;
     margin: 2rem 0;
-    align-items: center;
-    text-align: center;
+    max-width: 800px;
+    text-align: start;
+  
   }
   
   .info-sectioned {
@@ -147,9 +144,18 @@
     flex-direction: column; 
     flex: 1;
     min-width: 250px;
-    background-color: #f1afd0;
+  
   
   }
+
+
+
+
+
+
+
+
+
   
   .tag {
     font-weight: bold;

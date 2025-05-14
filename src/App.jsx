@@ -6,18 +6,19 @@ import SavedExhibitions from './components/pages/SavedExhibitions';
 import NavBar from "./components/main/NavBar";
 import Footer from "./components/main/Footer";
 import Home from "./components/pages/Home";
+import Dashboard from "./components/pages/Dashboard";
 
 function App() {
     return (
         <div className="app-wrapper">
-            <NavBar />
-            <SearchArtworks />
-            
+       
             <main className="content">
                 <Routes>
-                    <Route path="/" element={<Navigate to="/Home" replace />} />
+                    {/* <Route path="/" element={<Navigate to="/Home" replace />} /> */}
+                    <Route path="/" element={<Home />} />
+                    <Route path="/home" element={<Dashboard/>}/>
                     <Route path="/collections" element={<ArtworkCollection />} />
-                    <Route path="/Home" element={<Home />} />
+                    {/* <Route path="/Home" element={<Home />} /> */}
                     <Route path="/object/:source/:id" element={<SingleArtwork />} />
                     <Route path="/myExhibitions" element={<SavedExhibitions />} />
                 </Routes>
