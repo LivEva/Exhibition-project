@@ -19,7 +19,6 @@
     outline: none; 
     transition: all 0.3s ease; 
     background-color: #f0f0f0; 
-    border-radius: 10px;
     font-family: "Rubik Mono One";
     max-width: 100%;
 
@@ -28,7 +27,6 @@
 .search-bar-container input{
 width: 200px;
     height: 3em;
-    border-radius: 10px;
     font-weight: bold;
     background-color: rgb(255, 255, 255);
 
@@ -36,7 +34,7 @@ width: 200px;
 
 .search-bar-container button:hover{
     transform: translateY(-2px); 
-    box-shadow: 0 10px 12px rgba(54, 34, 34, 0.368),0 0 5px 5px  rgba(216, 207, 207, 0.368) ; 
+    
     background-color: green;
     }
 

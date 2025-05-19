@@ -1,8 +1,9 @@
 footer{
-    background-color: rgb(31, 63, 34);
+    background-color: #03490a;
     display: flex;
-    padding-bottom: 2px;
     width: 100%;
+    position: fixed;
+    bottom: 0;
 }
 
 footer p{

@@ -15,10 +15,8 @@
 }
 
   nav button {
-  
     color: #333;
     padding: 10px 20px; 
-    font-family: "Cedarville Cursive";
     font-weight: 900;
     font-size: 1.2em;
     cursor: pointer; 
@@ -31,8 +29,6 @@
     cursor: pointer;
     display: flex;
   }
-
-
 
   nav a{
     text-decoration: none;
@@ -50,12 +46,12 @@
   @media (max-width: 768px) {
     .buttons {
       display: none;
-  
       position: absolute;
-      top: 80px;
+
       right: 0;
       background-color: #03490a;
       text-align: center;
+      width: 100%;
     }
   
     .buttons.open {
@@ -78,7 +74,6 @@
 
   li button:hover{
     transform: translateY(-2px); 
-    box-shadow: 0 10px 12px rgba(46, 23, 23, 0.368),0 0 5px 5px  rgba(216, 207, 207, 0.368) ; 
   }
 
   nav ul{

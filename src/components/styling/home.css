@@ -68,10 +68,7 @@
   flex-direction: column;
 }
 
-.masked-text :hover{
-  box-shadow: 0 10px 12px rgba(33, 17, 17, 0.368), 0 0 5px 5px rgba(39, 24, 24, 0.368);
-  
-}
+
 
 .masking-container{
       background-color: rgba(56, 97, 91, 0.354);

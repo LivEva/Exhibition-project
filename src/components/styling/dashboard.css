@@ -1,11 +1,10 @@
 .dashboard-container{
-
     display: flex;
-    flex-direction: column;
-    margin: 20px;
-    gap: 10px;
-    text-align: center;
-    height: 100vh;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px; 
+    padding: 20px;
+
 }
 
 .search-bar{
@@ -17,13 +16,47 @@
     background-color: rgb(31, 63, 34);
 }
 
+.header-section{
+    background-color: rgb(31, 63, 34);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    color: white;
+    width: 100%;
+    flex: 1 1 300px; 
+
+}
+
+.header-section h1{
+    flex: 1 1 auto; 
+    text-align: center;
+    margin: 0; 
+}
+
+@media (max-width: 600px) {
+    .header-section {
+        align-items: flex-start;
+    }
+
+    .header-section h1 {
+        font-size: 140%;
+    }
+}
+
+.header-section img{
+    justify-content: flex-start;
+}
+
 .lower-content{
    
-    display: flex;
-    justify-content: space-around;
-    font-size: 1.5em;
-    align-items: first baseline;
-    margin-top: 100px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px; 
+  padding: 20px;
+  background-color: rgb(31, 63, 34);
+  width: 100%;
    
 }
 
@@ -32,16 +65,20 @@
     flex-direction: column;
     align-items: center;
     text-align: center;
-    gap: 20px;
+
 
 }
 
 .feature1 img{
-    width: 40%;
+    width: 300px;
+    height: auto;
+  
 }
 
 .feature1 p{
     width: 300px;
+    font-size: 30px;
+    font-weight: bold;
 }
 
 
@@ -51,16 +88,21 @@
     flex-direction: column;
     text-align: center;
     align-items: center;
-    gap: 20px;
+
 
 }
 
 .feature2 img{
-    width: 40%;
+    width: 300px;
+    height: auto;
+    max-width: 100%;
 }
 
 .feature2 p{
     width: 300px;
+    font-size: 30px;
+    color: aliceblue;
+    font-weight: bold;
 }
 
 .feature3{
@@ -68,15 +110,19 @@
     flex-direction: column;
     text-align: center;
     align-items: center;
-    gap: 20px;
+
 
 }
 
 .feature3 img{
-    width: 40%;
+    width: 300px;
+    height: auto;
+    max-width: 100%;
 }
 
 
 .feature3 p{
     width: 300px;
+    font-size: 30px;
+    font-weight: bold;
 }

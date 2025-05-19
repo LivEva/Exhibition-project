@@ -30,7 +30,6 @@
 .save-section input{
     min-width: 60%;
     max-width: 100px;
-    border-radius: 10px;
     font-weight: bold;
     padding: 10px;
 }
@@ -47,7 +46,6 @@
     outline: none; 
     transition: all 0.3s ease; 
     background-color: #f0f0f0; 
-    border-radius: 10px;
     font-family: "Rubik Mono One";
 }
 
@@ -100,7 +98,7 @@
     justify-content: center;
     align-items: center;
     text-align: center;
-    background-color: #d9e45e;
+
     padding: 10px;
 }
 

@@ -17,6 +17,16 @@ font-size: 3em;
     border: none;
 }
 
+.logo{
+    display: flex;
+    width: 100px;
+    height: 100px;
+    justify-content: center;
+    align-items: center;
+    border: none;
+}
+
+
 .header-container a{
     text-decoration: none;
      color: inherit;

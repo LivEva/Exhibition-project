@@ -4,7 +4,7 @@
   justify-content: center;
   gap: 10px; 
   padding: 20px;
-  background-color: rgb(227, 235, 234);
+  background-color: rgb(31, 63, 34);
   
 }
 
@@ -18,7 +18,7 @@
   min-width: 180px; 
   color: black;
   text-align: center;
-  background-color: rgb(194, 206, 204);
+  background-color: rgb(217, 229, 218);
   text-decoration: none;
 
 }
@@ -86,7 +86,6 @@
   background-color: #4CAF50;
   color: white;
   font-weight: bold;
-  border-radius: 5px;
   text-align: center;
   display: inline-block;
 }
