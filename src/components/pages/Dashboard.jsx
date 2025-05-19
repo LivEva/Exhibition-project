@@ -4,7 +4,7 @@ import '../styling/header.css'
 import flowers from '../../images/flowers.jpeg'
 import lady from '../../images/lady.jpeg'
 import japaneseArt from '../../images/japaneseArt.jpeg'
-import logo from '../../images/logo.png'
+
 
 const Dashboard = () => {
 
@@ -41,7 +41,7 @@ const Dashboard = () => {
 
     <img src={lady} alt="A woman sitting for a painting, posing among the trees with a book on her lap and a flower in her hand. " />
 
-    <p>Browse through hundreds of items pulled straight out of from the famous Victoria and Albert Museum in London as well as artifacts from the Harvard Museum collection!</p>
+    <p>Browse through hundreds of items straight from the archives of the famous Victoria and Albert Museum in London and artifacts from the Harvard Museum</p>
 
 
   </div>
