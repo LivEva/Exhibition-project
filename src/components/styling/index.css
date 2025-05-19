@@ -1,5 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Acme&family=Autour+One&family=Edu+AU+VIC+WA+NT+Arrows:wght@400..700&family=Rubik+Mono+One&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Acme&family=Autour+One&family=Edu+AU+VIC+WA+NT+Arrows:wght@400..700&family=Roboto:ital,wght@0,100..900;1,100..900&family=Rubik+Mono+One&display=swap');
 
 html, body{
   overflow-x: hidden;
@@ -26,11 +26,10 @@ footer {
   text-align: center;
 
 }
-/* 
-h2, p, button, select, .page-count, input, label, h6{
 
-  
-} */
+p, button, select, .page-count, input, label, h6{
+  font-size: 'Roboto';
+} 
 
 h1, h2, footer{
   font-family: "Rubik Mono One";

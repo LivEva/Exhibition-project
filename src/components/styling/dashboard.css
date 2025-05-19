@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Acme&family=Autour+One&family=Edu+AU+VIC+WA+NT+Arrows:wght@400..700&family=Roboto:ital,wght@0,100..900;1,100..900&family=Rubik+Mono+One&display=swap');
+
+
 .dashboard-container{
     display: flex;
     flex-wrap: wrap;
@@ -14,7 +17,20 @@
     align-items: center;
     text-align: center;
     background-color: rgb(31, 63, 34);
+    width: 100%;
 }
+
+@media (max-width: 600px) {
+    .search-bar{
+        align-items: flex-start;
+    }
+
+    .search-bar h1 {
+        font-size: 140%;
+    }
+}
+
+
 
 .header-section{
     background-color: rgb(31, 63, 34);
@@ -125,4 +141,32 @@
     width: 300px;
     font-size: 30px;
     font-weight: bold;
+}
+
+@media (max-width: 575px) {
+    .lower-content {
+        align-items: flex-start;
+    }
+
+    .feature1 p {
+        font-size: 120%;
+        width: 100%;
+    }
+
+    .feature2 p{
+        font-size: 120%;
+        width: 100%;
+
+    }
+
+    .feature3 p{
+        font-size: 120%;
+        width: 100%;
+
+    }
+
+}
+
+p{
+    font-family: 'Roboto';
 }

@@ -15,13 +15,11 @@ const Dashboard = () => {
 
 <h1>Discover Art & Antiquities Like Never Before...</h1>
 
-<img  className="logo" src={logo} alt="" />
-
 </div>
 
 <div className="search-bar">
 
-<h1>What are you looking for...</h1>
+<h1>Search our collection here...</h1>
 
         <SearchArtworks/>
 
@@ -31,8 +29,8 @@ const Dashboard = () => {
 
 <div className="feature1">
 
-<p>Designed for curious minds—students, researchers, and enthusiasts alike—our platform offers powerful search tools and interactive displays to explore the past in new ways.</p>
-  
+    <p>Step into immersive virtual exhibitions combining fine art and ancient artifacts.</p>
+
     <img src={flowers} alt="A glass vase, containing a reflection of the window and light entering from the left, sitting on the edge of a marble topped table and containing a bouquet of various flowers and a stalk of wheat with several insects among the blooms" />
 
 
@@ -43,7 +41,7 @@ const Dashboard = () => {
 
     <img src={lady} alt="A woman sitting for a painting, posing among the trees with a book on her lap and a flower in her hand. " />
 
-    <p>Step into immersive virtual exhibitions combining fine art and ancient artifacts.</p>
+    <p>Browse through hundreds of items pulled straight out of from the famous Victoria and Albert Museum in London as well as artifacts from the Harvard Museum collection!</p>
 
 
   </div>
@@ -52,8 +50,7 @@ const Dashboard = () => {
 
      <img src={japaneseArt} alt="Man and Woman Admiring Mount Fuji from a Snowy Pavilion" />
 
-     <p>Browse through hundreds of items pulled straight out of from the famous Victoria and Albert Museum in London as well as artifacts from the Harvard Museum collection!</p>
-
+     <p>Designed for curious minds—students, researchers, and enthusiasts alike—our platform offers powerful search tools and interactive displays to explore the past in new ways.</p>
   
 
   </div>
