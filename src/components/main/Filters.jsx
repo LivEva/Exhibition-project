@@ -1,10 +1,9 @@
 import { useEffect, useState } from "react";
 import "../styling/filter.css";
 import ObjectCategories from "./ObjectCategories";
+import SortBy from './Sortby'
 
-
-
-const Filters = ({ collections, setFilteredArtwork, selectedCategory }) => {
+const Filters = ({ collections, setFilteredArtwork, selectedCategory, onSelect, orderOnSelect }) => {
 	const [selectedSource, setSelectedSource] = useState("");
 	const [selectedType, setSelectedType] = useState("");
 
@@ -35,6 +34,8 @@ const Filters = ({ collections, setFilteredArtwork, selectedCategory }) => {
 			</select>
 
 			<ObjectCategories onSelect={selectedCategory}/>
+
+			<SortBy onSelect={onSelect} orderOnSelect={orderOnSelect}/>
 			
 		</div>
 	);

@@ -71,9 +71,11 @@ const ArtworkCollection = () => {
         collections={collections}
         setFilteredArtwork={setFilteredCollections}
         selectedCategory={setSelectedCategory}
+        onSelect={setSortBy} 
+        orderOnSelect={setSortOrder} 
       />
 
-      <SortBy onSelect={setSortBy} orderOnSelect={setSortOrder} />
+      {/* <SortBy onSelect={setSortBy} orderOnSelect={setSortOrder} /> */}
 
       <div className="collection-container">
         {isLoading ? (

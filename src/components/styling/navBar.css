@@ -47,15 +47,17 @@
     .buttons {
       display: none;
       position: absolute;
-
       right: 0;
       background-color: #03490a;
       text-align: center;
       width: 100%;
+   
     }
   
     .buttons.open {
       display: flex;
+      flex-wrap: wrap;
+      flex-direction: column;
     }
   
     .buttons ul {
