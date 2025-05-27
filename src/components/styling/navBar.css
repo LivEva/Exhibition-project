@@ -67,6 +67,7 @@
   
     .buttons li {
       margin: 10px 0;
+   
     }
   
     .hamburger {
@@ -85,13 +86,45 @@
   
 
   @media (max-width: 768px) {
-    nav-button {
-      padding: 8px 15px; 
-      font-size: 1.2em; 
-      flex-basis: 150px; 
-      
+    .buttons {
+      display: none;
+      position: absolute;
+      right: 0;
+      top: 80px; /* adjust if needed */
+      background-color: #03490a;
+      width: 100%;
+      z-index: 1000;
+      flex-direction: column;
+      padding: 1em 0;
+
+    }
+  
+    .buttons.open {
+      display: flex;
+    }
+  
+    .buttons ul {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+    
+    }
+  
+    .buttons li {
+      width: 80%;
+      text-align: center;
+  
+    }
+  
+    nav button {
+      width: 100%;
+      justify-content: center;
+ 
     }
   }
+  
   
   @media (max-width: 480px) {
     nav-button {
@@ -110,8 +143,8 @@
     }
 
     nav ul {
-        display: block;
-        
+        display: flex;
+    
     }
 
     nav ul:last-child {
