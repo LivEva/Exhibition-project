@@ -49,17 +49,18 @@
     color: rgb(71, 69, 69);
     font-weight: bold;
     background-color: rgb(255, 255, 255);
+  
 }
 
 @media (max-width: 768px) {
     .sort-by-box {
-        width: 100%; 
+        width: 200px; 
     }
   }
   
   @media (max-width: 500px) {
     .sort-by-box{
-        width: 100%; 
+      width: 150px; 
     }
   }
   
