@@ -2,7 +2,6 @@ footer{
     background-color: #03490a;
     display: flex;
     width: 100%;
-    position: fixed;
     bottom: 0;
 }
 
