@@ -59,7 +59,7 @@
 .success-design{
     color: #088b04;
     margin-bottom: 20px;
-    font-size: 0.8em;
+    font-size: 1em;
     cursor: pointer; 
     border: none; 
     outline: none; 
@@ -73,7 +73,7 @@
 .alert-design{
     color: rgb(165, 7, 7);
     margin-bottom: 20px;
-    font-size: 0.8em;
+    font-size: 1em;
     cursor: pointer; 
     border: none; 
     outline: none; 
@@ -143,19 +143,9 @@
     flex-direction: column; 
     flex: 1;
     min-width: 250px;
-  
-  
+    margin: 20px;
   }
 
-
-
-
-
-
-
-
-
-  
   .tag {
     font-weight: bold;
 

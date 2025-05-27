@@ -29,6 +29,7 @@
   }
 
 
+
   .exhibition-intro-info {
 
     font-size: 1.5rem;
@@ -98,5 +99,23 @@
         background-position: 100% 50%;
     }
 }
+
+@media (max-width: 600px) {
+
+  .V {
+      font-size: 35%;
+  }
+
+  .W{
+    font-size: 20%;
+    margin: 100px;
+  }
+  .masking-container img{
+    width: 60px;
+  }
+
+}
+
+
   
   

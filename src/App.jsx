@@ -14,11 +14,9 @@ function App() {
        
             <main className="content">
                 <Routes>
-                    {/* <Route path="/" element={<Navigate to="/Home" replace />} /> */}
                     <Route path="/" element={<Home />} />
                     <Route path="/home" element={<Dashboard/>}/>
                     <Route path="/collections" element={<ArtworkCollection />} />
-                    {/* <Route path="/Home" element={<Home />} /> */}
                     <Route path="/object/:source/:id" element={<SingleArtwork />} />
                     <Route path="/myExhibitions" element={<SavedExhibitions />} />
                 </Routes>
