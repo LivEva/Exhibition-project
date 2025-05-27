@@ -91,6 +91,7 @@
     text-align: center;
     background-color: #f1afd0;
     padding: 10px;
+    height: 70vh;
 }
 
 .loading-message{
@@ -177,7 +178,7 @@
 
   .single-artwork-container button:hover{
     transform: translateY(-2px); 
-    background-color: yellow;
+  background-color: #088b04;
     box-shadow: 0 10px 12px rgba(216, 207, 207, 0.368),0 0 5px 5px  rgba(216, 207, 207, 0.368) ; 
   }
 
