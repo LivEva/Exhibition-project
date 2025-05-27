@@ -89,11 +89,12 @@ const SingleArtwork = () => {
   }
 
   return (
+
+    <div>
+
+      <NavBar />
   
     <div className="single-artwork-container">
-
-
-
 
 <button onClick={() => handleBack()} className="back-button"> ← Back to Search Results</button>
 
@@ -107,11 +108,13 @@ const SingleArtwork = () => {
 
       </div>
 
+      <div className="art-info">
+
       <div className="title-container">
         <h2>{artwork?.title}</h2>
       </div>
  
-      <div className="art-info">
+
 
         <div className="info-sectioned">
         
@@ -160,6 +163,7 @@ const SingleArtwork = () => {
 
 </>
 }; 
+    </div>
     </div>
       
   );

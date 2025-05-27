@@ -1,6 +1,10 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import '../styling/savedExhibitions.css'
+import NavBar from '../main/NavBar';
+import { div } from "framer-motion/client";
+
+
 
 const SavedExhibitions = () => {
     const [savedCollections, setSavedCollections] = useState([]);
@@ -33,7 +37,13 @@ const SavedExhibitions = () => {
 
     return (
 
+		<div>
+				<NavBar />
+
 		<div className="saved-collection-container">
+
+		
+
 			<h1>{selectedFolder} collections</h1>
 
 			{!selectedFolder ? (
@@ -79,6 +89,7 @@ const SavedExhibitions = () => {
 					))}
 				</div>
 			)}
+		</div>
 		</div>
 	);
 };
