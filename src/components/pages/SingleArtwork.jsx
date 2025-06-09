@@ -79,8 +79,9 @@ const SingleArtwork = () => {
   };
 
   const handleBack = () => {
-    
+
     navigate(-1)
+    
 		
 	}
 

@@ -46,8 +46,6 @@ const SavedExhibitions = () => {
 
 		<div className="saved-collection-container">
 
-			<button onClick={() => handleBack()}>Back to results</button>
-
 			<h1>{selectedFolder} collections</h1>
 
 			{!selectedFolder ? (
@@ -71,14 +69,16 @@ const SavedExhibitions = () => {
 						<p>No collections yet. Save some artwork!</p>
 						
 					)}
+						
 				</div>
 			) : (
+				
 				<div className="saved-exhibition-container">
 
 					<div className="back-to-button">
 					
 					
-					    <button onClick={() => setSelectedFolder(null)} className="saved-collection-buttons"> ← Back to Collections</button>
+					    <button onClick={() => setSelectedFolder(null)} className="saved-collection-buttons"> ← Back to collections</button>
 
 	                </div>
 
