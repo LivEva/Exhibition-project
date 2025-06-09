@@ -19,13 +19,9 @@ const Home = () => {
       <span className="W">Welcome to </span><span className="V">the Virtual Exhibition</span>
 
     </h1>
-{/* 
-    <button onClick={() => { navigate("/home")}}>
-      {door}
 
-    </button> */}
+    <img src={door} alt="An icon of an exhibition behind a railing" onClick={() => { navigate("/home")}}/>
 
-    <img src={door} alt="" onClick={() => { navigate("/home")}}/>
 </div>    
   </div>
 </div>

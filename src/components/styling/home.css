@@ -41,7 +41,6 @@
   }
 
   
-
   .background-image-info {
   
     font-size: 1rem;
@@ -101,13 +100,33 @@
 }
 
 @media (max-width: 600px) {
+  .masked-text {
+    font-size: 4.5rem;
+  }
 
   .V {
-      font-size: 35%;
+    font-size: 3rem;
+  }
+
+  .W {
+    font-size: 5rem;
+    margin: 1rem;
+  }
+
+  .masking-container img {
+    width: 40px;
+  }
+}
+
+
+@media (max-width: 1024px) {
+
+  .V {
+      font-size: 60%;
   }
 
   .W{
-    font-size: 20%;
+    font-size: 30%;
     margin: 100px;
   }
   .masking-container img{
@@ -115,6 +134,7 @@
   }
 
 }
+
 
 
   
