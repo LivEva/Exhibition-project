@@ -26,11 +26,10 @@
 }
 
 .saved-artwork-card button:hover{
-  background-color: blanchedalmond;
   transform: translateY(-2px); 
+ background-color: #088b04;
   box-shadow: 0 10px 12px rgba(216, 207, 207, 0.368),0 0 5px 5px  rgba(216, 207, 207, 0.368) ; 
 }
-
 
 .saved-artwork-card a{
     text-decoration: none;
@@ -70,5 +69,26 @@
 
   .artwork-card button:hover{
     background-color: rgb(198, 56, 56);
+  }
+
+  .saved-collection-container button{
+    color: #333;
+    padding: 10px 20px; 
+    margin-top: 20px;
+    font-weight: 900;
+    font-size: 1.2em;
+    cursor: pointer; 
+    border: none; 
+    outline: none; 
+    transition: all 0.3s ease; 
+    font-family: "Rubik Mono One";
+    position: relative;
+
+  }
+
+  .saved-collection-container button:hover{
+    transform: translateY(-2px); 
+  background-color: #088b04;
+    box-shadow: 0 10px 12px rgba(216, 207, 207, 0.368),0 0 5px 5px  rgba(216, 207, 207, 0.368) ; 
   }
 

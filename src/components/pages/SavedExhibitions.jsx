@@ -1,14 +1,15 @@
 import { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import '../styling/savedExhibitions.css'
 import NavBar from '../main/NavBar';
-import { div } from "framer-motion/client";
 
 
 
 const SavedExhibitions = () => {
     const [savedCollections, setSavedCollections] = useState([]);
     const [selectedFolder, setSelectedFolder] = useState("");
+
+	const navigate = useNavigate();
 
     useEffect(() => {
      
@@ -32,8 +33,11 @@ const SavedExhibitions = () => {
         localStorage.setItem("savedCollections", JSON.stringify(updatedCollections));  
     };
 
-
-	
+	const handleBack = () => {
+    
+		navigate(-1)
+			
+		}
 
     return (
 
@@ -42,7 +46,7 @@ const SavedExhibitions = () => {
 
 		<div className="saved-collection-container">
 
-		
+			<button onClick={() => handleBack()}>Back to results</button>
 
 			<h1>{selectedFolder} collections</h1>
 
